@@ -1,0 +1,35 @@
+%! Author = matteorizzo
+%! Date = 15/07/22
+
+\documentclass[12pt]{book}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[italian]{babel}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+
+
+\begin{document}
+    \frontmatter
+    \include{frontespizio.tex}
+    \include{frontmatter/sommario}
+    \include{frontmatter/ringraziamenti}
+    \tableofcontents
+    \mainmatter
+    \include{chapter/intro}
+    \include{chapter/chapter1}
+    \include{chapter/chapter2}
+    \include{chapter/chapter3}
+    \include{chapter/chapter4}
+    \include{chapter/chapter5}
+    \include{chapter/chapter6}
+    \include{chapter/chapter7}
+    \backmatter
+    \include{chapter/bibliografia}
+    
+
+
+\end{document}
