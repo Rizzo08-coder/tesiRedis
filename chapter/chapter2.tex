@@ -1,11 +1,16 @@
 \chapter{Progettazione Concettuale/Logica}
+Sebbene i database \emph{NoSQL} vengono definiti \emph{schemaless}, la progettazione dell'organizzazione dei dati richiede
+di prendere decisioni significative. Infatti, i dati persistenti delle applicazioni hanno un impatto sui principali requisiti
+di qualitá che devono essere soddisfatti in un'applicazione vera e propria (scalabilitá, prestazioni, coerenza).
+Il mondo NoSQL é altamente eterogeneo, quindi questa attivitá di progettazione di solito si basa su pratiche e linee guida da seguire
+in base al sistema selezionato. Peró, sono stati studiati diversi approcci che vogliono generalizzare il problema di progettazione
+che é alla base di ogni sistema di persistenza.
 
-
-%fare introduzione capitolo...
-
-
+\emph{NoAM} é uno dei principali strumenti di modellazione astratto per database NoSQL. Grazie ad esso riusciamo a definire
+una progettazione che é indipendente dal sistema specifico in cui viene usata. Viene utilizzato un modello dei dati intermedio e astratto,
+che, a sua volta, viene utilizzato per rappresentare i dati dell'applicazione come raccolte di oggetti aggregati.
 \section{Modellazione NoAM $\to$ NoSQL abstract model}
-La metodologia NoAM é composta da:
+La metodologia \emph{NoAM} é composta da:
 \begin{itemize}
     \item Modellazione Concettuale e design degli Aggregati
     \item Partizionamento degli Aggregati e modellazione NoSQL
@@ -55,32 +60,49 @@ Vi sono due nozioni distinte di \emph{unitá} di accesso ai dati:
 Con riferimento in particolare ai database chiave-valore una \texttt{entry} corrisponde a una coppia chiave-valore, mentre
 un \texttt{blocco} corrisponde a un gruppo di coppie chiave-valore correlate tra loro.
 Modello generale:
-\begin{itemize}
+\begin{itemize}[itemsep=2pt,parsep=2pt]
     \item Un \texttt{database} é un insieme di \texttt{collections}. Ogni \texttt{collection} ha un nome distinto\
     \item Una \texttt{collection} é un insieme di \texttt{blocchi}, ogni \texttt{blocco}
     all'interno della \texttt{collection} é identificato da una chiave di blocco, che deve essere univoca
     \item Un \texttt{blocco} é un insieme non vuoto di \texttt{entries}, ogni \texttt{entry} é composta da una coppia
     chiave-valore, la quale é univoca all'interno del blocco, il valore puó essere anche complesso.
 \end{itemize}
-Per effettuare il passaggio da aggregati a modellazione NoSQL:
-\begin{itemize}
-    \item Ogni classe di aggregati viene rappresentata da una \texttt{collection}
-    \item Ogni singolo aggregato viene rappresentato da un \texttt{blocco}
-\end{itemize}
-Vi sono due modalitá principali per rappresentare gli aggregati:
-\begin{itemize}
+Per effettuare il passaggio da aggregati a modellazione NoSQL $\to$
+Ogni classe di aggregati viene rappresentata da una \texttt{collection}
+Ogni singolo aggregato viene rappresentato da un \texttt{blocco}.
+
+Vi sono due modalitá principali per rappresentare gli aggregati:\begin{itemize}
     \item \emph{Entry per Aggregate Object (EAO)}: Rappresenta ogni aggregato utilizzando una singola
-    \texttt{entry}, la chiave della \texttt{entry} é vuota, il valore contiene l'intero aggregato 
+    \texttt{entry}, la chiave della \texttt{entry} é vuota, il valore contiene l'intero aggregato.
     \item \emph{Entry per Atomic Value (EAV)}: Rappresenta ogni aggregato per mezzo di piú \texttt{entry}, le chiavi
     di ogni \texttt{entry} devono rappresentare il percorso per accedere al valore di un certo componente(quindi possono esserci anche chiavi
-    con nomi strutturati a piú livelli), i valori di ogni \texttt{entry} sono atomici
+    con nomi strutturati a piú livelli), i valori di ogni \texttt{entry} sono atomici.
 \end{itemize}
-\includegraphics[width=1.15\textwidth]{img/eao:eav}
+    \includegraphics[width=1\textwidth]{img/eao.eav}
+
 \\
 Nella figura \emph{EAO} si ha per ogni \texttt{blocco} \emph{Player} o \emph{Game} una singola \texttt{entry} con chiave vuota,
-valore strutturato in modo complesso \\
+valore strutturato in modo complesso
+\\
 Nella figura \emph{EAV} si ha per ogni \texttt{blocco} piú \texttt{entry} in modo da avere valori atomici al suo interno
+\\
+\\
+Ovviamente queste due sono le rappresentazioni piú estreme che si possono ottenere.
+É possibile adottare una strategia di rappresentazione intermedia, denominata \emph{Entry per Top level Field (ETF)}, in cui
+viene utilizzata una \texttt{entry} distinta per ogni campo di livello superiore, quindi si ha una sorta di struttura mista.
+\includegraphics[width=0.8\textwidth]{img/etf}
+
+Se dovessimo aver bisogno di una rappresentazione degli aggregati ancora piú flessibile é possibile effettuarne il \emph{partizionamento},
+ovvero si possono raggruppare \texttt{entry} che vengono accedute insieme, oppure separare certe \texttt{entry} per avere dei
+valori meno complessi.
 
 \subsection{Implementazione}
-%continuare...
+Consiste nel tradurre i modelli NoAM ottenuti nella fase precedente in strutture corrette per il database specifico che stiamo utilizzando.
+Per quanto riguarda i database chiave-valore si utilizzerá una coppia chiave-valore per ogni \texttt{entry} ottenuta nella struttura
+precedente.
+In base alle scelte di progetto si decide quale modello NoAM utilizzare (EAO/EAV/ETF), praticamente bisogna decidere che livello di
+complessitá vogliamo avere sulle chiavi e sui valori.
+
+\includegraphics[width=1\textwidth]{img/implementazione}
+
 
