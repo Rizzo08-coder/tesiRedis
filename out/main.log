@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.4.1)  29 AUG 2022 16:05
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.4.1)  29 AUG 2022 16:11
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -528,26 +528,29 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 <img/eao.eav.png, id=162, 1041.8925pt x 775.89874pt>
 File: img/eao.eav.png Graphic file (type png)
 <use img/eao.eav.png>
-Package pdftex.def Info: img/eao.eav.png  used on input line 85.
+Package pdftex.def Info: img/eao.eav.png  used on input line 84.
 (pdftex.def)             Requested size: 430.00462pt x 320.22794pt.
 <img/etf.png, id=163, 569.12625pt x 513.92pt>
 File: img/etf.png Graphic file (type png)
 <use img/etf.png>
-Package pdftex.def Info: img/etf.png  used on input line 95.
+Package pdftex.def Info: img/etf.png  used on input line 94.
 (pdftex.def)             Requested size: 344.005pt x 310.65201pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 85--96
+Underfull \hbox (badness 10000) in paragraph at lines 84--95
 
  []
 
-[8 <./img/eao.eav.png>] [9 <./img/etf.png>]
+[8 <./img/eao.eav.png>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [9 <./img/etf.png>]
 <img/implementazione.png, id=174, 785.93625pt x 462.72874pt>
 File: img/implementazione.png Graphic file (type png)
 <use img/implementazione.png>
-Package pdftex.def Info: img/implementazione.png  used on input line 108.
+Package pdftex.def Info: img/implementazione.png  used on input line 107.
 (pdftex.def)             Requested size: 430.00462pt x 253.1742pt.
 
-Overfull \hbox (17.62482pt too wide) in paragraph at lines 108--109
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 107--108
 [][] 
  []
 
@@ -660,7 +663,7 @@ ic/cm-super/sfss1728.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public
 /cm-super/sfti1200.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/c
 m-super/sftt1200.pfb>
 Output written on /Users/matteorizzo/IdeaProjects/tesiRedis/out/main.pdf (27 pa
-ges, 708806 bytes).
+ges, 708735 bytes).
 PDF statistics:
  285 PDF objects out of 1000 (max. 8388607)
  228 compressed objects within 3 object streams

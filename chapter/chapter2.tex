@@ -69,10 +69,8 @@ Un \texttt{blocco} é un insieme non vuoto di \texttt{entries}, ogni \texttt{ent
 chiave-valore, la quale é univoca all'interno del blocco, il valore puó essere anche complesso.
 %\end{itemize}
 
-Per effettuare il passaggio da aggregati a modellazione NoSQL $\to$
-Ogni classe di aggregati viene rappresentata da una \texttt{collection}
-Ogni singolo aggregato viene rappresentato da un \texttt{blocco}.
-
+Per effettuare il passaggio da aggregati a modellazione NoSQL ogni classe di aggregati viene rappresentata da una \texttt{collection} ed
+ogni singolo aggregato viene rappresentato da un \texttt{blocco}.
 
 Vi sono due modalitá principali per rappresentare gli aggregati:
 \begin{itemize}
@@ -82,6 +80,7 @@ Vi sono due modalitá principali per rappresentare gli aggregati:
     di ogni \texttt{entry} devono rappresentare il percorso per accedere al valore di un certo componente(quindi possono esserci anche chiavi
     con nomi strutturati a piú livelli), i valori di ogni \texttt{entry} sono atomici.
 \end{itemize}
+\vspace{0.5cm}
     \includegraphics[width=1\textwidth]{img/eao.eav}
 Nella figura \emph{EAO} si ha per ogni \texttt{blocco} \emph{Player} o \emph{Game} una singola \texttt{entry} con chiave vuota,
 valore strutturato in modo complesso
