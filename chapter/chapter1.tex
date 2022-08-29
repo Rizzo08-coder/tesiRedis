@@ -36,8 +36,44 @@ che richiedono strutture dati flessibili, scalabili, con prestazioni elevate ed 
 \section{Tipologie di \emph{NoSQL}}
 Tipologie principali di database \emph{NoSQL}:
 \begin{itemize}
-    \item \texttt{documentali}
-    \item \texttt{key-value}
-    \item \texttt{colonnari}
-    \item \texttt{a grafo}
+    \item \texttt{documentali}: la rappresentazione dei dati é affidata a strutture simili ad oggetti, dette \emph{documenti}, ognuno dei
+    quali possiede un certo numero di proprietá che rappresentano le informazioni.
+    Viene creata una semplice coppia, a una chiave viene assegnato un documento specifico, e in questo documento, il quale puó essere
+    formattato in vari modi (XML, JSON, YAML ...) si possono trovare le informazioni.
+    La nozione di schema é dinamica, ogni documento puó contenere appunto dei campi diversi. Questa flessibilitá puó essere particolarmente
+    utile per la modellazione dei dati in cui le strutture possono cambiare da un record all'altro, ad esempio nei dati polimorfici.
+    Inoltre, diventa piú semplice l'evoluzione di un'applicazione durante il suo ciclo di vita, ad esempio nel caso in cui vadano aggiunti nuovi
+    campi.
+
+    Tra gli esempi di maggiore interesse vi sono: MongoDB, Azure CosmosDB, Apache CouchDB.
+
+    \includegraphics[width=1\textwidth]{img/dbDocumentale}
+
+    \item \texttt{key-value}: i dati vengono immagazzinati mediante un semplice metodo chiave-valore. Una chiave rappresenta un identificatore
+    univoco. Le chiavi e i valori possono essere qualsiasi cosa, da un oggetto semplice ad articolati oggetti composti.
+    (Questo tipo di base di dati é oggetto di tesi e quindi verrá sviluppato il suo concetto nel corso dei prossimi capitoli.)
+
+    Tra gli esempi di maggiore interesse vi sono: \textbf{Redis}, MemCached.
+    \item \texttt{colonnari}: i dati vengono archiviati per colonne, anziché per righe come avviene nei database relazionali classici.
+    Queste colonne vengono raccolte per formare dei sottogruppi. Le chiavi e i nomi delle colonne di questo tipo di database non sono fissi.
+    Ogni colonna é memorizzata separatamente. Se sono presenti colonne simili, vengono unite in famiglie di colonne ed ogni famiglia
+    viene archiviata separatamente dalle altre su un "file" diverso.
+    Questa tipologia di database viene utilizzata quando é necessario un modello di dati di grandi dimensioni. Estremamente utili
+    per i data warehouse, oppure quando sono necessarie prestazioni elevate o la gestione di query intensive.
+
+    Tra gli esempi di maggiore interesse vi sono: HBase, Cassandra, Vertica.
+
+    \includegraphics[width=0.8\textwidth]{img/dbColumnOriented}
+
+    \item \texttt{a grafo}: progettati appositamente per l'archiviazione e la navigazione di relazioni. Le relazioni rivestono un ruolo chiave
+    e buona parte del valore di questi database deriva proprio dalla loro presenza. Vengono utilizzati i \emph{nodi} per archiviare le entitá
+    di dati e gli \emph{archi} per archiviare le relazioni tra entitá. Le relazioni che un nodo puó avere sono illimitate.
+    In questo tipo di database attraversare collegamenti o relazioni é molto veloce perché le relazioni tra i nodi non vengono elaborate al momento
+    della query, ma sono giá presenti nel database.
+    I casi d'uso piú tipici sono i Social Network, motori di raccomandazioni e rilevamento di frodi, ovvero in tutti quegli ambiti dove é
+    necessario creare molte relazioni tra dati ed eseguire rapidamente query su di esse.
+
+    Tra gli esempi di maggiore interesse vi sono: Neo4J, Titan.
+
+    \includegraphics[width=0.8\textwidth]{img/dbGrafo}
 \end{itemize}
