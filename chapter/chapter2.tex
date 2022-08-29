@@ -59,19 +59,23 @@ Vi sono due nozioni distinte di \emph{unitá} di accesso ai dati:
 \end{itemize}
 Con riferimento in particolare ai database chiave-valore una \texttt{entry} corrisponde a una coppia chiave-valore, mentre
 un \texttt{blocco} corrisponde a un gruppo di coppie chiave-valore correlate tra loro.
-Modello generale:
-\begin{itemize}[itemsep=2pt,parsep=2pt]
-    \item Un \texttt{database} é un insieme di \texttt{collections}. Ogni \texttt{collection} ha un nome distinto\
-    \item Una \texttt{collection} é un insieme di \texttt{blocchi}, ogni \texttt{blocco}
-    all'interno della \texttt{collection} é identificato da una chiave di blocco, che deve essere univoca
-    \item Un \texttt{blocco} é un insieme non vuoto di \texttt{entries}, ogni \texttt{entry} é composta da una coppia
-    chiave-valore, la quale é univoca all'interno del blocco, il valore puó essere anche complesso.
-\end{itemize}
+
+Quindi, si ha che:
+%\begin{itemize}[itemsep=2pt,parsep=2pt]
+Un \texttt{database} é un insieme di \texttt{collections}. Ogni \texttt{collection} ha un nome distinto;
+Una \texttt{collection} é un insieme di \texttt{blocchi}, ogni \texttt{blocco} all'interno della \texttt{collection}
+é identificato da una chiave di blocco, che deve essere univoca;
+Un \texttt{blocco} é un insieme non vuoto di \texttt{entries}, ogni \texttt{entry} é composta da una coppia
+chiave-valore, la quale é univoca all'interno del blocco, il valore puó essere anche complesso.
+%\end{itemize}
+
 Per effettuare il passaggio da aggregati a modellazione NoSQL $\to$
 Ogni classe di aggregati viene rappresentata da una \texttt{collection}
 Ogni singolo aggregato viene rappresentato da un \texttt{blocco}.
 
-Vi sono due modalitá principali per rappresentare gli aggregati:\begin{itemize}
+
+Vi sono due modalitá principali per rappresentare gli aggregati:
+\begin{itemize}
     \item \emph{Entry per Aggregate Object (EAO)}: Rappresenta ogni aggregato utilizzando una singola
     \texttt{entry}, la chiave della \texttt{entry} é vuota, il valore contiene l'intero aggregato.
     \item \emph{Entry per Atomic Value (EAV)}: Rappresenta ogni aggregato per mezzo di piú \texttt{entry}, le chiavi
@@ -79,8 +83,6 @@ Vi sono due modalitá principali per rappresentare gli aggregati:\begin{itemize}
     con nomi strutturati a piú livelli), i valori di ogni \texttt{entry} sono atomici.
 \end{itemize}
     \includegraphics[width=1\textwidth]{img/eao.eav}
-
-\\
 Nella figura \emph{EAO} si ha per ogni \texttt{blocco} \emph{Player} o \emph{Game} una singola \texttt{entry} con chiave vuota,
 valore strutturato in modo complesso
 \\
