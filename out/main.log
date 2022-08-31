@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.4.1)  29 AUG 2022 18:14
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.4.1)  31 AUG 2022 17:28
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -243,11 +243,52 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 86.
 )
 \Hy@SectionHShift=\skip50
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/graphics/color.sty
+Package: color 2020/02/24 v1.2b Standard LaTeX Color (DPC)
+
+(/usr/local/texlive/2021/texmf-dist/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
+Package color Info: Driver file: pdftex.def on input line 147.
+)
+(/usr/local/texlive/2021/texmf-dist/tex/latex/listings/listings.sty
+\lst@mode=\count275
+\lst@gtempboxa=\box48
+\lst@token=\toks20
+\lst@length=\count276
+\lst@currlwidth=\dimen155
+\lst@column=\count277
+\lst@pos=\count278
+\lst@lostspace=\dimen156
+\lst@width=\dimen157
+\lst@newlines=\count279
+\lst@lineno=\count280
+\lst@maxwidth=\dimen158
+
+(/usr/local/texlive/2021/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
+\c@lstnumber=\count281
+\lst@skipnumbers=\count282
+\lst@framebox=\box49
+)
+(/usr/local/texlive/2021/texmf-dist/tex/latex/listings/listings.cfg
+File: listings.cfg 2020/03/24 1.8d listings configuration
+))
+Package: listings 2020/03/24 1.8d (Carsten Heinz)
+
+(./settings.tex
+Package color Info: Redefining color green on input line 1.
+Package color Info: Redefining color red on input line 2.
+Package color Info: Redefining color blue on input line 3.
+Package color Info: Redefining color yellow on input line 5.
+
+(/usr/local/texlive/2021/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2020/03/24 1.8d listings language file
+))
 (/usr/local/texlive/2021/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2021-03-18 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count275
-\l__pdf_internal_box=\box48
+\l__color_backend_stack_int=\count283
+\l__pdf_internal_box=\box50
 )
 (/Users/matteorizzo/IdeaProjects/tesiRedis/out/main.aux
 (/Users/matteorizzo/IdeaProjects/tesiRedis/out/frontespizio.aux)
@@ -263,26 +304,26 @@ File: l3backend-pdftex.def 2021-03-18 L3 backend support: PDF output (pdfTeX)
 (/Users/matteorizzo/IdeaProjects/tesiRedis/out/chapter/bibliografia.aux))
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Info: Redefining \it@ocap on input line 16.
-LaTeX Info: Redefining \it@ccap on input line 16.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Info: Redefining \it@ocap on input line 19.
+LaTeX Info: Redefining \it@ccap on input line 19.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -320,17 +361,17 @@ LaTeX Info: Redefining \it@ccap on input line 16.
 
 (/usr/local/texlive/2021/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count276
-\scratchdimen=\dimen155
-\scratchbox=\box49
-\nofMPsegments=\count277
-\nofMParguments=\count278
-\everyMPshowfont=\toks20
-\MPscratchCnt=\count279
-\MPscratchDim=\dimen156
-\MPnumerator=\count280
-\makeMPintoPDFobject=\count281
-\everyMPtoPDFconversion=\toks21
+\scratchcounter=\count284
+\scratchdimen=\dimen159
+\scratchbox=\box51
+\nofMPsegments=\count285
+\nofMParguments=\count286
+\everyMPshowfont=\toks21
+\MPscratchCnt=\count287
+\MPscratchDim=\dimen160
+\MPnumerator=\count288
+\makeMPintoPDFobject=\count289
+\everyMPtoPDFconversion=\toks22
 ) (/usr/local/texlive/2021/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
@@ -340,7 +381,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-Package hyperref Info: Link coloring OFF on input line 16.
+Package hyperref Info: Link coloring OFF on input line 19.
 
 (/usr/local/texlive/2021/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
@@ -352,16 +393,17 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 ty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count282
+\c@section@level=\count290
 )
-LaTeX Info: Redefining \ref on input line 16.
-LaTeX Info: Redefining \pageref on input line 16.
-LaTeX Info: Redefining \nameref on input line 16.
+LaTeX Info: Redefining \ref on input line 19.
+LaTeX Info: Redefining \pageref on input line 19.
+LaTeX Info: Redefining \nameref on input line 19.
  (/Users/matteorizzo/IdeaProjects/tesiRedis/out/main.out)
 (/Users/matteorizzo/IdeaProjects/tesiRedis/out/main.out)
 \@outlinefile=\write3
 \openout3 = `main.out'.
 
+\c@lstlisting=\count291
 \openout2 = `frontespizio.aux'.
 
  (./frontespizio.tex
@@ -397,7 +439,7 @@ LaTeX Info: Redefining \nameref on input line 16.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-<img/logo_unibs.png, id=60, 205.9695pt x 85.41pt>
+<img/logo_unibs.png, id=72, 205.9695pt x 85.41pt>
 File: img/logo_unibs.png Graphic file (type png)
 <use img/logo_unibs.png>
 Package pdftex.def Info: img/logo_unibs.png  used on input line 7.
@@ -414,9 +456,22 @@ LaTeX Font Info:    Trying to load font information for T1+cmss on input line 1
 (/usr/local/texlive/2021/texmf-dist/tex/latex/base/t1cmss.fd
 File: t1cmss.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
+
+./frontespizio.tex:33: LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.33         \\
+               
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
 LaTeX Font Info:    Font shape `T1/lmss/b/n' in size <17> not available
 (Font)              Font shape `T1/lmss/bx/n' tried instead on input line 43.
- [1
+[1
 
 
 
@@ -435,8 +490,8 @@ ogo_unibs.png>])
 ]) [3]
 \openout2 = `frontmatter/ringraziamenti.aux'.
 
- (./frontmatter/ringraziamenti.tex
-[4
+
+(./frontmatter/ringraziamenti.tex [4
 
 
 
@@ -445,7 +500,8 @@ ogo_unibs.png>])
 
 
 
-] (/Users/matteorizzo/IdeaProjects/tesiRedis/out/main.toc
+]
+(/Users/matteorizzo/IdeaProjects/tesiRedis/out/main.toc
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <12> on input line 4.
 LaTeX Font Info:    External font `cmex10' loaded for size
@@ -456,13 +512,13 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 \tf@toc=\write4
 \openout4 = `main.toc'.
 
- [7]
-[8
+ [7] [8
 
 ]
 \openout2 = `chapter/intro.aux'.
 
- (./chapter/intro.tex) [1
+
+(./chapter/intro.tex) [1
 
 
 ]
@@ -485,7 +541,7 @@ LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 2
 (/usr/local/texlive/2021/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 ) [4]
-<img/dbDocumentale.png, id=145, 640.3925pt x 191.71625pt>
+<img/dbDocumentale.png, id=160, 640.3925pt x 191.71625pt>
 File: img/dbDocumentale.png Graphic file (type png)
 <use img/dbDocumentale.png>
 Package pdftex.def Info: img/dbDocumentale.png  used on input line 50.
@@ -495,7 +551,7 @@ Overfull \hbox (29.3747pt too wide) in paragraph at lines 50--51
 [][] 
  []
 
-<img/dbColumnOriented.jpg, id=146, 541.02126pt x 362.35374pt>
+<img/dbColumnOriented.jpg, id=161, 541.02126pt x 362.35374pt>
 File: img/dbColumnOriented.jpg Graphic file (type jpg)
 <use img/dbColumnOriented.jpg>
 Package pdftex.def Info: img/dbColumnOriented.jpg  used on input line 66.
@@ -504,7 +560,7 @@ Package pdftex.def Info: img/dbColumnOriented.jpg  used on input line 66.
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [5 <./img/dbDocumentale.png>]
-<img/dbGrafo.png, id=153, 618.31pt x 437.635pt>
+<img/dbGrafo.png, id=169, 618.31pt x 437.635pt>
 File: img/dbGrafo.png Graphic file (type png)
 <use img/dbGrafo.png>
 Package pdftex.def Info: img/dbGrafo.png  used on input line 78.
@@ -538,7 +594,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 12.
 
 [9]
-<img/designAggregati.png, id=172, 819.06pt x 435.6275pt>
+<img/designAggregati.png, id=187, 819.06pt x 435.6275pt>
 File: img/designAggregati.png Graphic file (type png)
 <use img/designAggregati.png>
 Package pdftex.def Info: img/designAggregati.png  used on input line 45.
@@ -553,12 +609,12 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [10]
 [11 <./img/designAggregati.png>]
-<img/eao.eav.png, id=184, 1041.8925pt x 775.89874pt>
+<img/eao.eav.png, id=199, 1041.8925pt x 775.89874pt>
 File: img/eao.eav.png Graphic file (type png)
 <use img/eao.eav.png>
 Package pdftex.def Info: img/eao.eav.png  used on input line 84.
 (pdftex.def)             Requested size: 430.00462pt x 320.22794pt.
-<img/etf.png, id=185, 569.12625pt x 513.92pt>
+<img/etf.png, id=200, 569.12625pt x 513.92pt>
 File: img/etf.png Graphic file (type png)
 <use img/etf.png>
 Package pdftex.def Info: img/etf.png  used on input line 94.
@@ -572,7 +628,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 84--95
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [13 <./img/etf.png>]
-<img/implementazione.png, id=196, 785.93625pt x 462.72874pt>
+<img/implementazione.png, id=211, 785.93625pt x 462.72874pt>
 File: img/implementazione.png Graphic file (type png)
 <use img/implementazione.png>
 Package pdftex.def Info: img/implementazione.png  used on input line 107.
@@ -587,15 +643,90 @@ Overfull \hbox (17.62482pt too wide) in paragraph at lines 107--108
 
  (./chapter/chapter3.tex
 Capitolo 3.
-) [15
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\to' on input line 1.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1.
+
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <24.88> on input line 1.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <20.74> on input line 1.
+
+Underfull \hbox (badness 10000) in paragraph at lines 3--13
+
+ []
+
+<img/redisClientServer.png, id=217, 2580.64125pt x 984.67876pt>
+File: img/redisClientServer.png Graphic file (type png)
+<use img/redisClientServer.png>
+Package pdftex.def Info: img/redisClientServer.png  used on input line 14.
+(pdftex.def)             Requested size: 430.00462pt x 164.07265pt.
+
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 14--15
+[][] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [15
 
 
 
 
-]
+ <./img/redisClientServer.png>] [16]
+<img/transazioneRedis.png, id=227, 1448.41125pt x 1568.86125pt>
+File: img/transazioneRedis.png Graphic file (type png)
+<use img/transazioneRedis.png>
+Package pdftex.def Info: img/transazioneRedis.png  used on input line 68.
+(pdftex.def)             Requested size: 301.00192pt x 326.02339pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 68--70
+
+ []
+
+[17]
+Underfull \hbox (badness 10000) in paragraph at lines 79--88
+
+ []
+
+[18 <./img/transazioneRedis.png>]
+
+./chapter/chapter3.tex:91: Package keyval Error: autogobble undefined.
+
+See the keyval package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.91     \begin{lstlisting}[autogobble]
+                                       
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+./chapter/chapter3.tex:100: Package keyval Error: autogobble undefined.
+
+See the keyval package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.100     \begin{lstlisting}[autogobble]
+                                        
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+) [19]
 \openout2 = `chapter/chapter4.aux'.
 
- (./chapter/chapter4.tex [16
+ (./chapter/chapter4.tex [20
 
 
 
@@ -614,38 +745,44 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 1.
 
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <24.88> on input line 1.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <20.74> on input line 1.
-) [17]
+) [21]
 \openout2 = `chapter/chapter5.aux'.
 
- (./chapter/chapter5.tex [18
+ (./chapter/chapter5.tex [22
 
 
 
 
 ]
 Capitolo 5.
-) [19]
+) [23]
 \openout2 = `chapter/chapter6.aux'.
 
- (./chapter/chapter6.tex [20
+ (./chapter/chapter6.tex [24
 
 
 
 
 ]
 Capitolo 6.
-) [21] [22
+
+Underfull \hbox (badness 10000) in paragraph at lines 2--4
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2--4
+
+ []
+
+) [25] [26
 
 
 
 ]
 \openout2 = `chapter/bibliografia.aux'.
 
- (./chapter/bibliografia.tex) [23
+ (./chapter/bibliografia.tex) [27
 
 
 ]
@@ -662,16 +799,16 @@ Capitolo 6.
 (/Users/matteorizzo/IdeaProjects/tesiRedis/out/chapter/chapter6.aux)
 (/Users/matteorizzo/IdeaProjects/tesiRedis/out/chapter/bibliografia.aux))
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 10D60336FD5402E6581DF9D5574ACF4C;2811.
+(rerunfilecheck)             Checksum: 884CDDE8CCA42126DC3ABC2FFE592F7A;3273.
  ) 
 Here is how much of TeX's memory you used:
- 10222 strings out of 478994
- 153533 string characters out of 5858185
- 478076 words of memory out of 5000000
- 27425 multiletter control sequences out of 15000+600000
- 428452 words of font info for 64 fonts, out of 8000000 for 9000
+ 12012 strings out of 478994
+ 177441 string characters out of 5858185
+ 727563 words of memory out of 5000000
+ 29165 multiletter control sequences out of 15000+600000
+ 430996 words of font info for 68 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 71i,5n,74p,382b,452s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 71i,6n,74p,382b,1284s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}
 {/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}{
 /usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}</usr/local/tex
@@ -679,22 +816,25 @@ live/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texl
 ive/2021/texmf-dist/fonts/type1/public/lm/lmss17.pfb></usr/local/texlive/2021/t
 exmf-dist/fonts/type1/public/lm/lmssbx10.pfb></usr/local/texlive/2021/texmf-dis
 t/fonts/type1/public/cm-super/sfbi1200.pfb></usr/local/texlive/2021/texmf-dist/
-fonts/type1/public/cm-super/sfbi1728.pfb></usr/local/texlive/2021/texmf-dist/fo
-nts/type1/public/cm-super/sfbi2488.pfb></usr/local/texlive/2021/texmf-dist/font
-s/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2021/texmf-dist/fonts/
-type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2021/texmf-dist/fonts/ty
-pe1/public/cm-super/sfbx1728.pfb></usr/local/texlive/2021/texmf-dist/fonts/type
-1/public/cm-super/sfbx2488.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/
-public/cm-super/sfrm1200.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/pu
-blic/cm-super/sfsl1200.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/publ
-ic/cm-super/sfss1728.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public
-/cm-super/sfti1200.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/c
-m-super/sftt1200.pfb>
-Output written on /Users/matteorizzo/IdeaProjects/tesiRedis/out/main.pdf (31 pa
-ges, 887587 bytes).
+fonts/type1/public/cm-super/sfbi1440.pfb></usr/local/texlive/2021/texmf-dist/fo
+nts/type1/public/cm-super/sfbi1728.pfb></usr/local/texlive/2021/texmf-dist/font
+s/type1/public/cm-super/sfbi2488.pfb></usr/local/texlive/2021/texmf-dist/fonts/
+type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2021/texmf-dist/fonts/ty
+pe1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2021/texmf-dist/fonts/type
+1/public/cm-super/sfbx1728.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/
+public/cm-super/sfbx2488.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/pu
+blic/cm-super/sfrm0600.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/publ
+ic/cm-super/sfrm1200.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public
+/cm-super/sfsl1200.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/c
+m-super/sfss1728.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-
+super/sfti1200.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-su
+per/sftt0800.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-supe
+r/sftt1200.pfb>
+Output written on /Users/matteorizzo/IdeaProjects/tesiRedis/out/main.pdf (35 pa
+ges, 1124612 bytes).
 PDF statistics:
- 308 PDF objects out of 1000 (max. 8388607)
- 242 compressed objects within 3 object streams
- 50 named destinations out of 1000 (max. 500000)
- 153 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 372 PDF objects out of 1000 (max. 8388607)
+ 295 compressed objects within 3 object streams
+ 71 named destinations out of 1000 (max. 500000)
+ 187 words of extra memory for PDF output out of 10000 (max. 10000000)
 
