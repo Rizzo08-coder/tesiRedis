@@ -14,6 +14,5 @@
 \contentsline {subsection}{\numberline {3.1.1}Strutture Dati}{16}{subsection.3.1.1}%
 \contentsline {subsection}{\numberline {3.1.2}\emph {proprietá ACID}}{17}{subsection.3.1.2}%
 \contentsline {chapter}{\numberline {4}Interrogazioni SQL $\to $ \emph {Key-Value}}{21}{chapter.4}%
-\contentsline {chapter}{\numberline {5}\emph {proprietá ACID}}{23}{chapter.5}%
-\contentsline {chapter}{\numberline {6}Caso Concreto - IoT sensore Temperatura}{25}{chapter.6}%
-\contentsline {chapter}{Bibliografia}{27}{chapter*.5}%
+\contentsline {chapter}{\numberline {5}Caso Concreto - IoT sensore Temperatura}{23}{chapter.5}%
+\contentsline {chapter}{Bibliografia}{25}{chapter*.5}%
