@@ -13,6 +13,8 @@
 \contentsline {section}{\numberline {3.1}Caratteristiche}{16}{section.3.1}%
 \contentsline {subsection}{\numberline {3.1.1}Strutture Dati}{16}{subsection.3.1.1}%
 \contentsline {subsection}{\numberline {3.1.2}\emph {proprietá ACID}}{17}{subsection.3.1.2}%
+\contentsline {subsection}{\numberline {3.1.3}Ambiti di utilizzo}{19}{subsection.3.1.3}%
+\contentsline {subsection}{\numberline {3.1.4}sistema distribuito (cenni)}{19}{subsection.3.1.4}%
 \contentsline {chapter}{\numberline {4}Interrogazioni SQL $\to $ \emph {Key-Value}}{21}{chapter.4}%
 \contentsline {chapter}{\numberline {5}Caso Concreto - IoT sensore Temperatura}{23}{chapter.5}%
 \contentsline {chapter}{Bibliografia}{25}{chapter*.5}%

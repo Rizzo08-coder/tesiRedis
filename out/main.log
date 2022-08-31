@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.4.1)  31 AUG 2022 17:31
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.4.1)  31 AUG 2022 17:37
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -438,7 +438,7 @@ LaTeX Info: Redefining \nameref on input line 19.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-<img/logo_unibs.png, id=68, 205.9695pt x 85.41pt>
+<img/logo_unibs.png, id=76, 205.9695pt x 85.41pt>
 File: img/logo_unibs.png Graphic file (type png)
 <use img/logo_unibs.png>
 Package pdftex.def Info: img/logo_unibs.png  used on input line 7.
@@ -540,7 +540,7 @@ LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 2
 (/usr/local/texlive/2021/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 ) [4]
-<img/dbDocumentale.png, id=155, 640.3925pt x 191.71625pt>
+<img/dbDocumentale.png, id=166, 640.3925pt x 191.71625pt>
 File: img/dbDocumentale.png Graphic file (type png)
 <use img/dbDocumentale.png>
 Package pdftex.def Info: img/dbDocumentale.png  used on input line 50.
@@ -550,7 +550,7 @@ Overfull \hbox (29.3747pt too wide) in paragraph at lines 50--51
 [][] 
  []
 
-<img/dbColumnOriented.jpg, id=156, 541.02126pt x 362.35374pt>
+<img/dbColumnOriented.jpg, id=167, 541.02126pt x 362.35374pt>
 File: img/dbColumnOriented.jpg Graphic file (type jpg)
 <use img/dbColumnOriented.jpg>
 Package pdftex.def Info: img/dbColumnOriented.jpg  used on input line 66.
@@ -559,7 +559,7 @@ Package pdftex.def Info: img/dbColumnOriented.jpg  used on input line 66.
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [5 <./img/dbDocumentale.png>]
-<img/dbGrafo.png, id=163, 618.31pt x 437.635pt>
+<img/dbGrafo.png, id=174, 618.31pt x 437.635pt>
 File: img/dbGrafo.png Graphic file (type png)
 <use img/dbGrafo.png>
 Package pdftex.def Info: img/dbGrafo.png  used on input line 78.
@@ -593,7 +593,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 12.
 
 [9]
-<img/designAggregati.png, id=182, 819.06pt x 435.6275pt>
+<img/designAggregati.png, id=192, 819.06pt x 435.6275pt>
 File: img/designAggregati.png Graphic file (type png)
 <use img/designAggregati.png>
 Package pdftex.def Info: img/designAggregati.png  used on input line 45.
@@ -608,12 +608,12 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [10]
 [11 <./img/designAggregati.png>]
-<img/eao.eav.png, id=194, 1041.8925pt x 775.89874pt>
+<img/eao.eav.png, id=204, 1041.8925pt x 775.89874pt>
 File: img/eao.eav.png Graphic file (type png)
 <use img/eao.eav.png>
 Package pdftex.def Info: img/eao.eav.png  used on input line 84.
 (pdftex.def)             Requested size: 430.00462pt x 320.22794pt.
-<img/etf.png, id=195, 569.12625pt x 513.92pt>
+<img/etf.png, id=205, 569.12625pt x 513.92pt>
 File: img/etf.png Graphic file (type png)
 <use img/etf.png>
 Package pdftex.def Info: img/etf.png  used on input line 94.
@@ -627,7 +627,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 84--95
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [13 <./img/etf.png>]
-<img/implementazione.png, id=206, 785.93625pt x 462.72874pt>
+<img/implementazione.png, id=216, 785.93625pt x 462.72874pt>
 File: img/implementazione.png Graphic file (type png)
 <use img/implementazione.png>
 Package pdftex.def Info: img/implementazione.png  used on input line 107.
@@ -663,7 +663,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 3--13
 
  []
 
-<img/redisClientServer.png, id=212, 2580.64125pt x 984.67876pt>
+<img/redisClientServer.png, id=222, 2580.64125pt x 984.67876pt>
 File: img/redisClientServer.png Graphic file (type png)
 <use img/redisClientServer.png>
 Package pdftex.def Info: img/redisClientServer.png  used on input line 14.
@@ -682,7 +682,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
  <./img/redisClientServer.png>] [16]
-<img/transazioneRedis.png, id=222, 1448.41125pt x 1568.86125pt>
+<img/transazioneRedis.png, id=232, 1448.41125pt x 1568.86125pt>
 File: img/transazioneRedis.png Graphic file (type png)
 <use img/transazioneRedis.png>
 Package pdftex.def Info: img/transazioneRedis.png  used on input line 69.
@@ -787,13 +787,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 2--4
 (/Users/matteorizzo/IdeaProjects/tesiRedis/out/chapter/chapter5.aux)
 (/Users/matteorizzo/IdeaProjects/tesiRedis/out/chapter/bibliografia.aux))
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 24F828586E9F71B8467D7199FFEC2F6D;3153.
+(rerunfilecheck)             Checksum: F98AAF97021E63F223380678FF06CE66;3520.
  ) 
 Here is how much of TeX's memory you used:
- 11998 strings out of 478994
- 177034 string characters out of 5858185
- 727563 words of memory out of 5000000
- 29161 multiletter control sequences out of 15000+600000
+ 12002 strings out of 478994
+ 177102 string characters out of 5858185
+ 729563 words of memory out of 5000000
+ 29163 multiletter control sequences out of 15000+600000
  430996 words of font info for 68 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  71i,6n,74p,382b,1284s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -819,10 +819,10 @@ super/sfti1200.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-su
 per/sftt0800.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-supe
 r/sftt1200.pfb>
 Output written on /Users/matteorizzo/IdeaProjects/tesiRedis/out/main.pdf (33 pa
-ges, 1117079 bytes).
+ges, 1118089 bytes).
 PDF statistics:
- 359 PDF objects out of 1000 (max. 8388607)
- 284 compressed objects within 3 object streams
- 68 named destinations out of 1000 (max. 500000)
- 179 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 369 PDF objects out of 1000 (max. 8388607)
+ 294 compressed objects within 3 object streams
+ 70 named destinations out of 1000 (max. 500000)
+ 195 words of extra memory for PDF output out of 10000 (max. 10000000)
 
