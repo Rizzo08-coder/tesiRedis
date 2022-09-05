@@ -39,10 +39,10 @@ I principali tipi di dato disponibili sono:
     ogni volta che verranno incontrati dei comandi particolari verranno illustrati in quel momento.
 
 
-\subsection{\emph{proprietá ACID}}
+\subsection{Confronto con \emph{proprietá ACID}}
 %FIXME: questa introduzione
-Nelle basi di dati relazionali ogni transazione gode delle proprietá ACID. in questa sezione l'obiettivo é mettere in evidenza
-quali proprietá vengono verificate da questo dbms, se c'é la possibilitá di abilitare/disabilitare certe proprieta e cosí via.
+Nelle basi di dati relazionali ogni transazione gode delle proprietá ACID. Nei database NoSQL non é vera questa affermazione, in questa
+sezione si vogliono mettere in evidenza quali proprietá vengono soddisfatte da Redis e quali no.
 
 Innanzitutto, bisogna vedere in che modo sono gestite le transazioni in Redis:\\
 i comandi utilizzati per le transazioni sono quattro:
@@ -66,7 +66,29 @@ Quindi una transazione viene eseguita in questo modo:
 Di seguito riporto un esempio utilizzando \texttt{redis-cli} con la struttura dati lista, quindi i comandi per gestire le liste in questo esempio
 sono 2: \texttt{LPUSH} comando per inserire un singolo elemento nella lista e \texttt{LRANGE} comando per ottenere tutti i valori presenti nella lista
 
-\includegraphics[width=0.7\textwidth]{img/transazioneRedis}\\
+\begin{lstlisting}[autogobble]
+       127.0.0.1:6379> MULTI
+       OK
+       127.0.0.1:6379(TX)> LPUSH listaNumeri 3
+       QUEUED
+       127.0.0.1:6379(TX)> LPUSH listaNumeri 10
+       QUEUED
+       127.0.0.1:6379(TX)> LPUSH listaNumeri 34
+       QUEUED
+       127.0.0.1:6379(TX)> LPUSH listaNumeri 45
+       QUEUED
+       127.0.0.1:6379(TX)> EXEC
+       1) (integer) 1
+       2) (integer) 2
+       3) (integer) 3
+       4) (integer) 4
+
+       127.0.0.1:6379> LRANGE listaNumeri 0 -1
+       1) "45"
+       2) "34"
+       3) "10"
+       4) "3"\end{lstlisting}
+%\includegraphics[width=0.7\textwidth]{img/transazioneRedis}\\
 Si puó notare come l'inserimento di tutti i valori nella lista avvenga dopo il comando \texttt{EXEC}.\\
 
 Quindi, passando all'illustrazione delle proprietá ACID:
