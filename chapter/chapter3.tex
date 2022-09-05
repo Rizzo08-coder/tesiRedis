@@ -160,11 +160,33 @@ Quindi, passando all'illustrazione delle proprietá ACID:
 \end{itemize}
 
 \paragraph{Come configurare i diversi livelli di persistenza?\\}
-Per fare ció bisogna accedere al file di configurazione del server Redis andando a modificare/cancellare dei parametri.
+Per fare ció bisogna accedere al file di configurazione del server Redis andando a modificare/cancellare dei parametri e riavviando il server,
+oppure digitando \texttt{CONFIG SET ...} da CLI con la possibilitá di avere un effetto immediato sulle modifiche apportate alla configurazione del server senza doverlo riavviare.\\
+Verrá illustrato un esempio di modifica del file di configurazione, denominato \texttt{redis.conf}.\\
+
+RDB é l'impostazione predefinita. In particolare sono giá impostati i seguenti parametri di default:
+\begin{lstlisting}[autogobble]
+       save 900 1
+       save 300 10\end{lstlisting}
+Ció significa che viene eseguito uno snapshot dopo 900 secondi se vi é almeno 1 modifica al set di dati e dopo
+300 secondi se vi sono almeno 10 modifiche al set di dati.
+Di conseguenza, se si ha la necessitá di avere intervalli aggiuntivi o diversi é molto semplice andare a modificarli aggiungendo o togliendo questi parametri predefiniti.\\
+
+Al momento del salvataggio verrá visualizzato un messaggio di questo tipo nella CLI del server:
+\begin{lstlisting}[autogobble]
+       10 changes in 300 seconds. Saving...
+       Background saving started by pid 68751
+       DB saved on disk\end{lstlisting}
 
 
+La strategia AOF viene configurata mediante due parole chiave:\\
+\texttt{appendonly}, che se impostato a \texttt{yes} attiva AOF;\\
+\texttt{appendfilename}, che specifica il nome del file in cui verranno salvate le operazioni.\\
 
-%configurazione della persistenza, fare vedere come configurare il file di configurazione per le varie persistenze
+Per avere un \emph{database in memory} é sufficiente includere questi comandi:
+\begin{lstlisting}[autogobble]
+       save ""
+       appendonly no\end{lstlisting}
 
 
 \subsection{Ambiti di utilizzo}
