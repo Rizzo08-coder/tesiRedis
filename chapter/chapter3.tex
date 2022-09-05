@@ -111,14 +111,22 @@ Quindi, passando all'illustrazione delle proprietá ACID:
     piú presente.\\
     Quindi questo é un modo efficace per ottenere un buon livello di isolamento a livello di transazioni.
 
-    \item consistenza
-    \item persistenza(durability): l'efficienza di Redis é dovuta in buona parte al suo modo di gestire questa proprietá: infatti vi é la possibilitá
-    di scegliere tra diversi meccanismi, offrendo l'opportunitá di salvare database totalmente su disco, oppure di funzionare esclusivamente come una
-    memoria cache. I meccanismi, che verranno illustrati di seguito, sono:
+    \item \textbf{consistenza}: I vincoli di integritá sono dei concetti relazionali, quindi é difficile fare un collegamento con un database di questo tipo.
+    L'unica chiave che esiste é quella primaria e deve essere univoca;
+    l'integrita referenziale non é mantenuta da Redis stesso e deve essere gestita dalle applicazioni client.
+
+    \item \textbf{persistenza(durability)}:
+    l'efficienza di Redis é dovuta in buona parte al suo modo di gestire questa proprietá.
+    É un database in memoria ma con possibilitá di essere persistente su disco, quindi rappresenta un compromesso in cui si ottengono
+    velocitá di scrittura e lettura molto elevate con la limitazione di avere un set di dati non piú grande della memoria.
+    Questo database mette a disposizione la possibilitá di scegliere tra diversi meccanismi
+    offrendo l'opportunitá di salvare database
+    totalmente su disco oppure no.\\
+    I meccanismi, che verranno illustrati di seguito, sono:
       \begin{itemize}
-          \item \emph{RDB}
-          \item \emph{AOF}
-          \item \emph{Database in Memory}
+          \item \textbf{RDB}
+          \item \textbf{AOF}
+          \item \textbf{Database in Memory}
       \end{itemize}%parlate anche dei dati salvati in cache, vantaggi/svantaggi che ne derivano
         
        \paragraph{RDB $\to$ Redis Database File}
@@ -142,8 +150,18 @@ Quindi, passando all'illustrazione delle proprietá ACID:
     É possibile utilizzare contemporaneamente AOF e RDB, e durante il ripristino del database verrá preferito l'utilizzo di file AOF per la loro
     maggiore completezza.
 
-          
+
+    \paragraph{Database In Memory}
+    é possibile rinunciare ad entrambi i meccanismi definiti precedentemente per dare vita ad un database in memory, risultando molto piú
+    efficiente, poiché non deve piú occuparsi dei salvataggi su disco, e puó essere utilizzato per immagazzinare dati ad uso temporaneo la cui
+    perdita non risulterebbe irreparabile per il sistema.\\
+    Redis puó anche essere utilizzato come memoria cache, in cui viene fissata la quantitá massima di memoria utilizzabile. Quando questa sará
+    colma, i dati piú vecchi verranno eliminato con una politica LRU o LFU.
 \end{itemize}
+
+\paragraph{Come configurare i diversi livelli di persistenza?\\}
+Per fare ció bisogna accedere al file di configurazione del server Redis andando a modificare/cancellare dei parametri.
+
 
 
 %configurazione della persistenza, fare vedere come configurare il file di configurazione per le varie persistenze

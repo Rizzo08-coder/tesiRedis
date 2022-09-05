@@ -15,8 +15,10 @@
 \contentsline {subsection}{\numberline {3.1.2}\emph {proprietá ACID}}{17}{subsection.3.1.2}%
 \contentsline {paragraph}{RDB $\to $ Redis Database File}{20}{section*.5}%
 \contentsline {paragraph}{AOF $\to $ Append Only File}{20}{section*.6}%
-\contentsline {subsection}{\numberline {3.1.3}Ambiti di utilizzo}{20}{subsection.3.1.3}%
-\contentsline {subsection}{\numberline {3.1.4}sistema distribuito (cenni)}{20}{subsection.3.1.4}%
-\contentsline {chapter}{\numberline {4}Interrogazioni SQL $\to $ \emph {Key-Value}}{21}{chapter.4}%
-\contentsline {chapter}{\numberline {5}Caso Concreto - IoT sensore Temperatura}{23}{chapter.5}%
-\contentsline {chapter}{Bibliografia}{25}{chapter*.7}%
+\contentsline {paragraph}{Database In Memory}{21}{section*.7}%
+\contentsline {paragraph}{Come configurare i diversi livelli di persistenza?\\}{21}{section*.8}%
+\contentsline {subsection}{\numberline {3.1.3}Ambiti di utilizzo}{21}{subsection.3.1.3}%
+\contentsline {subsection}{\numberline {3.1.4}sistema distribuito (cenni)}{21}{subsection.3.1.4}%
+\contentsline {chapter}{\numberline {4}Interrogazioni SQL $\to $ \emph {Key-Value}}{23}{chapter.4}%
+\contentsline {chapter}{\numberline {5}Caso Concreto - IoT sensore Temperatura}{25}{chapter.5}%
+\contentsline {chapter}{Bibliografia}{27}{chapter*.9}%
