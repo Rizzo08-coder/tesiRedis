@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.4.1)  31 AUG 2022 17:37
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.4.1)  5 SEP 2022 15:33
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -722,15 +722,15 @@ l.101     \begin{lstlisting}[autogobble]
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-) [19]
+[19]
+Underfull \hbox (badness 10000) in paragraph at lines 134--141
+
+ []
+
+) [20]
 \openout2 = `chapter/chapter4.aux'.
 
- (./chapter/chapter4.tex [20
-
-
-
-
-]
+ (./chapter/chapter4.tex
 Capitolo 4.
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
@@ -744,7 +744,12 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 1.
 
-) [21]
+) [21
+
+
+
+
+]
 \openout2 = `chapter/chapter5.aux'.
 
  (./chapter/chapter5.tex [22
@@ -787,11 +792,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 2--4
 (/Users/matteorizzo/IdeaProjects/tesiRedis/out/chapter/chapter5.aux)
 (/Users/matteorizzo/IdeaProjects/tesiRedis/out/chapter/bibliografia.aux))
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: F98AAF97021E63F223380678FF06CE66;3520.
+(rerunfilecheck)             Checksum: 9ED96A767005BFE3B21466F1EDC47BF0;3520.
  ) 
 Here is how much of TeX's memory you used:
- 12002 strings out of 478994
- 177102 string characters out of 5858185
+ 12004 strings out of 478994
+ 177122 string characters out of 5858185
  729563 words of memory out of 5000000
  29163 multiletter control sequences out of 15000+600000
  430996 words of font info for 68 fonts, out of 8000000 for 9000
@@ -819,10 +824,10 @@ super/sfti1200.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-su
 per/sftt0800.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-supe
 r/sftt1200.pfb>
 Output written on /Users/matteorizzo/IdeaProjects/tesiRedis/out/main.pdf (33 pa
-ges, 1118089 bytes).
+ges, 1120705 bytes).
 PDF statistics:
- 369 PDF objects out of 1000 (max. 8388607)
- 294 compressed objects within 3 object streams
- 70 named destinations out of 1000 (max. 500000)
+ 371 PDF objects out of 1000 (max. 8388607)
+ 296 compressed objects within 3 object streams
+ 72 named destinations out of 1000 (max. 500000)
  195 words of extra memory for PDF output out of 10000 (max. 10000000)
 

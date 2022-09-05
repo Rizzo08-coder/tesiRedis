@@ -17,8 +17,8 @@ semplificato notevolmente il lavoro di hacking con il sistema.\\
 \subsection{Strutture Dati}
 Una caratteristica di Redis é mettere a disposizione una grande varietá di tipi di dati associabili alle chiavi, infatti il valore archiviato
 in corrispondenza di una certa chiave puó essere molto differente da un tipo semplice come la stringa ed il valore stesso puó addirittura
-rappresentare una struttura dati. Inoltre vi é una grandissima possibilitá di manipolazione grazie all'elevato numero di funzioni presenti.
-I tipi di dato disponibili sono:
+rappresentare una struttura dati. Inoltre vi é una grandissima possibilitá di manipolazione grazie all'elevato numero di funzioni presenti.\\
+I principali tipi di dato disponibili sono:
 \begin{itemize}
     \item \textbf{Stringhe}: é il tipo piú semplice, vengono memorizzate sequenze di byte, inclusi testo, oggetti serializzati e array binari;
     sono spesso usati per la memorizzazione nella cache;
@@ -112,9 +112,42 @@ Quindi, passando all'illustrazione delle proprietá ACID:
     Quindi questo é un modo efficace per ottenere un buon livello di isolamento a livello di transazioni.
 
     \item consistenza
-    \item persistenza(durability) %parlate anche dei dati salvati in cache, vantaggi/svantaggi che ne derivano
+    \item persistenza(durability): l'efficienza di Redis é dovuta in buona parte al suo modo di gestire questa proprietá: infatti vi é la possibilitá
+    di scegliere tra diversi meccanismi, offrendo l'opportunitá di salvare database totalmente su disco, oppure di funzionare esclusivamente come una
+    memoria cache. I meccanismi, che verranno illustrati di seguito, sono:
+      \begin{itemize}
+          \item \emph{RDB}
+          \item \emph{AOF}
+          \item \emph{Database in Memory}
+      \end{itemize}%parlate anche dei dati salvati in cache, vantaggi/svantaggi che ne derivano
+        
+       \paragraph{RDB $\to$ Redis Database File}
+         Questo tipo di persistenza esegue snapshot del set di dati a intervalli specificati. Viene prodotto come risultato un file
+         compatto, pertanto agevole da salvare su qualsiasi tipo di supporto. Inoltre, il recupero dei dati all'avvio del server Redis
+         é molto efficiente.
+         Il salvataggio dei dati viene eseguito su file ad intervalli di tempo e non con continuitá, quindi questo potrebbe essere un punto a sfavore
+         nel caso di crash del sistema tra uno snapshot ed un altro con conseguente perdita dei dati.
+         Conviene utilizzare questo tipo di persistenza quando si richiede un salvataggio meno oneroso per il server e si ha particolare interesse
+         ad avere un backup piú comodo.
+
+    \paragraph{AOF $\to$ Append Only File}
+    é un meccanismo di persistenza che consente al server Redis di tenere traccia e registrare ogni comando eseguito dal server.
+    Quindi vi é un file di log dove vengono aggiunti i comandi ogni volta che vengono eseguiti.
+    Questo registro di comandi puó essere riprodotto all'avvio del server, ricreando il database al suo stato originale.
+    Il vantaggio é che basandosi su un log scritto continuamente, non vi é il rischio di incorrere in perdite in caso di crash. Inoltre,
+    il formato dei file che vengono prodotti da questa modalitá permette un recupero piú semplice in caso di corruzione.
+    Peró, i file AOF risultano meno compatti e piú voluminosi rispetto a quelli in formato RDB e da ció consegue un ripristino del database
+    meno rapido all'avvio. Questo meccanismo viene utilizzato quando la principale preoccupazione é la perdita di dati.\\
+
+    É possibile utilizzare contemporaneamente AOF e RDB, e durante il ripristino del database verrá preferito l'utilizzo di file AOF per la loro
+    maggiore completezza.
+
           
 \end{itemize}
+
+
+%configurazione della persistenza, fare vedere come configurare il file di configurazione per le varie persistenze
+
 
 \subsection{Ambiti di utilizzo}
 
