@@ -1,24 +1,24 @@
 \babel@toc {italian}{}
 \babel@toc {italian}{}
-\contentsline {chapter}{\numberline {1}DataBase NoSQL}{3}{chapter.1}%
-\contentsline {section}{\numberline {1.1}Perche é nato \emph {NoSQL}?}{3}{section.1.1}%
-\contentsline {section}{\numberline {1.2}Perché dovrei utilizzare un database \emph {NoSQL}?}{4}{section.1.2}%
-\contentsline {section}{\numberline {1.3}Tipologie di \emph {NoSQL}}{4}{section.1.3}%
-\contentsline {chapter}{\numberline {2}Progettazione Concettuale/Logica}{9}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Modellazione NoAM $\to $ NoSQL abstract model}{9}{section.2.1}%
-\contentsline {subsection}{\numberline {2.1.1}Modellazione Concettuale e design degli Aggregati}{10}{subsection.2.1.1}%
-\contentsline {subsection}{\numberline {2.1.2}Partizionamento degli Aggregati e modellazione NoSQL}{11}{subsection.2.1.2}%
-\contentsline {subsection}{\numberline {2.1.3}Implementazione}{14}{subsection.2.1.3}%
-\contentsline {chapter}{\numberline {3}Redis $\to $ Remote Dictionary Server}{15}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Caratteristiche}{16}{section.3.1}%
-\contentsline {subsection}{\numberline {3.1.1}Strutture Dati}{16}{subsection.3.1.1}%
-\contentsline {subsection}{\numberline {3.1.2}Confronto con \emph {proprietá ACID}}{17}{subsection.3.1.2}%
-\contentsline {paragraph}{RDB $\to $ Redis Database File}{19}{section*.5}%
-\contentsline {paragraph}{AOF $\to $ Append Only File}{20}{section*.6}%
-\contentsline {paragraph}{Database In Memory}{20}{section*.7}%
-\contentsline {paragraph}{Come configurare i diversi livelli di persistenza?\\}{20}{section*.8}%
-\contentsline {subsection}{\numberline {3.1.3}Ambiti di utilizzo}{21}{subsection.3.1.3}%
-\contentsline {subsection}{\numberline {3.1.4}sistema distribuito }{23}{subsection.3.1.4}%
-\contentsline {chapter}{\numberline {4}Interrogazioni SQL $\to $ \emph {Key-Value}}{25}{chapter.4}%
-\contentsline {chapter}{\numberline {5}Caso Concreto - IoT sensore Temperatura}{27}{chapter.5}%
-\contentsline {chapter}{Bibliografia}{29}{chapter*.9}%
+\contentsline {chapter}{\numberline {1}DataBase NoSQL}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Perche é nato \emph {NoSQL}?}{1}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Perché dovrei utilizzare un database \emph {NoSQL}?}{2}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Tipologie di \emph {NoSQL}}{2}{section.1.3}%
+\contentsline {chapter}{\numberline {2}Progettazione Concettuale/Logica}{7}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Modellazione NoAM $\to $ NoSQL abstract model}{7}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}Modellazione Concettuale e design degli Aggregati}{8}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.2}Partizionamento degli Aggregati e modellazione NoSQL}{9}{subsection.2.1.2}%
+\contentsline {subsection}{\numberline {2.1.3}Implementazione}{12}{subsection.2.1.3}%
+\contentsline {chapter}{\numberline {3}Redis $\to $ Remote Dictionary Server}{13}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Caratteristiche}{14}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Strutture Dati}{14}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}Confronto con \emph {proprietá ACID}}{15}{subsection.3.1.2}%
+\contentsline {paragraph}{RDB $\to $ Redis Database File}{17}{section*.4}%
+\contentsline {paragraph}{AOF $\to $ Append Only File}{18}{section*.5}%
+\contentsline {paragraph}{Database In Memory}{18}{section*.6}%
+\contentsline {paragraph}{Come configurare i diversi livelli di persistenza?\\}{18}{section*.7}%
+\contentsline {subsection}{\numberline {3.1.3}Ambiti di utilizzo}{19}{subsection.3.1.3}%
+\contentsline {subsection}{\numberline {3.1.4}sistema distribuito }{21}{subsection.3.1.4}%
+\contentsline {chapter}{\numberline {4}Interrogazioni SQL $\to $ \emph {Key-Value}}{23}{chapter.4}%
+\contentsline {chapter}{\numberline {5}Caso Concreto - IoT sensore Temperatura}{25}{chapter.5}%
+\contentsline {chapter}{Bibliografia}{27}{chapter*.8}%

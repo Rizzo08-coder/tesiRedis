@@ -131,7 +131,7 @@ EXEC\end{lstlisting}
     Con questa implementazione, se si dovesse verificare una race condition ed un client modifica il valore di \texttt{sampleKey} tra il nostro
     \texttt{WATCH} e \texttt{EXEC}, la transazione verrá interrotta. Avremo bisogno di ripetere la transazione quando la race condition non sará
     piú presente.\\
-    Quindi questo é un modo efficace per ottenere un buon livello di isolamento.
+    Quindi questo é un modo efficace per ottenere un buon livello di isolamento nel caso di transazioni multiple.
 
     \item \textbf{consistenza}: I vincoli di integritá sono dei concetti relazionali, quindi é difficile fare un collegamento con un database di questo tipo.
     L'unica chiave che esiste é quella primaria e deve essere univoca;
