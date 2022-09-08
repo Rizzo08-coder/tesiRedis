@@ -248,12 +248,126 @@ Redis é estremamente flessibile e grazie alla sua efficienza puó essere applic
     si adattano perfettamente a Redis.
 \end{itemize}
 
-\subsection{sistema distribuito }
-%teorema cap, proprietá base
+\subsection{sistema distribuito}
+vi sono due tipologie di sistemi distribuiti che é possibile implementare in Redis:
+\begin{itemize}
+    \item \textbf{Redis Master-Slave}
+    \item \textbf{Redis Cluster}
+\end{itemize}
+Per sistemi estremamente avanzati, vi é la possibilitá di fondere queste due modalitá.
+\subsubsection{Redis Master-Slave}
+Redis puó implementare un'architettura master-slave, ovvero un noto paradigma informatico in cui un dispositivo o processo (il master)
+controlla o coordina piú dispositivi o processi subordinati (gli slave).
+
+il server Redis puó essere eseguito in due modalitá:
+\begin{itemize}
+    \item Modalitá Master (Redis Master);
+    \item Modalitá Slave (Redis Slave o Redis Replica).
+\end{itemize}
+
+
+Redis Master funge da interfaccia con il mondo esterno, gestendo tutte le richieste scrittura esterne e puó gestire anche
+quelle di lettura;
+ogni volta che viene apportata una modifica al database master, la modifica viene propagata ai database slave collegati al master.\\
+
+\includegraphics[width=1\textwidth]{img/masterslaveRedis}
+
+La propagazione della replica puó avvenire in due modi:
+\begin{itemize}
+    \item sincrona: le modifiche ai database slave avvengono apportate istantaneamente;
+    \item asincrona: le modifiche vengono apportate solo a distanza di tempo, é l'impostazione predefinita poiché si adatta
+    alla maggior parte dei casi d'uso di Redis.
+\end{itemize}
+
+La replica master-slave é in gran parte non bloccante, il che significa che il database master puó continuare a funzionare
+mentre i database slave sincronizzano i dati.
+I Redis Slave saranno in grado di gestire le query utilizzando la versione non aggiornata del database, tranne che per un breve
+periodo durante il quale vengono caricati i nuovi dati.
+
+\paragraph{Come avviene il failover nel caso di guasto di Redis Master?\\}
+vi sono due scelte:
+\begin{enumerate}
+    \item aggiungi una nuova macchina come Redis Master;
+    \item rendi qualsiasi Redis Slave esistente come nuovo Redis Master.
+\end{enumerate}
+Il problema con l'approccio \textbf{1} é che nel momento in cui aggiungiamo una nuova macchina che fa da Master e questa sincronizzerá
+tutti i dati sui vari Slaves perderemo tutti i dati.\\
+L'approccio \textbf{2} é quello migliore perché lo slave esistente avrá giá tutti i dati e una volta che lo avremo impostato in modalitá
+Master, esso replicherá/sincronizzerá i dati su tutti gli Slaves, il che significa che non avremo una perdita di dati, o comunque
+avremo una minima perdita di dati nel caso in cui il guasto del Master si sia verificato prima della sincronizzazione con gli slaves.
+
+Invece, nel caso di crash di Redis Slave le sue richieste di lettura saranno semplicemente sostituite da altri Redis Slave.
+
+\paragraph{Teorema CAP\\}
+Formulato da Eric Brewer nel 1998, afferma che se i dati sono in un sistema i distribuito tra i nodi di una rete, solo due delle seguenti
+proprietá possono essere soddisfatte contemporaneamente:
+\begin{itemize}
+    \item \textbf{Consistency}: le operazioni di lettura restituiscono il dato aggiornato, ovvero proveniente dall'ultima scrittura dello stesso,
+    oppure un messaggio d'errore. Non bisogna confonderla con la consistenza delle proprietá ACID, infatti questa fa riferimento al valore piú aggiornato
+    di un certo dato, mentre nelle proprietá ACID si fa riferimento al rispetto dei vincoli d'integritá.
+    \item \textbf{Availability}: l'accesso ai dati é sempre garantito, non si ricevono mai messaggi d'errore, ma i dati restituiti non sono necessariamente
+    consistenti, ovvero potrebbero non coincidere con quelli utilizzati nell'ultima operazione di scrittura degli stessi.
+    \item \textbf{Partition Tolerance}: il sistema continua a funzionare nonostante alcuni messaggi vengano persi o subiscano rallentamenti
+    nelle comunicazioni tra i nodi della rete.
+\end{itemize}
+
+É un teorema che viene utilizzato per analizzare le dinamiche dei sistemi informativi che possiedono due o piú archivi di dati posti su
+nodi distinti della rete. Quindi rientra perfettamente in questa categoria Redis.\\
+
+Redis é un sistema \textbf{AP}, ovvero non fornisce una forte coerenza.
+\paragraph{Per quale motivo?\\}
+Quando Redis Master riceve una richiesta di scrittura da un cliente:
+\begin{enumerate}
+    \item Esegue la richiesta del cliente e manda un ack di conferma;
+    \item Redis Master replica la richiesta di scrittura su uno o piú slave.
+\end{enumerate}
+
+Redis Master non attende il completamento della replica sugli slave, ma esegue prima la richiesta del client.
+Se supponiamo che il guasto del Master avvenga prima del completamento della replica agli Slave avremo una perdita di coerenza.\\
+
+Potremmo pensare di migliorare la coerenza con la replica sincrona, forzando prima il Redis Master a replicare e poi mandare l'ack
+di conferma al client, ma questo riduce pesantemente le prestazioni di scrittura e comunque non si ha una garanzia di consistenza.
+Infatti, potrebbe verificarsi uno scenario in cui uno slave non ha ricevuto la scrittura e viene promosso a Master.
+
+
+\subsubsection{Redis Cluster}
+Uno dei piú grandi limiti di Redis, essendo un database in-memory, é la limitazione della memoria che un'istanza di Redis puó avere, in quanto
+tutto il set di dati archiviato non deve mai superare la dimensione massima.
+
+Vi é la possiblitá di dividere i dati in diverse istanze eseguite su piú server, in modo che ogni
+istanza contenga solo un sottoinsieme delle chiave; tutto questo avviene tramite l'operazione di
+\textbf{sharding}, ovvero il partizionamento orizzontale.
+
+Vi sono dei compromessi da considerare: suddividendo i dati in molte istanze, nasce il problema della
+ricerca delle chiavi, quindi i dati devono essere partizionati seguendo alcune regole coerenti.\\
+Sono possibili diverse implementazioni per il partizionamento dei dati:
+\begin{itemize}
+    \item \textbf{partizionamento lato client}: i client selezionano direttamente l'istanza corretta per
+    scrivere o leggere una determinata chiave;
+    \item \textbf{partizionamento assistito da proxy}: i client inviano le richieste a un proxy che supporta il protocollo Redis,
+    invece di inviare le richieste direttamente alle istanze Redis corrette. Il proxy si assicurerá di inoltrare le richieste
+    alle istanze corrette in base allo schema di partizionamento configurato e invierá le risposte ai client.
+    Il limite principale di questa implementazione é che il proxy puó diventare un "collo di bottiglia", poiché
+    tutte le richieste e risposte passano per esso.
+    \item \textbf{instradamento della query}: i client inviano la query a un'istanza Redis casuale e l'istanza si
+    assicurerá di inoltrare la query a quella corretta. Il client successivamente dovrá essere reindirizzato all'istanza corretta.
+\end{itemize}
+In realtá, Redis Cluster utilizza una \textbf{forma ibrida di instradamento della query}, in cui il nodo casuale che viene interrogato
+non inoltra la query al nodo corretto, ma reindirizza solo il client. I client alla fine ottengono una mappatura completa di quali nodi servono
+quali sottochiavi e possono contattare direttamente i nodi corretti.\\
+
+
+Lo sharding dei dati in molte istanze non risolve il problema della sicurezza dei dati e della ridondanza. Se una delle istanze muore
+a causa di un guasto hardware e non si hanno backup da cui ripristinare i dati, tutti i dati di quella istanza saranno persi.
+Per ridurre questo problema si potrebbero utilizzare diverse tecniche, come la replicazione su disco oppure l'architettura master-slave.\\
+Inoltre, le transazioni relative a piú chiavi distribuite su piú istanze non sono supportate, poiché richiederebbero lo spostamento
+dei dati tra diversi nodi, con conseguente calo delle prestazioni.\\
 
 
 
 
 
-%Le principali caratteristiche sono la velocitá e la struttura semplice dei database. Infatti, i dati vengono scritti direttamente sulla
-%memoria RAM del server e possono essere richiamati molto piú velocemente rispetto ad altri database.
+
+\includegraphics[width=1\textwidth]{img/cluster:master-slaveRedis}\\
+
+La figura sopra riportata mostra un sistema avanzato in cui si ha una combinazione di Redis Cluster e Redis Master-Slave.

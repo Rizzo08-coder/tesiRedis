@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.4.1)  8 SEP 2022 14:44
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.4.1)  8 SEP 2022 17:13
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -525,13 +525,8 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 ]
-LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 2
-3.
-
-(/usr/local/texlive/2021/texmf-dist/tex/latex/base/t1cmtt.fd
-File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
-) [2]
-<img/dbDocumentale.png, id=161, 640.3925pt x 191.71625pt>
+[2]
+<img/dbDocumentale.png, id=160, 640.3925pt x 191.71625pt>
 File: img/dbDocumentale.png Graphic file (type png)
 <use img/dbDocumentale.png>
 Package pdftex.def Info: img/dbDocumentale.png  used on input line 51.
@@ -541,7 +536,7 @@ Overfull \hbox (29.3747pt too wide) in paragraph at lines 51--52
 [][] 
  []
 
-<img/dbColumnOriented.jpg, id=162, 541.02126pt x 362.35374pt>
+<img/dbColumnOriented.jpg, id=161, 541.02126pt x 362.35374pt>
 File: img/dbColumnOriented.jpg Graphic file (type jpg)
 <use img/dbColumnOriented.jpg>
 Package pdftex.def Info: img/dbColumnOriented.jpg  used on input line 67.
@@ -550,7 +545,7 @@ Package pdftex.def Info: img/dbColumnOriented.jpg  used on input line 67.
 Underfull \vbox (badness 6978) has occurred while \output is active []
 
  [3 <./img/dbDocumentale.png>]
-<img/dbGrafo.png, id=169, 618.31pt x 437.635pt>
+<img/dbGrafo.png, id=168, 618.31pt x 437.635pt>
 File: img/dbGrafo.png Graphic file (type png)
 <use img/dbGrafo.png>
 Package pdftex.def Info: img/dbGrafo.png  used on input line 79.
@@ -588,12 +583,16 @@ Underfull \hbox (badness 10000) in paragraph at lines 25--29
 
  []
 
-<img/designAggregati.png, id=188, 1882.03125pt x 957.5775pt>
+<img/designAggregati.png, id=187, 1882.03125pt x 957.5775pt>
 File: img/designAggregati.png Graphic file (type png)
 <use img/designAggregati.png>
 Package pdftex.def Info: img/designAggregati.png  used on input line 53.
 (pdftex.def)             Requested size: 451.50616pt x 229.72101pt.
-
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 5
+9.
+(/usr/local/texlive/2021/texmf-dist/tex/latex/base/t1cmtt.fd
+File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
+)
 Overfull \hbox (39.12636pt too wide) in paragraph at lines 53--65
 [][]
  []
@@ -655,6 +654,11 @@ Package pdftex.def Info: img/implementazione.png  used on input line 133.
 
 Overfull \hbox (17.62482pt too wide) in paragraph at lines 133--134
 [][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 133--134
+
  []
 
 ) [13 <./img/implementazione.png>]
@@ -837,10 +841,65 @@ l.242     \begin{lstlisting}[autogobble]
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[22]) [23]
+[22]
+Underfull \hbox (badness 10000) in paragraph at lines 269--272
+
+ []
+
+<img/masterslaveRedis.png, id=322, 2291.56125pt x 1144.275pt>
+File: img/masterslaveRedis.png Graphic file (type png)
+<use img/masterslaveRedis.png>
+Package pdftex.def Info: img/masterslaveRedis.png  used on input line 273.
+(pdftex.def)             Requested size: 430.00462pt x 214.70818pt.
+
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 273--274
+[][] 
+ []
+
+
+Underfull \vbox (badness 2680) has occurred while \output is active []
+
+ [23]
+[24 <./img/masterslaveRedis.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 314--316
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 325--327
+
+ []
+
+[25]
+Underfull \hbox (badness 10000) in paragraph at lines 355--358
+
+ []
+
+[26]
+Underfull \hbox (badness 10000) in paragraph at lines 360--365
+
+ []
+
+<img/cluster:master-slaveRedis.png, id=350, 2007.5pt x 1171.37625pt>
+File: img/cluster:master-slaveRedis.png Graphic file (type png)
+<use img/cluster:master-slaveRedis.png>
+Package pdftex.def Info: img/cluster:master-slaveRedis.png  used on input line 
+371.
+(pdftex.def)             Requested size: 430.00462pt x 250.89368pt.
+
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 371--372
+[][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 371--372
+
+ []
+
+) [27 <./img/cluster:master-slaveRedis.png>]
 \openout2 = `chapter/chapter4.aux'.
 
- (./chapter/chapter4.tex [24
+ (./chapter/chapter4.tex [28
 
 
 
@@ -859,10 +918,10 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 1.
 
-) [25]
+) [29]
 \openout2 = `chapter/chapter5.aux'.
 
- (./chapter/chapter5.tex [26
+ (./chapter/chapter5.tex [30
 
 
 
@@ -879,14 +938,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 2--4
 
  []
 
-) [27] [28
+) [31] [32
 
 
 
 ]
 \openout2 = `chapter/bibliografia.aux'.
 
- (./chapter/bibliografia.tex) [29
+ (./chapter/bibliografia.tex) [33
 
 
 ]
@@ -901,13 +960,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 2--4
 (/Users/matteorizzo/IdeaProjects/tesiRedis/out/chapter/chapter5.aux)
 (/Users/matteorizzo/IdeaProjects/tesiRedis/out/chapter/bibliografia.aux))
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 62FDC3E601A74E6CC1DA323DFE681BAB;3696.
+(rerunfilecheck)             Checksum: 7F06C82FD88062B9BC91014DC7C53DCD;3689.
  ) 
 Here is how much of TeX's memory you used:
- 12060 strings out of 478994
- 177447 string characters out of 5858185
+ 12089 strings out of 478994
+ 178033 string characters out of 5858185
  744563 words of memory out of 5000000
- 29182 multiletter control sequences out of 15000+600000
+ 29196 multiletter control sequences out of 15000+600000
  430996 words of font info for 68 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  71i,7n,74p,382b,1899s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -932,11 +991,11 @@ m-super/sfss1728.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-
 super/sfti1200.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-su
 per/sftt0800.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-supe
 r/sftt1200.pfb>
-Output written on /Users/matteorizzo/IdeaProjects/tesiRedis/out/main.pdf (37 pa
-ges, 3114069 bytes).
+Output written on /Users/matteorizzo/IdeaProjects/tesiRedis/out/main.pdf (41 pa
+ges, 3454976 bytes).
 PDF statistics:
- 444 PDF objects out of 1000 (max. 8388607)
- 366 compressed objects within 4 object streams
- 117 named destinations out of 1000 (max. 500000)
- 198 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 475 PDF objects out of 1000 (max. 8388607)
+ 389 compressed objects within 4 object streams
+ 130 named destinations out of 1000 (max. 500000)
+ 208 words of extra memory for PDF output out of 10000 (max. 10000000)
 
