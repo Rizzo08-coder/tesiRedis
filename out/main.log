@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.4.1)  8 SEP 2022 17:13
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.4.1)  8 SEP 2022 17:34
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -846,11 +846,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 269--272
 
  []
 
-<img/masterslaveRedis.png, id=322, 2291.56125pt x 1144.275pt>
+<img/masterslaveRedis.png, id=322, 2186.1675pt x 1276.77pt>
 File: img/masterslaveRedis.png Graphic file (type png)
 <use img/masterslaveRedis.png>
 Package pdftex.def Info: img/masterslaveRedis.png  used on input line 273.
-(pdftex.def)             Requested size: 430.00462pt x 214.70818pt.
+(pdftex.def)             Requested size: 430.00462pt x 251.1219pt.
 
 Overfull \hbox (17.62482pt too wide) in paragraph at lines 273--274
 [][] 
@@ -992,7 +992,7 @@ super/sfti1200.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-su
 per/sftt0800.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-supe
 r/sftt1200.pfb>
 Output written on /Users/matteorizzo/IdeaProjects/tesiRedis/out/main.pdf (41 pa
-ges, 3454976 bytes).
+ges, 3509454 bytes).
 PDF statistics:
  475 PDF objects out of 1000 (max. 8388607)
  389 compressed objects within 4 object streams
