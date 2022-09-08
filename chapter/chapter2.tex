@@ -109,10 +109,11 @@ valore strutturato in modo complesso
 Nella figura \emph{EAV} si ha per ogni \texttt{blocco} piú \texttt{entry} in modo da avere valori atomici al suo interno
 \\
 \\
-Ovviamente queste due sono le rappresentazioni piú estreme che si possono ottenere.
+Ovviamente queste due sono le rappresentazioni piú estreme che si possono ottenere.\\
 É possibile adottare una strategia di rappresentazione intermedia, denominata \emph{Entry per Top level Field (ETF)}, in cui
 viene utilizzata una \texttt{entry} distinta per ogni campo di livello superiore, quindi si ha una sorta di struttura mista.
-\includegraphics[width=0.8\textwidth]{img/etf}
+
+\includegraphics[width=0.7\textwidth]{img/etf}
 
 Se dovessimo aver bisogno di una rappresentazione degli aggregati ancora piú flessibile é possibile effettuarne il \emph{partizionamento},
 ovvero si possono raggruppare \texttt{entry} che vengono accedute insieme, oppure separare certe \texttt{entry} per avere dei

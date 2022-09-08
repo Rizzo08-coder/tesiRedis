@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.4.1)  8 SEP 2022 14:35
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.4.1)  8 SEP 2022 14:44
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -624,13 +624,8 @@ File: img/eao.eav.png Graphic file (type png)
 <use img/eao.eav.png>
 Package pdftex.def Info: img/eao.eav.png  used on input line 105.
 (pdftex.def)             Requested size: 430.00462pt x 330.21674pt.
-<img/etf.png, id=201, 1409.265pt x 1475.5125pt>
-File: img/etf.png Graphic file (type png)
-<use img/etf.png>
-Package pdftex.def Info: img/etf.png  used on input line 115.
-(pdftex.def)             Requested size: 344.005pt x 360.16412pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 105--116
+Underfull \hbox (badness 10000) in paragraph at lines 105--115
 
  []
 
@@ -638,21 +633,27 @@ Underfull \hbox (badness 10000) in paragraph at lines 105--116
 Underfull \vbox (badness 1838) has occurred while \output is active []
 
  [10]
+<img/etf.png, id=205, 1409.265pt x 1475.5125pt>
+File: img/etf.png Graphic file (type png)
+<use img/etf.png>
+Package pdftex.def Info: img/etf.png  used on input line 116.
+(pdftex.def)             Requested size: 301.00192pt x 315.13516pt.
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [11 <./img/eao.eav.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 122--131
+Underfull \hbox (badness 10000) in paragraph at lines 123--132
 
  []
 
 [12 <./img/etf.png>]
-<img/implementazione.png, id=217, 785.93625pt x 462.72874pt>
+<img/implementazione.png, id=217, 2261.44875pt x 1282.7925pt>
 File: img/implementazione.png Graphic file (type png)
 <use img/implementazione.png>
-Package pdftex.def Info: img/implementazione.png  used on input line 132.
-(pdftex.def)             Requested size: 430.00462pt x 253.1742pt.
+Package pdftex.def Info: img/implementazione.png  used on input line 133.
+(pdftex.def)             Requested size: 430.00462pt x 243.90927pt.
 
-Overfull \hbox (17.62482pt too wide) in paragraph at lines 132--133
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 133--134
 [][] 
  []
 
@@ -932,7 +933,7 @@ super/sfti1200.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-su
 per/sftt0800.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-supe
 r/sftt1200.pfb>
 Output written on /Users/matteorizzo/IdeaProjects/tesiRedis/out/main.pdf (37 pa
-ges, 2588982 bytes).
+ges, 3114069 bytes).
 PDF statistics:
  444 PDF objects out of 1000 (max. 8388607)
  366 compressed objects within 4 object streams
