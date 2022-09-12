@@ -28,75 +28,82 @@ Sappiamo che il linguaggio SQL é diviso in due sezioni principali:
 
 Per quanto riguarda il Data Definition Language, a differenza di un database relazionale, non abbiamo la possibilitá di definire
 domini, tabelle, vincoli sulle strutture e cosí via; non avremo a disposizione nessuna operazione di questo tipo.\\
-In Redis, dovremo creare un legame tra chiave e valore, questo avviene al momento dell'aggiunta di una chiave; inoltre, il tipo del valore
-associato sará definito al momento dell'aggiunta di una chiave specifica.
+Redis essendo un key-value é composto da tuple, quindi, viene creato un legame tra chiave e valore al momento dell'aggiunta di una chiave; inoltre, il tipo del valore
+associato sará definito al momento dell'aggiunta.
 \section{Data Manipulation Language}
 Come nel linguaggio SQL si hanno delle operazioni di query, di modifica e addirittura anche comandi transazionali.
 
 \subsection{Comandi di Modifica}
 come in SQL i comandi di modifica sono quelle istruzioni che permettono:
 \begin{itemize}
-    \item inserimento
-    \item cancellazione
-    \item modifica dei valori associati a delle chiavi
+    \item inserimento;
+    \item cancellazione;
+    \item modifica dei valori associati a delle chiavi.\\
 \end{itemize}
 
 
-Come esempio di confronto adopero un database che rappresenta i profili di utenti,
-un utente sará composto da: nomeutente, nome, cognome, password, data di creazione
+Come esempio di confronto adoperiamo un database che rappresenta i profili di utenti.
+Un utente é composto da: nome utente, nome, cognome, password, data di creazione.\\
 
-Quindi in Redis avremo una chiave composta da un prefisso utente:nomeutente e il valore sará di tipo hash in cui saranno contenute le informazioni.
-Mentre in un database relazionale avremo una tupla composta da tutti gli attributi sopra definiti, la chiave primaria sará rappresentata dallo username; l'intera tupla rappresenterá l'utente.
+In Redis avremo una tupla cosí composta:\\
+\textbf{chiave} $\to$ \textbf{utente:}nomeutente\\
+\textbf{valore} $\to$ tipo \textbf{hash}, in cui saranno contenute le informazioni\\
+I comandi che verranno analizzati sono associati al tipo Hash, in quanto Redis dedica dei comandi specifici per ogni struttura dati.\\
 
-Un possibile inserimento SQL sará cosí eseguito (ovviamente dopo aver definito la struttura della tabella)
+Nel database relazionale avremo un record composto da tutti gli attributi sopra definiti, la chiave primaria sará rappresentata dallo username;\\
+
+L'\textbf{INSERIMENTO} di un record con linguaggio SQL viene eseguito in questo modo:
 \begin{lstlisting}[autogobble]
 INSERT INTO Utenti (username, nome, cognome, password, dataCreazione)
 VALUES ('matteo00', 'matteo', 'rizzo', 'mypsw', '12092020')\end{lstlisting}
 
 Analizziamo una possibile aggiunta in Redis:
-Se utilizziamo una HashMap come valore il comando di cui abbiamo bisogno é \texttt{HSET}, il quale viene utilizzato per aggiungere un nuovo record.
+Se utilizziamo una Hash come valore, il comando di cui abbiamo bisogno é \texttt{HSET}, il quale viene utilizzato per aggiungere una nuova tupla.
 \begin{lstlisting}[autogobble]
 >HSET utente:matteo00 nome matteo cognome rizzo password mypsw dataCreazione 12092020
 (integer) 4\end{lstlisting}
 
-Si puó notare che in Redis non si ha una struttura fissa della hash, ma siamo noi al momento della creazione a definire la composizione della hash,
-infatti potremo avere utenti con una hash non coerente alle altre, questo ha ovviamente i suoi vantaggi e svantaggi.\\
+Si puó notare che in Redis non abbiamo definito uno schema fisso della hash, ma siamo noi al momento della creazione della tupla a definire le chiavi e i valori che compongono la hash,
+infatti potremo avere utenti con una hash con schema non coerente alle altre, questo ha, ovviamente, i suoi vantaggi e svantaggi.\\
 
-Per la cancellazione di un record in SQL faremo:
+Per la \textbf{CANCELLAZIONE} di un record in SQL facciamo:
 \begin{lstlisting}[autogobble]
 DELETE FROM Utenti WHERE username = 'matteo00'\end{lstlisting}
 
-mentre in Redis dovremo eliminare una chiave, questo comando non dipende dal tipo di valore utilizzato, ma sará un comando comune
-a tutti i tipo, il comando si chiama \texttt{DEL}.
+Mentre in Redis dobbiamo eliminare una chiave; questo comando non dipende dal tipo di valore utilizzato, ma é un comando comune
+a tutti i tipi, il comando si chiama \texttt{DEL}.
 
 \begin{lstlisting}[autogobble]
 >DEL utente:matteo00
 (integer) 1\end{lstlisting}
 
 In Redis questo approccio é poco utilizzato, solitamente viene impostata una scadenza alle chiavi, ovvero dopo un certo periodo le chiavi vengono eliminate automaticamente.
-Per fare questo si utilizza il comando \texttt{EXPIRE}, in cui verrá passata la chiave a cui va impostata la scadenza e i secondi di durata.
+Per fare questo si utilizza il comando \texttt{EXPIRE}, in cui viene passato come parametro la chiave, a cui va impostata la scadenza definendola in secondi.
 \begin{lstlisting}[autogobble]
 >EXPIRE utente:matteo00 60
 (integer) 1\end{lstlisting}
-Il 60 indica i secondi di tempo dopo i quali la chiave deve essere cancellata.\\
+Il valore 60 indica i secondi di tempo dopo i quali la chiave deve essere cancellata.\\
+ \\
 
-Per modificare i valori degli attributi di uno o piú record tramite SQL:
+
+Per \textbf{MODIFICARE} i valori degli attributi di uno o piú record tramite SQL:
 \begin{lstlisting}[autogobble]
 UPDATE Utenti
 SET password = 'newpsw'
 WHERE username = 'matteo00'\end{lstlisting}
 
-In Redis non vi é un comando specifico per la modifica, ma verrá utilizzato \texttt{HSET} passando come parametri del comando
+In Redis non vi é un comando specifico per la modifica dei valori delle tuple, ma viene utilizzato \texttt{HSET} passando come parametri del comando
 i campi che vogliamo modificare con il loro nuovo valore:
 \begin{lstlisting}[autogobble]
 >HSET utente:matteo00 password newpsw
 (integer) 4\end{lstlisting}
+Cosí facendo abbiamo modificato il valore associato alla password di \texttt{utente:matteo00}, il valore passa da \texttt{"mypsw"} a \texttt{"newpsw"}.
 
 \subsection{Comandi di Query}
 In SQL le interrogazioni hanno una struttura \texttt{select-from-where}, che puó essere estesa in diversi modi. Sono comandi
 che possono anche avere una certa complessitá semantica, questo é dovuto principalmente dal fatto che si possono eseguire dei join
-tra diverse tabelle presenti nel database.
-Tutto questo non avviene in Redis, infatti le query di un database key-value non puó avere una complessitá paragonabile a quella SQL.
+tra diverse tabelle presenti nel database.\\
+Questo non avviene in Redis, infatti le interrogazioni di una base di dati chiave-valore non possono avere una complessitá paragonabile a quella SQL.\\
 
 Per fare una selezione di un record in SQL:
 \begin{lstlisting}[autogobble]
@@ -104,7 +111,8 @@ SELECT *
 FROM Utenti
 Where username = 'matteo00'\end{lstlisting}
 
-Mentre in Redis per la struttura hash viene messo a disposizione \texttt{HGETALL}, che ha il compito di mostrare il contenuto associato ad una certa chiave.
+Mentre in Redis per selezionare il valore di una certa tupla, nel caso in cui sia di tipo Hash, viene messo a disposizione \texttt{HGETALL}, che ha il compito di mostrare tutto
+il contenuto associato ad una certa chiave.
 \begin{lstlisting}[autogobble]
 > HGETALL utente:matteo00
 1) "nome"
@@ -117,7 +125,8 @@ Mentre in Redis per la struttura hash viene messo a disposizione \texttt{HGETALL
 8) "12092020"
 \end{lstlisting}
 
-Viene messo a disposizione il comando \texttt{HGET} per ottenere solo il valore di un campo tra quelli presenti nella hash, questo viene fatto per risparmiare operazioni al programmatore all'interno del proprio software.
+Inoltre, viene messo a disposizione il comando \texttt{HGET} per ottenere solo il valore di un campo tra quelli presenti nella Hash, questo viene fatto per permettere
+agli sviluppatori di risparmiare operazioni di trasformazione delle strutture all'interno del proprio software.
 \begin{lstlisting}[autogobble]
 > HGET utente:matteo00 nome
 "matteo"
