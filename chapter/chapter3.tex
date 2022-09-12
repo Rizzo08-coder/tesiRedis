@@ -88,7 +88,7 @@ sono 2: \texttt{LPUSH}: comando per inserire un singolo elemento nella lista; \t
 %\includegraphics[width=0.7\textwidth]{img/transazioneRedis}\\
 Si puó notare come l'inserimento di tutti i valori nella lista avvenga dopo il comando \texttt{EXEC}.\\
 
-Quindi, passando all'illustrazione delle proprietá ACID:
+\paragraph{Quali proprietá ACID implementa Redis?\\}
 \begin{itemize}
     \item \textbf{Atomicitá}: Redis puó avere due livelli di atomicitá:
       \begin{itemize}
@@ -100,7 +100,7 @@ Quindi, passando all'illustrazione delle proprietá ACID:
     Tutti i comandi in una transazione vengono serializzati ed eseguiti in sequenza. Una richiesta inviata da un altro client
     non sará mai soddisfatta nel bel mezzo dell'esecuzione di una transazione. Ció garantisce che i comandi vengano eseguiti
     come un'unica operazione isolata.\\
-    Inoltre, vi é un meccanismo che riesce a fornire delle garanzie aggiuntive, in cui viene fatta una sorta di operazione
+    Se vogliamo avere un isolamento multi-transazionale, vi é un meccanismo che riesce a fornire delle garanzie, in cui viene fatta una sorta di operazione
     di check-and-set.
     Questo meccanisco utilizza il comando \texttt{WATCH} definito precedentemente.
     Le chiavi, su cui viene definito watch, vengono continuamente monitorate per eventuali modifiche; se anche una sola chiave monitorata

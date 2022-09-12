@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.4.1)  12 SEP 2022 16:55
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.4.1)  12 SEP 2022 16:59
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -841,7 +841,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 271--274
 
  []
 
-<img/masterslaveRedis.png, id=342, 2186.1675pt x 1276.77pt>
+<img/masterslaveRedis.png, id=343, 2186.1675pt x 1276.77pt>
 File: img/masterslaveRedis.png Graphic file (type png)
 <use img/masterslaveRedis.png>
 Package pdftex.def Info: img/masterslaveRedis.png  used on input line 275.
@@ -871,7 +871,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 362--367
 
  []
 
-<img/cluster:master-slaveRedis.png, id=370, 2007.5pt x 1171.37625pt>
+<img/cluster:master-slaveRedis.png, id=371, 2007.5pt x 1171.37625pt>
 File: img/cluster:master-slaveRedis.png Graphic file (type png)
 <use img/cluster:master-slaveRedis.png>
 Package pdftex.def Info: img/cluster:master-slaveRedis.png  used on input line 
@@ -1109,11 +1109,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 2--4
 (/Users/matteorizzo/IdeaProjects/tesiRedis/out/chapter/chapter5.aux)
 (/Users/matteorizzo/IdeaProjects/tesiRedis/out/chapter/bibliografia.aux))
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 139265469D697017AEF6A61F5A3F11D0;4324.
+(rerunfilecheck)             Checksum: A3E23DBD2881F8D29DA489481762DB6B;4324.
  ) 
 Here is how much of TeX's memory you used:
- 12173 strings out of 478994
- 179149 string characters out of 5858185
+ 12174 strings out of 478994
+ 179160 string characters out of 5858185
  747563 words of memory out of 5000000
  29227 multiletter control sequences out of 15000+600000
  430996 words of font info for 68 fonts, out of 8000000 for 9000
@@ -1141,10 +1141,10 @@ super/sfti1200.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-su
 per/sftt0800.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-supe
 r/sftt1200.pfb>
 Output written on /Users/matteorizzo/IdeaProjects/tesiRedis/out/main.pdf (45 pa
-ges, 3522918 bytes).
+ges, 3522940 bytes).
 PDF statistics:
- 569 PDF objects out of 1000 (max. 8388607)
- 478 compressed objects within 5 object streams
- 183 named destinations out of 1000 (max. 500000)
+ 570 PDF objects out of 1000 (max. 8388607)
+ 479 compressed objects within 5 object streams
+ 184 named destinations out of 1000 (max. 500000)
  240 words of extra memory for PDF output out of 10000 (max. 10000000)
 
