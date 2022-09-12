@@ -27,5 +27,10 @@
 \contentsline {paragraph}{Per quale motivo?\\}{25}{section*.12}%
 \contentsline {subsubsection}{Redis Cluster}{26}{section*.13}%
 \contentsline {chapter}{\numberline {4}Interrogazioni SQL $\to $ \emph {Key-Value}}{29}{chapter.4}%
-\contentsline {chapter}{\numberline {5}Caso Concreto - IoT sensore Temperatura}{31}{chapter.5}%
-\contentsline {chapter}{Bibliografia}{33}{chapter*.14}%
+\contentsline {paragraph}{Nei NoSQL vi é un linguaggio standard da adoperare?\\}{29}{section*.14}%
+\contentsline {section}{\numberline {4.1}Data Manipulation Language}{30}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Comandi di Modifica}{30}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Comandi di Query}{32}{subsection.4.1.2}%
+\contentsline {section}{\numberline {4.2}Store procedure}{33}{section.4.2}%
+\contentsline {chapter}{\numberline {5}Caso Concreto - IoT sensore Temperatura}{35}{chapter.5}%
+\contentsline {chapter}{Bibliografia}{37}{chapter*.15}%
