@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.4.1)  8 SEP 2022 17:34
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.4.1)  12 SEP 2022 14:41
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -842,41 +842,37 @@ Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 [22]
-Underfull \hbox (badness 10000) in paragraph at lines 269--272
+Underfull \hbox (badness 10000) in paragraph at lines 273--276
 
  []
 
 <img/masterslaveRedis.png, id=322, 2186.1675pt x 1276.77pt>
 File: img/masterslaveRedis.png Graphic file (type png)
 <use img/masterslaveRedis.png>
-Package pdftex.def Info: img/masterslaveRedis.png  used on input line 273.
+Package pdftex.def Info: img/masterslaveRedis.png  used on input line 277.
 (pdftex.def)             Requested size: 430.00462pt x 251.1219pt.
 
-Overfull \hbox (17.62482pt too wide) in paragraph at lines 273--274
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 277--278
 [][] 
  []
 
-
-Underfull \vbox (badness 2680) has occurred while \output is active []
-
- [23]
-[24 <./img/masterslaveRedis.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 314--316
+[23] [24 <./img/masterslaveRedis.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 318--320
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 325--327
+Underfull \hbox (badness 10000) in paragraph at lines 329--331
 
  []
 
 [25]
-Underfull \hbox (badness 10000) in paragraph at lines 355--358
+Underfull \hbox (badness 10000) in paragraph at lines 359--362
 
  []
 
 [26]
-Underfull \hbox (badness 10000) in paragraph at lines 360--365
+Underfull \hbox (badness 10000) in paragraph at lines 364--369
 
  []
 
@@ -884,15 +880,15 @@ Underfull \hbox (badness 10000) in paragraph at lines 360--365
 File: img/cluster:master-slaveRedis.png Graphic file (type png)
 <use img/cluster:master-slaveRedis.png>
 Package pdftex.def Info: img/cluster:master-slaveRedis.png  used on input line 
-371.
+375.
 (pdftex.def)             Requested size: 430.00462pt x 250.89368pt.
 
-Overfull \hbox (17.62482pt too wide) in paragraph at lines 371--372
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 375--376
 [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 371--372
+Underfull \hbox (badness 10000) in paragraph at lines 375--376
 
  []
 
@@ -992,7 +988,7 @@ super/sfti1200.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-su
 per/sftt0800.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-supe
 r/sftt1200.pfb>
 Output written on /Users/matteorizzo/IdeaProjects/tesiRedis/out/main.pdf (41 pa
-ges, 3509454 bytes).
+ges, 3509697 bytes).
 PDF statistics:
  475 PDF objects out of 1000 (max. 8388607)
  389 compressed objects within 4 object streams
