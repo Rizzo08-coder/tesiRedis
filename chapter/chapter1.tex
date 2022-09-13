@@ -20,19 +20,31 @@ dimensioni.
 I database NoSQL sono una soluzione ideale per molte applicazioni moderne, quali dispositivi mobili, Web e videogiochi
 che richiedono strutture dati flessibili, scalabili, con prestazioni elevate ed altamente funzionali.
 \begin{itemize}
-    \item \textbf{Flessibilitá}: vengono offerti schemi flessibile che consentono uno sviluppo piú veloce. Quindi é una soluzione ideale
+    \item \textbf{Schemaless}: vengono offerti schemi flessibile che consentono uno sviluppo piú veloce. Quindi é una soluzione ideale
     per i dati semi-strutturati e non strutturati. É possibile arricchire le applicazioni di nuovi dati e informazioni
-    senza dover sottostare ad una rigida struttura dei dati;
+    senza dover sottostare ad una rigida struttura;
     \item \textbf{Scalabilitá}: grazie alla semplicitá vi é la possibilitá di \emph{scalare in orizzontale} in maniera estremamente
     efficiente. Infatti, si predilige l'utilizzo di cluster con molti nodi distribuiti, rispetto all'utilizzo di server centralizzati.
     Inoltre, vi é la possibilitá di aggiungere nodi a caldo in maniera completamente trasparente per l'utente finale;
     \item \textbf{Elevate Prestazioni}: grazie alla mancanza di operazioni di aggregazione dei dati("join") ed anche grazie
-    all'introduzione di semplificazioni, come il mancato supporto delle transazioni ACID, si ha una elevata velocitá computazionale.
-    \item \textbf{Altamente funzionali}: non vi é piú un linguaggio generale (SQL) come nei database relazionali, ma vi sono
-    API in base al database specifico che si va ad utilizzare.
+    all'introduzione di semplificazioni, come il mancato supporto delle transazioni ACID, si ha una elevata velocitá computazionale;
+    \item \textbf{Riduzione dei tempi di sviluppo}: grazie alla definizione di logiche di lettura dati molto piú semplici rispetto a quelle da scrivere con
+    database relazionali.
 \end{itemize}
 
 \section{Limiti dei \emph{NoSQL}}
+La semplicitá di questi database comporta anche degli svantaggi:
+\begin{itemize}
+    \item \textbf{Integritá:} mancando i controlli fondamentali sull'integritá dei dati, il compito ricade totalmente sull'applicativo che dialoga con il database;
+    \item \textbf{Scrittura}: problema strettamente collegato all'integritá, poiché ogni volta che si deve aggiornare un dato ridondato in piú entitá diventa
+    necessario aggiornare il dato su tutte le entitá in cui é stato duplicato; questo di fatto tende ad aumentare i tempi di sviluppo, anche se le operazioni
+    di lettura sono notevolmente semplificate;
+    \item \textbf{Standard universale}: ogni database ha il proprio metodo di storing ed accesso ai dati, in quanto vi é una mancanza di uno standard
+    universale come SQL. Quindi, il passaggio da un database ad un altro puó richiedere alcuni cambi piú o meno radicali da apportare all'applicativo;
+    \item \textbf{Espressivitá}: problema legato ai linguaggi di interrogazione, infatti risulta essere meno espressivo rispetto al SQL nella grande maggioranza dei
+    casi, portando ad una maggiore difficoltá di correzione massiva (data fixing), report ed export dei dati.
+
+\end{itemize}
 
 \section{Tipologie di \emph{NoSQL}}
 Tipologie principali di database \emph{NoSQL}:

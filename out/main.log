@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.4.1)  13 SEP 2022 16:28
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.4.1)  13 SEP 2022 16:54
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -529,35 +529,28 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 <img/dbDocumentale.png, id=180, 640.3925pt x 191.71625pt>
 File: img/dbDocumentale.png Graphic file (type png)
 <use img/dbDocumentale.png>
-Package pdftex.def Info: img/dbDocumentale.png  used on input line 51.
+Package pdftex.def Info: img/dbDocumentale.png  used on input line 63.
 (pdftex.def)             Requested size: 430.00462pt x 128.73297pt.
 
-Overfull \hbox (29.3747pt too wide) in paragraph at lines 51--52
+Overfull \hbox (29.3747pt too wide) in paragraph at lines 63--64
 [][] 
  []
 
-<img/dbColumnOriented.jpg, id=181, 541.02126pt x 362.35374pt>
+[3 <./img/dbDocumentale.png>]
+<img/dbColumnOriented.jpg, id=186, 541.02126pt x 362.35374pt>
 File: img/dbColumnOriented.jpg Graphic file (type jpg)
 <use img/dbColumnOriented.jpg>
-Package pdftex.def Info: img/dbColumnOriented.jpg  used on input line 67.
+Package pdftex.def Info: img/dbColumnOriented.jpg  used on input line 79.
 (pdftex.def)             Requested size: 344.005pt x 230.40723pt.
-
-Underfull \vbox (badness 6978) has occurred while \output is active []
-
- [3 <./img/dbDocumentale.png>]
 <img/dbGrafo.png, id=187, 618.31pt x 437.635pt>
 File: img/dbGrafo.png Graphic file (type png)
 <use img/dbGrafo.png>
-Package pdftex.def Info: img/dbGrafo.png  used on input line 79.
+Package pdftex.def Info: img/dbGrafo.png  used on input line 91.
 (pdftex.def)             Requested size: 344.005pt x 243.49129pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
  [4 <./img/dbColumnOriented.jpg>]) [5 <./img/dbGrafo.png>]
 \openout2 = `chapter/chapter2.aux'.
 
- (./chapter/chapter2.tex
-[6
+ (./chapter/chapter2.tex [6
 
 
 
@@ -1197,7 +1190,7 @@ ic/cm-super/sfss1728.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public
 m-super/sftt0800.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-
 super/sftt1200.pfb>
 Output written on /Users/matteorizzo/IdeaProjects/tesiRedis/out/main.pdf (45 pa
-ges, 3474590 bytes).
+ges, 3475538 bytes).
 PDF statistics:
  573 PDF objects out of 1000 (max. 8388607)
  484 compressed objects within 5 object streams
