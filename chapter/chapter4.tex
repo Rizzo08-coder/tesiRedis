@@ -1,4 +1,4 @@
-\chapter{Interrogazioni SQL $\to$ \emph{Key-Value}}
+\chapter{Interrogazioni Redis}
 Le capacitá piú essenziali per il lavoro su database sono saperli popolare di informazioni in modo coerente e interrogare in modo
 intelligente, per ricavare l'informazione che si sta cercando in mezzo a volumi di dati che possono essere immensi.
 Quindi, per raggiungere questo obiettivo adoperiamo un linguaggio per l'interrogazione dei database, il quale serve per formulare delle
@@ -6,8 +6,8 @@ query, in modo adeguato alla struttura delle informazioni.
 Nei database di tipo relazionale é presente il linguaggio SQL (Structured Query Language), il quale é comune a tutti i dbms di questo tipo, quindi
 é diventato negli anni un vero e proprio standard.
 
-\paragraph{Nei NoSQL vi é un linguaggio standard da adoperare?\\}
-i noSQL si caratterizzano proprio da schemi non fissi, che possono variare in modo dinamico e, soprattutto, non vi sono vincoli referenziali che possono associare
+\paragraph{nei NoSQL vi é un linguaggio standard da adoperare?\\}
+i NoSQL, di conseguenza anche Redis, si caratterizzano proprio da schemi non fissi, che possono variare in modo dinamico e, soprattutto, non vi sono vincoli referenziali che possono associare
 diverse tabelle all'interno del database (quindi non vi sono operazioni di join).
 Per memorizzare e ricavare dati, i quali possono essere strutturati, semi-strutturati, non strutturati e polimorfici, un dbms noSQL utilizza un'ampia gamma di
 tecnologie proprietarie in grado di fare questo. Quindi, é compito del produttore del dbms di dover mettere a disposizione un insieme di comandi che permettano di sfruttare pienamente le potenzialitá del NoSQL da lui fornito.
@@ -145,7 +145,40 @@ Comando che viene ampiamente utilizzato perché é possibile filtrare su chiavi 
 Per quanto riguarda i comandi transazionali, sono giá stati definiti nel capitolo precedente nella sezione del confronto con le proprietá ACID.
 
 \section{Store procedure}
+In SQL vi é la possibilitá di definire procedure che vengono memorizzate nella base di dati come parte dello schema ed eseguite dal dbms,
+ovvero con una modalitá opposta rispetto all'esecuzione dei client. Queste procedure svolgono una specifica attivitá di manipolazione dei dati.\\
+Anche Redis offre un meccanismo analogo: viene consentito ai client di caricare ed eseguire script lato server.
+Il vantaggio é la grande efficienza che si ottiene nella lettura e scrittura dei dati poché gli script
+memorizzati sono eseguiti completamente server-side.
+É garantita l'esecuzione atomica dello script e durante la sua esecuzione tutte le attivitá del server vengono bloccate.
+É supportato un unico motore di scripting, ovvero l'interprete \texttt{LUA}, che é un particolare linguaggio di scripting.
+
+Ci sono diverse modalitá lato client per invocare/caricare gli script:
+\begin{itemize}
+    \item Il comando \texttt{EVAL} serve per eseguire direttamente uno script; vanno forniti diversi argomenti:\\
+    Il primo argomento é una stringa che consiste nel codice sorgente LUA vero e proprio;\\
+    il secondo argomento indica il numero di chiavi che verranno passate nei parametri successivi (quindi é un numero);\\
+    a partire dal terzo argomento si indicano i nomi delle chiavi di Redis.\\
+      \\
 
 
+    Un esempio di codice puó essere il seguente:
+    \begin{lstlisting}[autogobble]
+> EVAL "return {KEYS[1], KEYS[2]}" 2 key1 key2
+1) "key1"
+2) "key2"\end{lstlisting}
+    Con questo comando eseguiamo gli script dinamicamente, perché stiamo appunto generando lo script durante il runtime dell'applicazione.
+    \item É possibile caricare uno script nella cache del server Redis tramite il comando \texttt{SCRIPT LOAD} e fornendo il suo codice
+    sorgente; in questo modo il server non esegue lo script, ma lo compila e lo carica nella sua cache e restituisce al client un codice, chiamato
+    \textbf{SHA1 digest}, che punta direttamente allo script. Successivamente lo script viene eseguito invocando il comando \texttt{EVALSHA} e passandogli come
+    primo argomento il SHA1 digest generato in precedenza e partendo dal secondo argomento si ripetono quelli di \texttt{EVAL}.
 
-%é un vero e proprio linguaggio strutturato come sql?
+    \begin{lstlisting}[autogobble]
+> SCRIPT LOAD "return 'example of script load!'"
+"c664a3bf70bd1d45c4284ffebb65a6f2299bfc9f"  \\SHA1 digest
+>EVALSHA "c664a3bf70bd1d45c4284ffebb65a6f2299bfc9f" 0
+"example of script load!"\end{lstlisting}
+\end{itemize}
+
+La cache degli script Redis é sempre volatile, non é considerato come parte del database e non é persistente, quindi gli script memorizzati
+sono temporanei e il contenuto della cache puó essere perso in qualsiasi momento.
