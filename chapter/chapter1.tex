@@ -7,7 +7,7 @@ Infatti ogni elemento viene archiviato singolarmente con una chiave univoca, e l
 Questa impostazione fornisce un approccio molto piú flessibile alla memorizzazione dei dati rispetto a un database
 relazionale, un controllo migliore e una maggiore semplicitá nelle applicazioni.
 
-\section{Perche é nato \emph{NoSQL}?}
+\section{Perche é nato?}
 A partire dagli anni 2000 si é passati da un modello in cui le persone principali dell'IT erano sistemisti ad un modello
 in cui le persone principali sono diventate gli sviluppatori. Tale passaggio ha comportato la nascita di database NoSQL
 che sono fortemente orientati agli sviluppatori ed allo sviluppo Agile.
@@ -16,9 +16,11 @@ semistrutturati, polimorfici..) che non permettevano di definire un modello rela
 diventati estremamente popolari perché permettono di lavorare principalmente con dati non strutturati anche di enormi
 dimensioni.
 
-\section{Perché dovrei utilizzare un database \emph{NoSQL}?}
+\section{Perché utilizzare un database \emph{NoSQL}?}
 I database NoSQL sono una soluzione ideale per molte applicazioni moderne, quali dispositivi mobili, Web e videogiochi
 che richiedono strutture dati flessibili, scalabili, con prestazioni elevate ed altamente funzionali.
+\subsection{Vantaggi}
+I principali vantaggi sono:
 \begin{itemize}
     \item \textbf{Schemaless}: vengono offerti schemi flessibile che consentono uno sviluppo piú veloce. Quindi é una soluzione ideale
     per i dati semi-strutturati e non strutturati. É possibile arricchire le applicazioni di nuovi dati e informazioni
@@ -32,16 +34,16 @@ che richiedono strutture dati flessibili, scalabili, con prestazioni elevate ed 
     database relazionali.
 \end{itemize}
 
-\section{Limiti dei \emph{NoSQL}}
+\subsection{Limiti}
 La semplicitá di questi database comporta anche degli svantaggi:
 \begin{itemize}
     \item \textbf{Integritá:} mancando i controlli fondamentali sull'integritá dei dati, il compito ricade totalmente sull'applicativo che dialoga con il database;
     \item \textbf{Scrittura}: problema strettamente collegato all'integritá, poiché ogni volta che si deve aggiornare un dato ridondato in piú entitá diventa
     necessario aggiornare il dato su tutte le entitá in cui é stato duplicato; questo di fatto tende ad aumentare i tempi di sviluppo, anche se le operazioni
     di lettura sono notevolmente semplificate;
-    \item \textbf{Standard universale}: ogni database ha il proprio metodo di storing ed accesso ai dati, in quanto vi é una mancanza di uno standard
+    \item \textbf{Standard universale}: ogni database ha il proprio metodo di storing ed accesso ai dati, ne deriva che vi é una mancanza di uno standard
     universale come SQL. Quindi, il passaggio da un database ad un altro puó richiedere alcuni cambi piú o meno radicali da apportare all'applicativo;
-    \item \textbf{Espressivitá}: problema legato ai linguaggi di interrogazione, infatti risulta essere meno espressivo rispetto al SQL nella grande maggioranza dei
+    \item \textbf{Espressivitá}: problema legato ai linguaggi di interrogazione, infatti risulta essere meno espressivo rispetto a SQL nella grande maggioranza dei
     casi, portando ad una maggiore difficoltá di correzione massiva (data fixing), report ed export dei dati.
 
 \end{itemize}
