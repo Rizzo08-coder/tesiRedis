@@ -36,6 +36,7 @@
 \contentsline {section}{\numberline {4.2}Store procedure}{33}{section.4.2}%
 \contentsline {chapter}{\numberline {5}Caso Concreto - IoT sensore Temperatura}{35}{chapter.5}%
 \contentsline {paragraph}{Cos'é l'IoT?\\}{35}{section*.16}%
-\contentsline {section}{\numberline {5.1}Arduino e DHT11}{35}{section.5.1}%
-\contentsline {paragraph}{Sketch Arduino\\}{36}{section*.17}%
+\contentsline {section}{\numberline {5.1}Scelte di progetto}{35}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Arduino e DHT11}{37}{section.5.2}%
+\contentsline {paragraph}{Sketch Arduino\\}{38}{section*.17}%
 \contentsline {chapter}{Bibliografia}{39}{chapter*.18}%

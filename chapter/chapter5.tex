@@ -14,25 +14,42 @@ In questo capitolo verrá analizzata una possibile applicazione in ambito indust
 verrá utilizzato un sensore di temperatura e umiditá che preleva delle informazioni ad intervalli regolari e
 sfrutteremo Redis per la persistenza e l'organizzazione dei dati e l'elaborazione di essi.
 
-\section{Arduino e DHT11}
-Innanzitutto, il materiale necessario per questo progetto é:
-\begin{itemize}
-    \item Un microcontrollore compatibile con l'ambiente di sviluppo arduino e possibilmente con Wi-Fi integrato,
-          nel nostro caso utilizziamo un ESP32.
-    \item un sensore digitale di temperatura e umiditá dell'aria, utilizziamo un DHT11: costituito da una parte resistiva
-    che si occupa della rilevazione dell'umiditá e da un NTC che rileva la temperatura, queste due parti sono gestite
-    da un microcontrollore che é parte integrante del sensore.
-\end{itemize}
+\section{Scelte di progetto}
+Per questo tipo di applicazione non si necessita di una fase di progettazione, in quanto
+nell'ambito che stiamo discutendo abbiamo una mole di dati elevati ma semplici.
+Peró, Prima di sviluppare lo sketch vero e proprio dobbiamo decidere che strutture dati messe a disposizione si adattano
+maggiormente al nostro caso d'uso.
+Possono esserci diversi tipi di implementazione; approfondiamo due modalitá potenzialmente utilizzabili:
+una per casi piú semplificati ed una per casi piú avanzati (in cui si potrebbe sfruttare anche una rete di sensori).
 
-Dopo che abbiamo collegato il tutto e verificato che il sensore funzioni correttamente, ovvero che mandi dei dati
-coerenti all'ESP32 possiamo cominciare a sviluppare il progetto.
+Queste modalitá dipendono direttamente dalla struttura dati che intendiamo utilizzare in Redis per salvare i valori;
+i due approcci in questione sono:
+\begin{enumerate}
+    \item metodo semplificato, dove ogni valore prelevato dal sensore lo memorizziamo in Redis con il tipo stringa,
+    quindi avremo una tupla che viene generata per ogni prelevamento ad intervalli regolari, e sará cosí composta:\\
+    key -> \textbf{nameSensor.time}\\
+    value -> \textbf{sensor.value} \\
+    Un esempio possibile quindi:\\
+    sensorTemp.11:23:49 $\to$ 27.8
+    \item metodo avanzato, dove viene utilizza una struttura piú complicata, non presente nelle strutture dati di base di Redis,
+    chiamata \texttt{RedisTimeSeries}, é un modulo aggiuntivo che é stato fatto su misura per questo tipo di applicazioni.
+    Permette un alto volume di inserimenti di valori con letture a bassa latenza. Puó essere vista come una SortedSet che associa
+    ad ogni valore inserito un timestamp come score.\\
+    Infatti sará fatto in questo modo:\\
+    si crea una serie temporale il cui nome sará quello del sensore e all'interno della serie temporale verranno aggiunti i valori
+    prelevati a intervalli temporali, e questi valori verranno associati al timestamp che corrisponde
+    al momento in cui vengono inseriti.
 
-\paragraph{Sketch Arduino\\}
-Dobbiamo sviluppare lo sketch che comunica con Redis Server e manda dati ad intervalli regolari.
+    \includegraphics[width=0.7\textwidth]{img/redistimeseries}
+\end{enumerate}
+
+\\
+
+Prima dello sviluppo vero e proprio dello sketch necessitiamo di un ultimo passaggio, ovvero apportare dei cambiamenti al file di configurazione del server Redis
 Per fare questo vi é una libreria, chiamata \texttt{Redis.h} la quale permette di comunicare con il database Redis.
 Eseguiamo una connessione sulla rete Locale sfruttando il modulo WiFi di ESP32.
 
-Per fare questo prima di sviluppare lo sketch dobbiamo apportare dei cambiamenti al file di configurazione del server,
+
 in quanto con la configurazione standard il server comunica solo su \texttt{localhost}(127.0.0.1).
 Dobbiamo aggiungere un parametro per fare in modo che il server sia raggiungibile sulla rete locale aggiungendo indirizzo IP
 privato della macchina sulla quale viene eseguito il processo \texttt{redis-server}.
@@ -47,10 +64,31 @@ bind  127.0.0.1  192.168.178.25
 
 requirepass "admin"\end{lstlisting}
 
- \\
+\\
 
-Inizialmente dobbiamo sviluppare nello sketch la connessione con WiFi e, soprattutto, con il Server Redis.
-Tutto questo avviene nel \texttt{setup()} perché deve essere eseguito solo all'accensione del nostro microcontrollore:
+Per quanto riguarda la persistenza nei file di configurazione, possiamo lasciare quella base, che é una RDB.
+Per queste applicazioni non é necessario avere un massimo livello di persistenza.
+
+\section{Arduino e DHT11}
+Dopo aver fatto le considerazioni precedenti possiamo passare allo sviluppo dello sketch vero e proprio, che avrá il compito
+di inviare dati/informazioni al nostro database.
+Il materiale necessario per questo progetto é:
+\begin{itemize}
+    \item Un microcontrollore compatibile con l'ambiente di sviluppo arduino e, possibilmente, con WiFi integrato,
+          nel nostro caso utilizziamo un ESP32.
+    \item un sensore digitale di temperatura e umiditá dell'aria, utilizziamo un DHT11: costituito da una parte resistiva
+    che si occupa della rilevazione dell'umiditá e da un NTC che rileva la temperatura, queste due parti sono gestite
+    da un microcontrollore che é parte integrante del sensore.
+\end{itemize}
+
+Dopo che abbiamo collegato il tutto e verificato che il sensore funzioni correttamente, ovvero che mandi dei dati
+coerenti all'ESP32 possiamo cominciare a sviluppare il progetto.
+
+\paragraph{Sketch Arduino\\}
+Per comunicare ed inviare dati a Redis vi é una libreria apposita, sviluppata proprio per l'ambiente Arduino, chiamata \texttt{Redis.h},
+la quale permette di comunicare con il \texttt{redis-server}.\\
+Colleghiamoci come client alla rete Locale, grazie al modulo WiFi di ESP32, sfruttando la libreria \texttt{WiFi.h}.\\
+Nel metodo di \texttt{setup()}, che é il metodo che viene eseguito solo alla prima esecuzione dello sketch, andiamo a creare una connessione alla rete Locale tramite WiFi e, soprattutto, con il \texttt{server-redis}.
 \begin{lstlisting}[autogobble]
 #define WIFI_SSID "wifi-name"
 #define WIFI_PSW "wifi-psw"
@@ -91,33 +129,10 @@ passando indirizzo Ip e Porta che individuano il processo \texttt{redis-server},
 \texttt{redis.authenticate(...)}. Se tutto viene eseguito correttamente abbiamo il nostro \texttt{redis-client} che puó
 comunicare.
 
+
+%cominciare a parlare del loop()
 Adesso bisogna passare all'invio dei dati al server: ovvero mandare i dati a Redis.
-Per questo tipo di applicazione non si necessita di una fase di progettazione, in quanto
-nell'ambito che stiamo discutendo abbiamo una mole di dati elevati ma semplici.
-Nonostante ció, possono esserci diversi tipi di implementazione.
-Ho individuato due modalitá, una per casi piú semplificati ed una per casi piú avanzati in cui si potrebbe disporre
-anche di una rete di sensori.
 
-Queste modalitá dipendono direttamente dalla struttura dati che intendiamo utilizzare in Redis per salvare i valori;
-i due approcci in questione sono:
-\begin{enumerate}
-    \item metodo semplificato, dove ogni valore prelevato dal sensore lo memorizziamo in Redis con il tipo stringa,
-          quindi avremo una tupla che viene generata per ogni prelevamento ad intervalli regolari, e sará cosí composta:\\
-          key -> \textbf{nameSensor.time}\\
-          value -> \textbf{sensor.value} \\
-          Un esempio possibile quindi:\\
-          sensorTemp.11:23:49 $\to$ 27.8
-    \item metodo avanzato, dove viene utilizza una struttura piú complicata, non presente nelle strutture dati di base di Redis,
-          chiamata \texttt{RedisTimeSeries}, é un modulo aggiuntivo che é stato fatto su misura per questo tipo di applicazioni.
-          Permette un alto volume di inserimenti di valori con letture a bassa latenza. Puó essere vista come una SortedSet che associa
-          ad ogni valore inserito un timestamp come score.\\
-          Infatti sará fatto in questo modo:\\
-          si crea una serie temporale il cui nome sará quello del sensore e all'interno della serie temporale verranno aggiunti i valori
-          prelevati a intervalli temporali, e questi valori verranno associati al timestamp che corrisponde
-          al momento in cui vengono inseriti.
-
-     \includegraphics[width=0.7\textwidth]{img/redistimeseries}
-\end{enumerate}
 
 
 
