@@ -34,10 +34,10 @@
 \contentsline {subsection}{\numberline {4.1.1}Comandi di Modifica}{30}{subsection.4.1.1}%
 \contentsline {subsection}{\numberline {4.1.2}Comandi di Query}{32}{subsection.4.1.2}%
 \contentsline {section}{\numberline {4.2}Store procedure}{33}{section.4.2}%
-\contentsline {chapter}{\numberline {5}Caso Concreto - IoT sensore Temperatura}{35}{chapter.5}%
+\contentsline {chapter}{\numberline {5}Caso reale nell'IoT}{35}{chapter.5}%
 \contentsline {paragraph}{Cos'é l'IoT?\\}{35}{section*.16}%
-\contentsline {section}{\numberline {5.1}Scelte di progetto}{35}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Arduino e DHT11}{37}{section.5.2}%
+\contentsline {section}{\numberline {5.1}Scelte progettuali}{35}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Sketch Arduino}{37}{section.5.2}%
 \contentsline {subsection}{\numberline {5.2.1}Connessione con Redis}{38}{subsection.5.2.1}%
 \contentsline {subsection}{\numberline {5.2.2}NTP}{39}{subsection.5.2.2}%
 \contentsline {paragraph}{Come facciamo a ricavare l'ora attuale?\\}{39}{section*.17}%

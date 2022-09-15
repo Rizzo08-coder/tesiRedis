@@ -1,4 +1,4 @@
-\chapter{Caso Concreto - IoT sensore Temperatura}
+\chapter{Caso reale nell'IoT}
 %correggere introduzione
 Uno degli ambiti in cui viene maggiormente sfruttato Redis é quello IoT.
 \paragraph{Cos'é l'IoT?\\}
@@ -14,7 +14,7 @@ In questo capitolo verrá analizzata una possibile applicazione in ambito indust
 verrá utilizzato un sensore di temperatura e umiditá che preleva delle informazioni ad intervalli regolari e
 sfrutteremo Redis per la persistenza e l'organizzazione dei dati e l'elaborazione di essi.
 
-\section{Scelte di progetto}
+\section{Scelte progettuali}
 Per questo tipo di applicazione non si necessita di una fase di progettazione, in quanto
 nell'ambito che stiamo discutendo abbiamo una mole di dati elevati ma semplici.
 Peró, Prima di sviluppare lo sketch vero e proprio dobbiamo decidere che strutture dati messe a disposizione si adattano
@@ -69,7 +69,7 @@ requirepass "admin"\end{lstlisting}
 Per quanto riguarda la persistenza nei file di configurazione, possiamo lasciare quella base, che é una RDB.
 Per queste applicazioni non é necessario avere un massimo livello di persistenza.
 
-\section{Arduino e DHT11}
+\section{Sketch Arduino}
 Dopo aver fatto le considerazioni precedenti possiamo passare allo sviluppo dello sketch vero e proprio, che avrá il compito
 di inviare dati/informazioni al nostro database.
 Il materiale necessario per questo progetto é:
