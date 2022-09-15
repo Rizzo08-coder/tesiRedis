@@ -398,8 +398,25 @@ grazie a \texttt{Thread.sleep(5000)}, che ha il compito di disattivare il thread
 
 
 \subsection{JFreeChart}
-Per generare il grafico finale vero e proprio abbiamo sfruttato una libreria adatta per sfruttare dati temporali, che supporta una frequenza di
+Per generare il grafico finale vero e proprio abbiamo sfruttato una libreria adatta alla creazione di diagrammi temporali, che supporta una frequenza di
 aggiornamento di questo tipo. Nel caso in cui volessimo sfruttate frequenze di aggiornamento molto piú elevate questa libreria non é adatta,
 bisognerebbe utilizzare soluzioni proprietarie, o fatte ad hoc per il caso d'uso in questione.
 
+\begin{lstlisting}[autogobble, title={\texttt{DataSetRealTime.java}}]
+DataSetRealTime dataRealTime = new DataSetRealTime(...);
+new Thread(dataRealTime).start();
 
+TimeSeriesCollection dataset = new TimeSeriesCollection(dataRealTime.getTimeSeries());
+JFreeChart chart = ChartFactory.createTimeSeriesChart(..., dataset, ...);
+... //istruzioni grafiche
+\end{lstlisting}
+
+Con l'istruzione \texttt{new Thread(dataRealTime).start()} eseguiamo il metodo \texttt{run()}
+illustrato in precedenza su un thread specifico.\\
+Il grafico vero e proprio viene creato con \texttt{ChartFactory.createTimeSeriesChart()}, a cui
+va passato come parametro d'ingresso il dataset e altri parametri per la grafica.
+
+
+\includegraphics[width=1\textwidth]{img/chartTemperature}
+
+Nell'immagine sopra riportata possiamo apprezzare il risultato finale del progetto.
