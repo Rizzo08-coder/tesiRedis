@@ -7,7 +7,7 @@ Infatti ogni elemento viene archiviato singolarmente con una chiave univoca, e l
 Questa impostazione fornisce un approccio molto piú flessibile alla memorizzazione dei dati rispetto a un database
 relazionale, un controllo migliore e una maggiore semplicitá nelle applicazioni.
 
-\section{Perche é nato?}
+\section{Origine}
 A partire dagli anni 2000 si é passati da un modello in cui le persone principali dell'IT erano sistemisti ad un modello
 in cui le persone principali sono diventate gli sviluppatori. Tale passaggio ha comportato la nascita di database NoSQL
 che sono fortemente orientati agli sviluppatori ed allo sviluppo Agile.
@@ -16,7 +16,7 @@ semistrutturati, polimorfici..) che non permettevano di definire un modello rela
 diventati estremamente popolari perché permettono di lavorare principalmente con dati non strutturati anche di enormi
 dimensioni.
 
-\section{Perché utilizzare un database \emph{NoSQL}?}
+\section{Perché utilizzare un NoSQL}}
 I database NoSQL sono una soluzione ideale per molte applicazioni moderne, quali dispositivi mobili, Web e videogiochi
 che richiedono strutture dati flessibili, scalabili, con prestazioni elevate ed altamente funzionali.
 \subsection{Vantaggi}
@@ -48,10 +48,12 @@ La semplicitá di questi database comporta anche degli svantaggi:
 
 \end{itemize}
 
-\section{Tipologie}
-Tipologie principali di database \emph{NoSQL}:
+\section{Tassonomia}
+I database NoSQL possono essere implementati seguendo diversi approcci a seconda delle strutture dati con cui vengono
+rappresentati i dati.
+A tal proposito, le principali categorie in cui vengono suddivisi sono le seguenti:
 \begin{itemize}
-    \item \textbf{documentali}: la rappresentazione dei dati é affidata a strutture simili ad oggetti, dette \emph{documenti}, ognuno dei
+    \item \textbf{Document Stores}: la rappresentazione dei dati é affidata a strutture simili ad oggetti, dette \emph{documenti}, ognuno dei
     quali possiede un certo numero di proprietá che rappresentano le informazioni.
     Viene creata una semplice coppia, a una chiave viene assegnato un documento specifico, e in questo documento, il quale puó essere
     formattato in vari modi (XML, JSON, YAML ...) si possono trovare le informazioni.
@@ -64,12 +66,12 @@ Tipologie principali di database \emph{NoSQL}:
 
     \includegraphics[width=1\textwidth]{img/dbDocumentale}
 
-    \item \textbf{key-value}: i dati vengono immagazzinati mediante un semplice metodo chiave-valore. Una chiave rappresenta un identificatore
+    \item \textbf{Key-Value Stores}: i dati vengono immagazzinati mediante un semplice metodo chiave-valore. Una chiave rappresenta un identificatore
     univoco. Le chiavi e i valori possono essere qualsiasi cosa, da un oggetto semplice ad articolati oggetti composti.
-    (Questo tipo di base di dati é oggetto di tesi e quindi verrá sviluppato il suo concetto nel corso dei prossimi capitoli.)
+    (Questo tipologia verrá sviluppato maggiormente nel corso dei prossimi capitoli.)
 
     Tra gli esempi di maggiore interesse vi sono: \textbf{Redis}, MemCached.
-    \item \textbf{colonnari}: i dati vengono archiviati per colonne, anziché per righe come avviene nei database relazionali classici.
+    \item \textbf{Column Family Stores}: i dati vengono archiviati per colonne, anziché per righe come avviene nei database relazionali classici.
     Queste colonne vengono raccolte per formare dei sottogruppi. Le chiavi e i nomi delle colonne di questo tipo di database non sono fissi.
     Ogni colonna é memorizzata separatamente. Se sono presenti colonne simili, vengono unite in famiglie di colonne ed ogni famiglia
     viene archiviata separatamente dalle altre su un "file" diverso.
@@ -80,7 +82,7 @@ Tipologie principali di database \emph{NoSQL}:
 
     \includegraphics[width=0.8\textwidth]{img/dbColumnOriented}
 
-    \item \textbf{a grafo}: progettati appositamente per l'archiviazione e la navigazione di relazioni. Le relazioni rivestono un ruolo chiave
+    \item \textbf{Graph Model}: progettati appositamente per l'archiviazione e la navigazione di relazioni. Le relazioni rivestono un ruolo chiave
     e buona parte del valore di questi database deriva proprio dalla loro presenza. Vengono utilizzati i \emph{nodi} per archiviare le entitá
     di dati e gli \emph{archi} per archiviare le relazioni tra entitá. Le relazioni che un nodo puó avere sono illimitate.
     In questo tipo di database attraversare collegamenti o relazioni é molto veloce perché le relazioni tra i nodi non vengono elaborate al momento

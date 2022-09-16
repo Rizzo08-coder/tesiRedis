@@ -35,6 +35,44 @@ I principali tipi di dato disponibili sono:
 \end{itemize}
     Associati a queste strutture dati vi sono comandi specifici dedicati ad ognuna, per avere maggiori informazioni rimando al manuale %inserire link.
 
+\subsection{Ambiti di utilizzo}
+Redis é estremamente flessibile e grazie alla sua efficienza puó essere applicato a casi d'uso molto diversi tra loro:
+\begin{itemize}
+    \item \textbf{Analisi in tempo reale}: viene utilizzato come datastore in memoria per acquisire, elaborare e analizzare dati in tempo reale
+    con latenze molto basse, infatti puó essere utilizzato in modo estremamente efficace in ambito \textbf{IoT}. Si puó immaginare una rete di sensori che invia
+    dati in maniera continua, questi dati vanno memorizzati ed elaborati con una bassa latenza. Queste sono proprio le caratteristiche che
+    un dbms come Redis offre. Verrá analizzato un caso reale nel capitolo 5, in cui verrá mostrato un modo in cui Redis puó essere utilizzato proprio
+    con questo particolare caso d'uso;
+    \item \textbf{Chat, messaggistica e code}: grazie alle strutture dati che offre, come le liste e le hash, e strutture dati aggiuntive come pub/sub
+    (in cui vi sono diversi publisher e subscriber) puó essere utilizzato per la messaggistica. Infatti vengono offerte prestazioni elevate per
+    chat e flussi di commenti in tempo reale;
+    \item \textbf{Classifiche di videogiochi}: é un servizio molto utilizzato per la creazione di classifiche in tempo reale. Infatti, é
+    sufficiente utilizzare la struttura dati SortedSet per ottenere un elenco ordinato in base ai punteggi degli utenti. In questo modo, la classifica
+    viene aggiornata simultaneamente alla variazione dei punteggi dei giocatori. Inoltre, SortedSet potrebbe venire utilizzata anche per gestire
+    serie temporali utilizzando timestamp come punteggio;
+    \item \textbf{Memorizzazione}: soluzione molto utilizzata nel caso in cui occorre memorizzare e gestire dati di sessione per applicazioni su
+    Internet, ad esempio profili utente, credenziali, stati di sessione e personalizzazioni specifiche per ciascun utente. Inoltre, é ideale anche
+    per lo streaming di contenuti multimediali in tempo reale, in particolare per memorizzare metadati di profili utente e cronologie di visualizzazione,
+    informazioni di autenticazione per milioni di utenti e file manifest con cui permettere la distribuzione di contenuti a milioni di utenti
+    contemporaneamente;
+    \item \textbf{Dati Geospaziali}: viene offerta una struttura per gestire dati geospaziali reali, chiamata \texttt{Geospatial},
+    su vasta scala e con la massima rapiditá. Praticamente é una SortedSet con uno score che viene calcolato in base alle coordinate che vengono assegnate ad un certo membro.
+    Vengono offerti diversi comandi, tra cui \texttt{GEOADD} che permette di aggiungere elementi ad un indice geospaziale.
+    Infatti, se consideriamo un esempio in cui stiamo tracciando un gruppo di auto basterá fare nel modo seguente:
+    \begin{lstlisting}[autogobble]
+> GEOADD auto -115.17087 36.12360 auto-p1
+> GEOADD auto -115.171971 36.120609 auto-p2\end{lstlisting}
+    Per aggiornare la posizione dell'auto andrá eseguito un nuovo \texttt{GEOADD} sulla stessa auto.\\
+    É possibile determinare la distanza in metri tra diverse auto con il comando \texttt{GEODIST}:
+    \begin{lstlisting}[autogobble]
+> GEODIST auto auto-p1 auto-p2
+  "347.0365"\end{lstlisting}
+    Quindi, si puó vedere da questo semplice esempio il grande potenziale che ha questa struttura dati.
+    \item \textbf{Machine Learning}: le moderne applicazioni basate sui dati necessitano di apprendimento automatico e quindi devono analizzare
+    ed elaborare in modo rapido grandissime quantitá di dati di vario genere e con varie frequenze di aggiornamento. Queste caratteristiche
+    si adattano perfettamente a Redis.
+\end{itemize}
+
 
 \subsection{Confronto con \emph{proprietá ACID}}
 %FIXME: questa introduzione
@@ -208,43 +246,6 @@ save ""
 appendonly no\end{lstlisting}
 
 
-\subsection{Ambiti di utilizzo}
-Redis é estremamente flessibile e grazie alla sua efficienza puó essere applicato a casi d'uso molto diversi tra loro:
-\begin{itemize}
-    \item \textbf{Analisi in tempo reale}: viene utilizzato come datastore in memoria per acquisire, elaborare e analizzare dati in tempo reale
-    con latenze molto basse, infatti puó essere utilizzato in modo estremamente efficace in ambito \textbf{IoT}. Si puó immaginare una rete di sensori che invia
-    dati in maniera continua, questi dati vanno memorizzati ed elaborati con una bassa latenza. Queste sono proprio le caratteristiche che
-    un dbms come Redis offre. Verrá analizzato un caso reale nel capitolo 5, in cui verrá mostrato un modo in cui Redis puó essere utilizzato proprio
-    con questo particolare caso d'uso;
-    \item \textbf{Chat, messaggistica e code}: grazie alle strutture dati che offre, come le liste e le hash, e strutture dati aggiuntive come pub/sub
-    (in cui vi sono diversi publisher e subscriber) puó essere utilizzato per la messaggistica. Infatti vengono offerte prestazioni elevate per
-    chat e flussi di commenti in tempo reale;
-    \item \textbf{Classifiche di videogiochi}: é un servizio molto utilizzato per la creazione di classifiche in tempo reale. Infatti, é
-    sufficiente utilizzare la struttura dati SortedSet per ottenere un elenco ordinato in base ai punteggi degli utenti. In questo modo, la classifica
-    viene aggiornata simultaneamente alla variazione dei punteggi dei giocatori. Inoltre, SortedSet potrebbe venire utilizzata anche per gestire
-    serie temporali utilizzando timestamp come punteggio;
-    \item \textbf{Memorizzazione}: soluzione molto utilizzata nel caso in cui occorre memorizzare e gestire dati di sessione per applicazioni su
-    Internet, ad esempio profili utente, credenziali, stati di sessione e personalizzazioni specifiche per ciascun utente. Inoltre, é ideale anche
-    per lo streaming di contenuti multimediali in tempo reale, in particolare per memorizzare metadati di profili utente e cronologie di visualizzazione,
-    informazioni di autenticazione per milioni di utenti e file manifest con cui permettere la distribuzione di contenuti a milioni di utenti
-    contemporaneamente;
-    \item \textbf{Dati Geospaziali}: viene offerta una struttura per gestire dati geospaziali reali, chiamata \texttt{Geospatial},
-    su vasta scala e con la massima rapiditá. Praticamente é una SortedSet con uno score che viene calcolato in base alle coordinate che vengono assegnate ad un certo membro.
-    Vengono offerti diversi comandi, tra cui \texttt{GEOADD} che permette di aggiungere elementi ad un indice geospaziale.
-    Infatti, se consideriamo un esempio in cui stiamo tracciando un gruppo di auto basterá fare nel modo seguente:
-    \begin{lstlisting}[autogobble]
-> GEOADD auto -115.17087 36.12360 auto-p1
-> GEOADD auto -115.171971 36.120609 auto-p2\end{lstlisting}
-    Per aggiornare la posizione dell'auto andrá eseguito un nuovo \texttt{GEOADD} sulla stessa auto.\\
-    É possibile determinare la distanza in metri tra diverse auto con il comando \texttt{GEODIST}:
-    \begin{lstlisting}[autogobble]
-> GEODIST auto auto-p1 auto-p2
-  "347.0365"\end{lstlisting}
-    Quindi, si puó vedere da questo semplice esempio il grande potenziale che ha questa struttura dati.
-    \item \textbf{Machine Learning}: le moderne applicazioni basate sui dati necessitano di apprendimento automatico e quindi devono analizzare
-    ed elaborare in modo rapido grandissime quantitá di dati di vario genere e con varie frequenze di aggiornamento. Queste caratteristiche
-    si adattano perfettamente a Redis.
-\end{itemize}
 
 \subsection{sistema distribuito}
 %FIXME: cambiare introduzione
@@ -314,7 +315,7 @@ proprietá possono essere soddisfatte contemporaneamente:
 \end{itemize}
 
 É un teorema che viene utilizzato per analizzare le dinamiche dei sistemi informativi che possiedono due o piú archivi di dati posti su
-nodi distinti della rete. Quindi rientra perfettamente in questa categoria Redis.\\
+nodi distinti della rete. Quindi, la versione distribuita di Redis rientra perfettamente in questa categoria.\\
 
 Redis é un sistema \textbf{AP}, ovvero non fornisce una forte coerenza.
 \paragraph{Per quale motivo?\\}
