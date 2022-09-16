@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.4.1)  16 SEP 2022 13:38
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.4.1)  16 SEP 2022 13:58
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1398,7 +1398,7 @@ m-super/sfti1200.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-
 super/sftt0800.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-su
 per/sftt1200.pfb>
 Output written on /Users/matteorizzo/IdeaProjects/tesiRedis/out/main.pdf (54 pa
-ges, 4033938 bytes).
+ges, 4033982 bytes).
 PDF statistics:
  905 PDF objects out of 1000 (max. 8388607)
  799 compressed objects within 8 object streams
