@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.4.1)  16 SEP 2022 14:36
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.4.1)  16 SEP 2022 14:54
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -591,9 +591,9 @@ Overfull \hbox (39.12636pt too wide) in paragraph at lines 53--65
 
 
 Overfull \hbox (4.57808pt too wide) in paragraph at lines 53--65
-\T1/cmr/m/n/12 il va-lo-re di \T1/cmtt/m/n/12 game \T1/cmr/m/n/12 sa-rá \T1/cmt
+\T1/cmr/m/n/12 il va-lo-re di \T1/cmtt/m/n/12 game \T1/cmr/m/n/12 sa-rà \T1/cmt
 t/m/n/12 2345:Game\T1/cmr/m/n/12 , il va-lo-re di \T1/cmtt/m/n/12 opponent \T1/
-cmr/m/n/12 sa-rá com-po-sto da \T1/cmtt/m/n/12 rick:Player\T1/cmr/m/n/12 .
+cmr/m/n/12 sa-rà com-po-sto da \T1/cmtt/m/n/12 rick:Player\T1/cmr/m/n/12 .
  []
 
 [8]
@@ -624,11 +624,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 105--115
 Underfull \vbox (badness 1838) has occurred while \output is active []
 
  [10]
-<img/etf.png, id=268, 1409.265pt x 1475.5125pt>
+<img/etf.png, id=268, 1433.355pt x 1358.07375pt>
 File: img/etf.png Graphic file (type png)
 <use img/etf.png>
 Package pdftex.def Info: img/etf.png  used on input line 116.
-(pdftex.def)             Requested size: 301.00192pt x 315.13516pt.
+(pdftex.def)             Requested size: 301.00192pt x 285.18318pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -1397,7 +1397,7 @@ ic/cm-super/sfss1728.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public
 m-super/sftt0800.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-
 super/sftt1200.pfb>
 Output written on /Users/matteorizzo/IdeaProjects/tesiRedis/out/main.pdf (54 pa
-ges, 4028800 bytes).
+ges, 4008873 bytes).
 PDF statistics:
  901 PDF objects out of 1000 (max. 8388607)
  796 compressed objects within 8 object streams
