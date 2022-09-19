@@ -258,7 +258,7 @@ utilizzata nel secondo approccio:
 \begin{enumerate}
     \item il client Jedis, uno dei piú conosciuti. In particolare é stata sfruttata la classe JedisPool per stabilire la connessione
     con \texttt{redis-server}.
- \begin{lstlisting}[autogobble, title={\texttt{RedisClient.java}}]
+ \begin{lstlisting}[autogobble, title={\texttt{RedisClient.java}}, style=java]
 private static JedisPool jedisPool;
 
 public RedisClient(String ip, int port, int timeout, String password) {
