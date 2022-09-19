@@ -258,7 +258,7 @@ utilizzata nel secondo approccio:
 \begin{enumerate}
     \item il client Jedis, uno dei piú conosciuti. In particolare é stata sfruttata la classe JedisPool per stabilire la connessione
     con \texttt{redis-server}.
- \begin{lstlisting}[autogobble, title={\texttt{RedisClient.java}}, style=java]
+ \begin{lstlisting}[autogobble, title={\texttt{RedisClient.java}}, style=c]
 private static JedisPool jedisPool;
 
 public RedisClient(String ip, int port, int timeout, String password) {
@@ -348,11 +348,11 @@ Per rendere semplice la sua elaborazione in entrambi gli approcci é stata sfrut
 di tipo \texttt{LocalTime} ed i valori di tipo \texttt{String}.
 Come abbiamo fatto nei due approcci :
 \begin{enumerate}
-    \item abbiamo dovuto estrarre da ogni elemento del set di chiavi la data, quindi da ogni chiave abbiamo dovuto estrarre la data e convertirla
+    \item Abbiamo dovuto estrarre da ogni elemento del set di chiavi la data, quindi da ogni chiave abbiamo dovuto estrarre la data e convertirla
     in un \texttt{LocalTime}.
     Ad esempio, se abbiamo una chiave fatta in questo modo sensorTemp.12:24:25 estraiamo 12:24:25 e lo convertiamo in tipo \texttt{LocalTime} con l'apposito metodo.
     Dopo di che, associamo ad ogni data il proprio valore e inseriamo tutto in una \texttt{TreeMap} in modo da mantenere l'ordine temporale.
-    \item qui invece siamo partiti da un array di tipo \texttt{Value}, e abbiamo dovuto convertire lo Unix timestamp in un \texttt{LocalTime} e successivamente associare date
+    \item Siamo partiti da un array di tipo \texttt{Value}, e abbiamo dovuto convertire lo Unix timestamp in un \texttt{LocalTime} e successivamente associare date
     e valori nella \texttt{TreeMap} come sopra.
 \end{enumerate}
 Dopo questo passaggio i due approcci si fondono insieme, in quanto da qui in poi si lavora sulle \texttt{TreeMap} generate che sono esattamente identiche.\\
@@ -421,4 +421,9 @@ va passato come parametro d'ingresso il dataset e altri parametri per la grafica
 \\
 
 
-Nell'immagine sopra riportata possiamo apprezzare il risultato finale del progetto.
+Prima di avviare il software bisogna avviare il \texttt{redis-server} con il file di configurazione specifico,
+successivamente il grafico si aggiornerà automaticamente in tempo reale con una frequenza di 5 secondi.
+Nel grafico sopra riportato può essere apprezzato che sull'asse delle ascisse abbiamo il tempo, quindi le chiavi, mentre
+sull'asse delle ordinate abbiamo i valori legati alle chiavi.\\
+Questo software può essere sfruttato anche per elaborare dati completamente diversi da temperatura e umidità, quindi può essere
+adattato in modo molto semplice per dataset di diversa natura.

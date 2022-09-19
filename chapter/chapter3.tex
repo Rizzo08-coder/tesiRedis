@@ -168,7 +168,7 @@ EXEC\end{lstlisting}
     piú presente.\\
     Quindi questo é un modo efficace per ottenere un buon livello di isolamento nel caso di transazioni multiple.
 
-    \item \textbf{consistenza}: I vincoli di integritá sono dei concetti relazionali, quindi é difficile fare un collegamento con un database di questo tipo.
+    \item \textbf{Consistenza}: I vincoli di integritá sono dei concetti relazionali, quindi é difficile fare un collegamento con un database di questo tipo.
     L'unica chiave che esiste é quella primaria e deve essere univoca;
     l'integrita referenziale non é mantenuta da Redis stesso e deve essere gestita dalle applicazioni client.
 
@@ -209,8 +209,8 @@ EXEC\end{lstlisting}
 
 
     \paragraph{Database In Memory}
-    é possibile rinunciare ad entrambi i meccanismi definiti precedentemente per dare vita ad un database in memory, risultando molto piú
-    efficiente, poiché non deve piú occuparsi dei salvataggi su disco, e puó essere utilizzato per immagazzinare dati ad uso temporaneo la cui
+    é possibile rinunciare ad entrambi i meccanismi definiti precedentemente per dare vita ad un database in memory senza persistenza su disco, risultando molto piú
+    efficiente, poiché non deve piú occuparsi dei salvataggi, e puó essere utilizzato per immagazzinare dati ad uso temporaneo la cui
     perdita non risulterebbe irreparabile per il sistema.\\
     Redis puó anche essere utilizzato come memoria cache, in cui viene fissata la quantitá massima di memoria utilizzabile. Quando questa sará
     colma, i dati piú vecchi verranno eliminato con una politica LRU o LFU.
