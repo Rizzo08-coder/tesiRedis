@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.4.1)  20 SEP 2022 17:57
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.4.1)  20 SEP 2022 18:02
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -761,11 +761,14 @@ See the keyval package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.66     \begin{lstlisting}[autogobble]
-                                       
+l.66 ...autogobble, style=redis-cli, language=SQL]
+                                                  
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
+(/usr/local/texlive/2021/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2020/03/24 1.8d listings language file
+)
 
 ./chapter/chapter3.tex:71: Package keyval Error: autogobble undefined.
 
@@ -773,8 +776,8 @@ See the keyval package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.71     \begin{lstlisting}[autogobble]
-                                       
+l.71 ...autogobble, style=redis-cli, language=SQL]
+                                                  
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
@@ -786,8 +789,8 @@ See the keyval package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.108 \begin{lstlisting}[autogobble]
-                                    
+l.108 ...utogobble, style=redis-cli, language=SQL]
+                                                  
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
@@ -808,8 +811,8 @@ See the keyval package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.153     \begin{lstlisting}[autogobble]
-                                        
+l.153 ...utogobble, style=redis-cli, language=SQL]
+                                                  
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
@@ -820,8 +823,8 @@ See the keyval package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.162     \begin{lstlisting}[autogobble]
-                                        
+l.162 ...utogobble, style=redis-cli, language=SQL]
+                                                  
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
@@ -848,8 +851,8 @@ See the keyval package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.229 \begin{lstlisting}[autogobble]
-                                    
+l.229 ...utogobble, style=redis-cli, language=SQL]
+                                                  
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
@@ -865,8 +868,8 @@ See the keyval package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.237 \begin{lstlisting}[autogobble]
-                                    
+l.237 ...utogobble, style=redis-cli, language=SQL]
+                                                  
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
@@ -882,8 +885,8 @@ See the keyval package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.248 \begin{lstlisting}[autogobble]
-                                    
+l.248 ...utogobble, style=redis-cli, language=SQL]
+                                                  
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
@@ -1009,9 +1012,6 @@ l.58 ...autogobble, style=redis-cli, language=SQL]
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-(/usr/local/texlive/2021/texmf-dist/tex/latex/listings/lstlang1.sty
-File: lstlang1.sty 2020/03/24 1.8d listings language file
-)
 
 ./chapter/chapter4.tex:64: Package keyval Error: autogobble undefined.
 
@@ -1450,13 +1450,13 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 7CD0EF5EAC729858E25AE05FE65D0059;5156.
  ) 
 Here is how much of TeX's memory you used:
- 13070 strings out of 478994
- 191636 string characters out of 5858185
+ 13065 strings out of 478994
+ 191594 string characters out of 5858185
  875056 words of memory out of 5000000
- 29877 multiletter control sequences out of 15000+600000
+ 29872 multiletter control sequences out of 15000+600000
  429211 words of font info for 66 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 71i,7n,74p,383b,2040s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 71i,7n,74p,383b,2046s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}
 {/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}{
 /usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}</usr/local/tex
@@ -1477,7 +1477,7 @@ ic/cm-super/sfss1728.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public
 m-super/sftt0800.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-
 super/sftt1200.pfb>
 Output written on /Users/matteorizzo/IdeaProjects/tesiRedis/out/main.pdf (57 pa
-ges, 4135872 bytes).
+ges, 4135924 bytes).
 PDF statistics:
  932 PDF objects out of 1000 (max. 8388607)
  821 compressed objects within 9 object streams
