@@ -1,17 +1,19 @@
 \chapter{Interrogazioni Redis}
 Le capacitá piú essenziali per il lavoro su database sono saperli popolare di informazioni in modo coerente e interrogare in modo
 intelligente, per ricavare l'informazione che si sta cercando in mezzo a volumi di dati che possono essere immensi.
-Quindi, per raggiungere questo obiettivo adoperiamo un linguaggio per l'interrogazione dei database, il quale serve per formulare delle
+Quindi, per raggiungere questo obiettivo viene adoperato un linguaggio per l'interrogazione dei database, il quale serve per formulare delle
 query, in modo adeguato alla struttura delle informazioni.
 Nei database di tipo relazionale é presente il linguaggio SQL (Structured Query Language), il quale é comune a tutti i dbms di questo tipo, quindi
 é diventato negli anni un vero e proprio standard.
 
 \paragraph{nei NoSQL vi é un linguaggio standard da adoperare?\\}
-i NoSQL, di conseguenza anche Redis, si caratterizzano proprio da schemi non fissi, che possono variare in modo dinamico e, soprattutto, non vi sono vincoli referenziali che possono associare
-diverse tabelle all'interno del database (quindi non vi sono operazioni di join).
+i NoSQL, di conseguenza anche Redis, si caratterizzano da schemi non fissi, che possono variare in modo dinamico e, soprattutto, non vi sono vincoli referenziali che possono associare
+diverse tabelle all'interno della base di dati (non vi sono operazioni di "join").
 Per memorizzare e ricavare dati, i quali possono essere strutturati, semi-strutturati, non strutturati e polimorfici, un dbms noSQL utilizza un'ampia gamma di
-tecnologie proprietarie in grado di fare questo. Quindi, é compito del produttore del dbms di dover mettere a disposizione un insieme di comandi che permettano di sfruttare pienamente le potenzialitá del NoSQL da lui fornito.
-Ne deriva che il linguaggio SQL non é supportato; sono disponibili delle interfaccie di comunicazione per i principali linguaggi di programmazione che vengono
+tecnologie proprietarie in grado di fare questo.
+Quindi, é compito del produttore del dbms di mettere a disposizione un insieme di comandi che permettano di sfruttare pienamente le potenzialitá del NoSQL da lui fornito.
+Ne deriva che il linguaggio SQL non é supportato;
+sono disponibili delle interfacce di comunicazione per i principali linguaggi di programmazione che vengono
 offerte direttamente al programmatore, con le quali si riesce a gestire il dialogo con il dbms.
 
 Sulla documentazione di Redis é presente un elenco completo di tutte le API disponibili per i principali linguaggi, tramite le quali si riesce a comunicare con il server in questione.
@@ -53,13 +55,13 @@ I comandi che verranno analizzati sono associati al tipo Hash, in quanto Redis d
 Nel database relazionale avremo un record composto da tutti gli attributi sopra definiti, la chiave primaria sará rappresentata dallo username;\\
 
 L'\textbf{INSERIMENTO} di un record con linguaggio SQL viene eseguito in questo modo:
-\begin{lstlisting}[autogobble]
+\begin{lstlisting}[autogobble, style=redis-cli, language=SQL]
 INSERT INTO Utenti (username, nome, cognome, password, dataCreazione)
 VALUES ('matteo00', 'matteo', 'rizzo', 'mypsw', '12092020')\end{lstlisting}
 
 Analizziamo una possibile aggiunta in Redis:
 Se utilizziamo una Hash come valore, il comando di cui abbiamo bisogno é \texttt{HSET}, il quale viene utilizzato per aggiungere una nuova tupla.
-\begin{lstlisting}[autogobble]
+\begin{lstlisting}[autogobble, style=redis-cli, language=SQL]
 >HSET utente:matteo00 nome matteo cognome rizzo password mypsw dataCreazione 12092020
 (integer) 4\end{lstlisting}
 
@@ -67,19 +69,19 @@ Si puó notare che in Redis non abbiamo definito uno schema fisso della hash, ma
 infatti potremo avere utenti con una hash con schema non coerente alle altre, questo ha, ovviamente, i suoi vantaggi e svantaggi.\\
 
 Per la \textbf{CANCELLAZIONE} di un record in SQL facciamo:
-\begin{lstlisting}[autogobble]
+\begin{lstlisting}[autogobble, style=redis-cli, language=SQL]
 DELETE FROM Utenti WHERE username = 'matteo00'\end{lstlisting}
 
 Mentre in Redis dobbiamo eliminare una chiave; questo comando non dipende dal tipo di valore utilizzato, ma é un comando comune
 a tutti i tipi, il comando si chiama \texttt{DEL}.
 
-\begin{lstlisting}[autogobble]
+\begin{lstlisting}[autogobble, style=redis-cli, language=SQL]
 >DEL utente:matteo00
 (integer) 1\end{lstlisting}
 
 In Redis questo approccio é poco utilizzato, solitamente viene impostata una scadenza alle chiavi, ovvero dopo un certo periodo le chiavi vengono eliminate automaticamente.
 Per fare questo si utilizza il comando \texttt{EXPIRE}, in cui viene passato come parametro la chiave, a cui va impostata la scadenza definendola in secondi.
-\begin{lstlisting}[autogobble]
+\begin{lstlisting}[autogobble, style=redis-cli, language=SQL]
 >EXPIRE utente:matteo00 60
 (integer) 1\end{lstlisting}
 Il valore 60 indica i secondi di tempo dopo i quali la chiave deve essere cancellata.\\
@@ -87,14 +89,14 @@ Il valore 60 indica i secondi di tempo dopo i quali la chiave deve essere cancel
 
 
 Per \textbf{MODIFICARE} i valori degli attributi di uno o piú record tramite SQL:
-\begin{lstlisting}[autogobble]
+\begin{lstlisting}[autogobble, style=redis-cli, language=SQL]
 UPDATE Utenti
 SET password = 'newpsw'
 WHERE username = 'matteo00'\end{lstlisting}
 
 In Redis non vi é un comando specifico per la modifica dei valori delle tuple, ma viene utilizzato \texttt{HSET} passando come parametri del comando
 i campi che vogliamo modificare con il loro nuovo valore:
-\begin{lstlisting}[autogobble]
+\begin{lstlisting}[autogobble, style=redis-cli, language=SQL]
 >HSET utente:matteo00 password newpsw
 (integer) 4\end{lstlisting}
 Cosí facendo abbiamo modificato il valore associato alla password di \texttt{utente:matteo00}, il valore passa da \texttt{"mypsw"} a \texttt{"newpsw"}.
@@ -106,17 +108,17 @@ tra diverse tabelle presenti nel database.\\
 Questo non avviene in Redis, infatti le interrogazioni di una base di dati chiave-valore non possono avere una complessitá paragonabile a quella SQL.\\
 
 Per fare una selezione di un record in SQL:
-\begin{lstlisting}[autogobble]
+\begin{lstlisting}[autogobble,style=redis-cli, language=SQL]
 SELECT *
 FROM Utenti
 Where username = 'matteo00'\end{lstlisting}
 
 Mentre in Redis per selezionare il valore di una certa tupla, nel caso in cui sia di tipo Hash, viene messo a disposizione \texttt{HGETALL}, che ha il compito di mostrare tutto
 il contenuto associato ad una certa chiave.
-\begin{lstlisting}[autogobble]
+\begin{lstlisting}[autogobble, style=redis-cli, language=SQL]
 > HGETALL utente:matteo00
 1) "nome"
-2) "luca"
+2) "matteo"
 3) "cognome"
 4) "rizzo"
 5) "password"
@@ -127,13 +129,13 @@ il contenuto associato ad una certa chiave.
 
 Inoltre, viene messo a disposizione il comando \texttt{HGET} per ottenere solo il valore di un campo tra quelli presenti nella Hash, questo viene fatto per permettere
 agli sviluppatori di risparmiare operazioni di trasformazione delle strutture all'interno del proprio software.
-\begin{lstlisting}[autogobble]
+\begin{lstlisting}[autogobble, style=redis-cli, language=SQL]
 > HGET utente:matteo00 nome
 "matteo"
 \end{lstlisting}
 
 Vi é anche la possibilitá di fare una sorta di proiezione sulle chiavi utilizzando il comando \texttt{KEYS}, il quale restituisce tutte le chiavi che corrispondono al pattern passato come parametro.
-\begin{lstlisting}[autogobble]
+\begin{lstlisting}[autogobble, style=redis-cli, language=SQL]
 > KEYS utente:*
 1) "utente:user1"
 2) "utente:user2"
@@ -163,7 +165,7 @@ Ci sono diverse modalitá lato client per invocare/caricare gli script:
 
 
     Un esempio di codice puó essere il seguente:
-    \begin{lstlisting}[autogobble]
+    \begin{lstlisting}[autogobble, style=redis-cli, language=SQL]
 > EVAL "return {KEYS[1], KEYS[2]}" 2 key1 key2
 1) "key1"
 2) "key2"\end{lstlisting}
@@ -173,7 +175,7 @@ Ci sono diverse modalitá lato client per invocare/caricare gli script:
     \textbf{SHA1 digest}, che punta direttamente allo script. Successivamente lo script viene eseguito invocando il comando \texttt{EVALSHA} e passandogli come
     primo argomento il SHA1 digest generato in precedenza e partendo dal secondo argomento si ripetono quelli di \texttt{EVAL}.
 
-    \begin{lstlisting}[autogobble]
+    \begin{lstlisting}[autogobble, style=redis-cli, language=SQL]
 > SCRIPT LOAD "return 'example of script load!'"
 "c664a3bf70bd1d45c4284ffebb65a6f2299bfc9f"  \\SHA1 digest
 >EVALSHA "c664a3bf70bd1d45c4284ffebb65a6f2299bfc9f" 0

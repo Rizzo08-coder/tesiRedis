@@ -59,7 +59,7 @@ Dobbiamo anche aggiungere una password di sicurezza per l'autenticazione con il 
 aggiungendo un parametro nel file di configurazione.
 
 La configurazione viene modificata cosí:
-\begin{lstlisting}[autogobble]
+\begin{lstlisting}[autogobble, style=redis-cli, language=...]
 bind  127.0.0.1  192.168.178.25
 
 requirepass "admin"\end{lstlisting}
@@ -89,7 +89,7 @@ Per comunicare ed inviare dati a Redis vi é una libreria apposita, sviluppata p
 la quale permette di comunicare con il \texttt{redis-server}.\\
 Colleghiamoci come client alla rete Locale, grazie al modulo WiFi di ESP32, sfruttando la libreria \texttt{WiFi.h}.\\
 Nel metodo di \texttt{setup()}, che é il metodo che viene eseguito solo alla prima esecuzione dello sketch, andiamo a creare una connessione alla rete Locale tramite WiFi e, soprattutto, con il \texttt{server-redis}.
-\begin{lstlisting}[autogobble]
+\begin{lstlisting}[autogobble, style=c, language=C]
 #define WIFI_SSID "wifi-name"
 #define WIFI_PSW "wifi-psw"
 #define REDIS_ADDR "192.168.178.25"
@@ -142,7 +142,7 @@ e prodotti elettronici.
 É disponibile una libreria arduino chiamata \texttt{NTPClient} che permette di collegarsi a un server NTP specificato ed ottenere
 l'ora da questo server.
 
-\begin{lstlisting}[autogobble]
+\begin{lstlisting}[autogobble, style=c, language=C]
 const char* ntpServer = "pool.ntp.org";
 const long  gmtOffset_sec = 0;
 const int   daylightOffset_sec = 7200;
@@ -155,7 +155,7 @@ configTime(gmtOffset_sec, daylightOffset_sec, ntpServer);  //configurazione per 
 Questo é il setup necessario per ottenere l'ora nel formato \texttt{hh:mm:ss}.\\
 
 Invece, se vogliamo ottenere l'orario in Unix Timestamp, la configurazione é la seguente:
-\begin{lstlisting}[autogobble]
+\begin{lstlisting}[autogobble, style=c, language=C]
 const char* ntpServer = "pool.ntp.org";
 
 void setup(){
@@ -168,7 +168,7 @@ Adesso possiamo creare la parte di codice che permette di inviare il dataSet a R
 Analizziamo i due casi specificati nelle scelte progettuali:
 \begin{enumerate}
     \item Il primo tratta la casistica in cui viene adoperata la struttura dati piú semplice, ovvero la stringa:
-\begin{lstlisting}[autogobble]
+\begin{lstlisting}[autogobble, style=c, language=C]
 tm getTime(){
   struct tm timeinfo;
   if(!getLocalTime(&timeinfo)){
@@ -216,7 +216,7 @@ Alla fine di \texttt{loop()} mettiamo un \texttt{delay()} che indica la pausa ch
 di un loop e quello successivo, ovvero dovrá ripetersi ogni 5000 ms (5 secondi).
 
     \item Di seguito analizziamo la casistica in cui viene adoperata la struttura piú avanzata, RedisTimeSeries:
-\begin{lstlisting}[autogobble]
+\begin{lstlisting}[autogobble, style=c, language=C]
 long getTime() {
   time_t now;
   struct tm timeinfo;
@@ -258,7 +258,7 @@ utilizzata nel secondo approccio:
 \begin{enumerate}
     \item il client Jedis, uno dei piú conosciuti. In particolare é stata sfruttata la classe JedisPool per stabilire la connessione
     con \texttt{redis-server}.
- \begin{lstlisting}[autogobble, title={\texttt{RedisClient.java}}, style=c]
+ \begin{lstlisting}[autogobble, title={\texttt{RedisClient.java}}, style=java]
 private static JedisPool jedisPool;
 
 public RedisClient(String ip, int port, int timeout, String password) {
