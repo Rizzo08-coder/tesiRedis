@@ -43,6 +43,10 @@ Redis é estremamente flessibile e grazie alla sua efficienza puó essere applic
     dati in maniera continua, questi dati vanno memorizzati ed elaborati con una bassa latenza. Queste sono proprio le caratteristiche che
     un dbms come Redis offre. Verrá analizzato un caso reale nel capitolo 5, in cui verrá mostrato un modo in cui Redis puó essere utilizzato proprio
     con questo particolare caso d'uso;
+    \item \textbf{Caching}: puó essere utilizzato per implementare caching in memoria e ridurre la latenza di accesso ai dati. É in grado
+    di servire elementi richiesti con maggiore frequenza e con tempi di risposta molto brevi. Un caso tipico é la memorizzazione
+    di risultati di query complesse di database relazionali; in questo modo se l'applicazione dovrà eseguire una query svolta giá precedentemente,
+    non dovrà piú comunicare con il database relazionale, ma potrà comunicare direttamente con Redis che manterrà in memoria le ultime operazioni svolte.
     \item \textbf{Chat, messaggistica e code}: grazie alle strutture dati che offre, come le liste e le hash, e strutture dati aggiuntive come pub/sub
     (in cui vi sono diversi publisher e subscriber) puó essere utilizzato per la messaggistica. Infatti vengono offerte prestazioni elevate per
     chat e flussi di commenti in tempo reale;
@@ -76,8 +80,8 @@ Redis é estremamente flessibile e grazie alla sua efficienza puó essere applic
 
 \subsection{Confronto con \emph{proprietá ACID}}
 %FIXME: questa introduzione
-Nelle basi di dati relazionali ogni transazione gode delle proprietá ACID. Nei database NoSQL non é vera questa affermazione, in questa
-sezione si vogliono mettere in evidenza quali proprietá vengono soddisfatte da Redis e quali no.
+Nelle basi di dati relazionali ogni transazione gode delle proprietà ACID. Nei database NoSQL non é vera questa affermazione, in questa
+sezione si vogliono mettere in evidenza quali proprietà vengono soddisfatte da Redis e quali no.
 
 Innanzitutto, bisogna vedere in che modo sono gestite le transazioni in Redis:\\
 i comandi utilizzati per le transazioni sono quattro:
@@ -296,7 +300,7 @@ vi sono due scelte:
 Il problema con l'approccio \textbf{1} é che nel momento in cui aggiungiamo una nuova macchina che fa da Master e questa sincronizzerá
 tutti i dati sui vari Slaves perderemo tutti i dati.\\
 L'approccio \textbf{2} é quello migliore perché lo slave esistente avrá giá tutti i dati e una volta che lo avremo impostato in modalitá
-Master, esso replicherá/sincronizzerá i dati su tutti gli Slaves, il che significa che non avremo una perdita di dati, o comunque
+Master, esso replicherà/sincronizzerà i dati su tutti gli Slaves, il che significa che non avremo una perdita di dati, o comunque
 avremo una minima perdita di dati nel caso in cui il guasto del Master si sia verificato prima della sincronizzazione con gli slaves.
 
 Invece, nel caso di crash di Redis Slave le sue richieste di lettura saranno semplicemente sostituite da altri Redis Slave.
@@ -307,7 +311,7 @@ proprietá possono essere soddisfatte contemporaneamente:
 \begin{itemize}
     \item \textbf{Consistency}: le operazioni di lettura restituiscono il dato aggiornato, ovvero proveniente dall'ultima scrittura dello stesso,
     oppure un messaggio d'errore. Non bisogna confonderla con la consistenza delle proprietá ACID, infatti questa fa riferimento al valore piú aggiornato
-    di un certo dato, mentre nelle proprietá ACID si fa riferimento al rispetto dei vincoli d'integritá.
+    di un certo dato, mentre nelle proprietà ACID si fa riferimento al rispetto dei vincoli d'integritá.
     \item \textbf{Availability}: l'accesso ai dati é sempre garantito, non si ricevono mai messaggi d'errore, ma i dati restituiti non sono necessariamente
     consistenti, ovvero potrebbero non coincidere con quelli utilizzati nell'ultima operazione di scrittura degli stessi.
     \item \textbf{Partition Tolerance}: il sistema continua a funzionare nonostante alcuni messaggi vengano persi o subiscano rallentamenti
@@ -337,8 +341,8 @@ Infatti, potrebbe verificarsi uno scenario in cui uno slave non ha ricevuto la s
 Uno dei piú grandi limiti di Redis, essendo un database in-memory, é la limitazione della memoria che un'istanza di Redis puó avere, in quanto
 tutto il set di dati archiviato non deve mai superare la dimensione massima.
 
-Vi é la possiblitá di dividere i dati in diverse istanze eseguite su piú server, in modo che ogni
-istanza contenga solo un sottoinsieme delle chiave; tutto questo avviene tramite l'operazione di
+Vi é la possibilità di dividere i dati in diverse istanze eseguite su piú server, in modo che ogni
+istanza contenga solo un sottoinsieme delle chiavi; tutto questo avviene tramite l'operazione di
 \textbf{sharding}, ovvero il partizionamento orizzontale.
 
 Vi sono dei compromessi da considerare: suddividendo i dati in molte istanze, nasce il problema della
@@ -353,23 +357,30 @@ Sono possibili diverse implementazioni per il partizionamento dei dati:
     Il limite principale di questa implementazione é che il proxy puó diventare un "collo di bottiglia", poiché
     tutte le richieste e risposte passano per esso.
     \item \textbf{instradamento della query}: i client inviano la query a un'istanza Redis casuale e l'istanza si
-    assicurerá di inoltrare la query a quella corretta. Il client successivamente dovrá essere reindirizzato all'istanza corretta.
+    assicurerà di inoltrare la query a quella corretta.
+    Il client successivamente dovrá essere reindirizzato all'istanza corretta.
 \end{itemize}
-In realtá, Redis Cluster utilizza una \textbf{forma ibrida di instradamento della query}, in cui il nodo casuale che viene interrogato
-non inoltra la query al nodo corretto, ma reindirizza solo il client. I client alla fine ottengono una mappatura completa di quali nodi servono
-quali sottochiavi e possono contattare direttamente i nodi corretti.\\
+In realtà, Redis Cluster utilizza una \textbf{forma ibrida di instradamento della query}, in cui il nodo casuale che viene interrogato
+non inoltra la query al nodo corretto, ma reindirizza solo il client.\\
 
+\paragraph{A che nodo assegnare una chiave?\\}
+Si introduce l'idea degli \textbf{Hash Slot}, in particolare un cluster dispone di 16384 slot.
+Essi vengono assegnati in maniera piú o meno equa tra i vari nodi.
+Ad ogni chiave viene associato un numero, ottenuto applicando alla chiave una Hash Function chiamata \texttt{CRC16}
+e facendo il modulo di 16384.
+Il numero ottenuto indicherà lo slot di appartenenza, e di conseguenza, il nodo di appartenza.
+Quindi, al momento dell'inserimento/richiesta di informazioni di una chiave viene applicata questa funzione alla chiave stessa,
+ed in base al numero ottenuto la richiesta verrà demandata al nodo proprietario del numero di slot otttenuto.\\
+Dopo un certo numero di interrogazioni i client riescono ad ottenere una mappatura completa di quali nodi sono proprietari di quali slot,
+potendo contattare direttamente i nodi corretti.\\
+
+\includegraphics[width=1\textwidth]{img/hashslotCluster}\\
 
 Lo sharding dei dati in molte istanze non risolve il problema della sicurezza dei dati e della ridondanza. Se una delle istanze muore
 a causa di un guasto hardware e non si hanno backup da cui ripristinare i dati, tutti i dati di quella istanza saranno persi.
-Per ridurre questo problema si potrebbero utilizzare diverse tecniche, come la replicazione su disco oppure l'architettura master-slave.\\
+Per evitare, o quanto meno diminuire, questo problema si potrebbero utilizzare diverse tecniche, come la replicazione su disco oppure l'architettura master-slave.\\
 Inoltre, le transazioni relative a piú chiavi distribuite su piú istanze non sono supportate, poiché richiederebbero lo spostamento
 dei dati tra diversi nodi, con conseguente calo delle prestazioni.\\
-
-
-
-
-
 
 \includegraphics[width=1\textwidth]{img/cluster:master-slaveRedis}\\
 

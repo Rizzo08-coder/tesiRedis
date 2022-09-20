@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.4.1)  20 SEP 2022 12:50
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.4.1)  20 SEP 2022 17:57
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -276,7 +276,14 @@ File: listings.cfg 2020/03/24 1.8d listings configuration
 ))
 Package: listings 2020/03/24 1.8d (Carsten Heinz)
 
-(./settings.tex
+(/usr/local/texlive/2021/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count283
+\float@exts=\toks21
+\float@box=\box50
+\@float@everytoks=\toks22
+\@floatcapt=\box51
+) (./settings.tex
 Package color Info: Redefining color green on input line 1.
 Package color Info: Redefining color red on input line 2.
 Package color Info: Redefining color blue on input line 3.
@@ -311,8 +318,8 @@ File: lstlang1.sty 2020/03/24 1.8d listings language file
 ))
 (/usr/local/texlive/2021/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2021-03-18 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count283
-\l__pdf_internal_box=\box50
+\l__color_backend_stack_int=\count284
+\l__pdf_internal_box=\box52
 )
 (/Users/matteorizzo/IdeaProjects/tesiRedis/out/main.aux
 (/Users/matteorizzo/IdeaProjects/tesiRedis/out/frontespizio.aux)
@@ -322,29 +329,30 @@ File: l3backend-pdftex.def 2021-03-18 L3 backend support: PDF output (pdfTeX)
 (/Users/matteorizzo/IdeaProjects/tesiRedis/out/chapter/chapter2.aux)
 (/Users/matteorizzo/IdeaProjects/tesiRedis/out/chapter/chapter3.aux)
 (/Users/matteorizzo/IdeaProjects/tesiRedis/out/chapter/chapter4.aux)
-(/Users/matteorizzo/IdeaProjects/tesiRedis/out/chapter/chapter5.aux))
+(/Users/matteorizzo/IdeaProjects/tesiRedis/out/chapter/chapter5.aux)
+(/Users/matteorizzo/IdeaProjects/tesiRedis/out/chapter/bibliografia.aux))
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Info: Redefining \it@ocap on input line 19.
-LaTeX Info: Redefining \it@ccap on input line 19.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Info: Redefining \it@ocap on input line 20.
+LaTeX Info: Redefining \it@ccap on input line 20.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -382,17 +390,17 @@ LaTeX Info: Redefining \it@ccap on input line 19.
 
 (/usr/local/texlive/2021/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count284
+\scratchcounter=\count285
 \scratchdimen=\dimen159
-\scratchbox=\box51
-\nofMPsegments=\count285
-\nofMParguments=\count286
-\everyMPshowfont=\toks21
-\MPscratchCnt=\count287
+\scratchbox=\box53
+\nofMPsegments=\count286
+\nofMParguments=\count287
+\everyMPshowfont=\toks23
+\MPscratchCnt=\count288
 \MPscratchDim=\dimen160
-\MPnumerator=\count288
-\makeMPintoPDFobject=\count289
-\everyMPtoPDFconversion=\toks22
+\MPnumerator=\count289
+\makeMPintoPDFobject=\count290
+\everyMPtoPDFconversion=\toks24
 ) (/usr/local/texlive/2021/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
@@ -402,7 +410,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-Package hyperref Info: Link coloring OFF on input line 19.
+Package hyperref Info: Link coloring OFF on input line 20.
 
 (/usr/local/texlive/2021/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
@@ -414,17 +422,17 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 ty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count290
+\c@section@level=\count291
 )
-LaTeX Info: Redefining \ref on input line 19.
-LaTeX Info: Redefining \pageref on input line 19.
-LaTeX Info: Redefining \nameref on input line 19.
+LaTeX Info: Redefining \ref on input line 20.
+LaTeX Info: Redefining \pageref on input line 20.
+LaTeX Info: Redefining \nameref on input line 20.
  (/Users/matteorizzo/IdeaProjects/tesiRedis/out/main.out)
 (/Users/matteorizzo/IdeaProjects/tesiRedis/out/main.out)
 \@outlinefile=\write3
 \openout3 = `main.out'.
 
-\c@lstlisting=\count291
+\c@lstlisting=\count292
 \openout2 = `frontespizio.aux'.
 
  (./frontespizio.tex
@@ -460,7 +468,7 @@ LaTeX Info: Redefining \nameref on input line 19.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-<img/logo_unibs.png, id=132, 205.9695pt x 85.41pt>
+<img/logo_unibs.png, id=136, 205.9695pt x 85.41pt>
 File: img/logo_unibs.png Graphic file (type png)
 <use img/logo_unibs.png>
 Package pdftex.def Info: img/logo_unibs.png  used on input line 7.
@@ -534,6 +542,15 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 \openout4 = `main.toc'.
 
  [8]
+(/Users/matteorizzo/IdeaProjects/tesiRedis/out/main.lof)
+\tf@lof=\write5
+\openout5 = `main.lof'.
+
+ [9
+
+] [10
+
+]
 \openout2 = `chapter/chapter1.aux'.
 
 
@@ -545,40 +562,55 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [1
 
 
-
 ]
 [2]
-<img/dbDocumentale.png, id=225, 640.3925pt x 191.71625pt>
+<img/dbDocumentale.png, id=245, 640.3925pt x 191.71625pt>
 File: img/dbDocumentale.png Graphic file (type png)
 <use img/dbDocumentale.png>
 Package pdftex.def Info: img/dbDocumentale.png  used on input line 68.
 (pdftex.def)             Requested size: 430.00462pt x 128.73297pt.
 
-Overfull \hbox (29.3747pt too wide) in paragraph at lines 68--69
-[][] 
- []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[3 <./img/dbDocumentale.png>]
-<img/dbColumnOriented.jpg, id=231, 541.02126pt x 362.35374pt>
+ [3]
+<img/dbColumnOriented.jpg, id=251, 541.02126pt x 362.35374pt>
 File: img/dbColumnOriented.jpg Graphic file (type jpg)
 <use img/dbColumnOriented.jpg>
-Package pdftex.def Info: img/dbColumnOriented.jpg  used on input line 84.
+Package pdftex.def Info: img/dbColumnOriented.jpg  used on input line 87.
 (pdftex.def)             Requested size: 344.005pt x 230.40723pt.
- [4 <./img/dbColumnOriented.jpg>]
-<img/dbGrafo.png, id=236, 618.31pt x 437.635pt>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [4pdfTeX warning (ext4): destination with the same identifier (name{figure.1.1
+}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  
+l.90 
+      <./img/dbDocumentale.png>]
+<img/dbGrafo.png, id=257, 618.31pt x 437.635pt>
 File: img/dbGrafo.png Graphic file (type png)
 <use img/dbGrafo.png>
-Package pdftex.def Info: img/dbGrafo.png  used on input line 96.
+Package pdftex.def Info: img/dbGrafo.png  used on input line 101.
 (pdftex.def)             Requested size: 344.005pt x 243.49129pt.
-) [5 <./img/dbGrafo.png>]
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [5pdfTeX warning (ext4): destination with the same identifier (name{figure.1.2
+}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  
+l.104 \end{itemize}
+                    <./img/dbColumnOriented.jpg>]) [6pdfTeX warning (ext4): des
+tination with the same identifier (name{figure.1.3}) has been already used, dup
+licate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  
+l.28     \include{chapter/chapter1}
+                                    <./img/dbGrafo.png>]
 \openout2 = `chapter/chapter2.aux'.
 
- (./chapter/chapter2.tex [6
 
-
-
-
-]
+(./chapter/chapter2.tex
 Capitolo 2.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <17.28> on input line 12.
@@ -594,12 +626,17 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 12.
 
-[7]
+[7
+
+
+
+
+]
 Underfull \hbox (badness 10000) in paragraph at lines 25--29
 
  []
 
-<img/designAggregati.png, id=251, 1882.03125pt x 957.5775pt>
+<img/designAggregati.png, id=271, 1882.03125pt x 957.5775pt>
 File: img/designAggregati.png Graphic file (type png)
 <use img/designAggregati.png>
 Package pdftex.def Info: img/designAggregati.png  used on input line 53.
@@ -634,7 +671,7 @@ Overfull \hbox (6.7208pt too wide) in paragraph at lines 87--91
 og-get-ti, in cui una \T1/cmtt/m/n/12 collection
  []
 
-<img/eao.eav.png, id=263, 3062.44125pt x 2351.78625pt>
+<img/eao.eav.png, id=284, 3062.44125pt x 2351.78625pt>
 File: img/eao.eav.png Graphic file (type png)
 <use img/eao.eav.png>
 Package pdftex.def Info: img/eao.eav.png  used on input line 105.
@@ -648,7 +685,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 105--115
 Underfull \vbox (badness 1838) has occurred while \output is active []
 
  [10]
-<img/etf.png, id=268, 1433.355pt x 1358.07375pt>
+<img/etf.png, id=289, 1433.355pt x 1358.07375pt>
 File: img/etf.png Graphic file (type png)
 <use img/etf.png>
 Package pdftex.def Info: img/etf.png  used on input line 116.
@@ -662,7 +699,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 123--132
  []
 
 [12 <./img/etf.png>]
-<img/implementazione.png, id=280, 2261.44875pt x 1282.7925pt>
+<img/implementazione.png, id=300, 2261.44875pt x 1282.7925pt>
 File: img/implementazione.png Graphic file (type png)
 <use img/implementazione.png>
 Package pdftex.def Info: img/implementazione.png  used on input line 133.
@@ -703,7 +740,7 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <24.88> on input line 1.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <20.74> on input line 1.
-<img/redisClientServer.png, id=290, 2580.64125pt x 984.67876pt>
+<img/redisClientServer.png, id=310, 2580.64125pt x 984.67876pt>
 File: img/redisClientServer.png Graphic file (type png)
 <use img/redisClientServer.png>
 Package pdftex.def Info: img/redisClientServer.png  used on input line 12.
@@ -716,202 +753,216 @@ Overfull \hbox (17.62482pt too wide) in paragraph at lines 12--13
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [15 <./img/redisClientServer.png>] [16]
+ [15 <./img/redisClientServer.png>] [16] [17]
 
-./chapter/chapter3.tex:62: Package keyval Error: autogobble undefined.
+./chapter/chapter3.tex:66: Package keyval Error: autogobble undefined.
 
 See the keyval package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.62     \begin{lstlisting}[autogobble]
+l.66     \begin{lstlisting}[autogobble]
                                        
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[17]
 
-./chapter/chapter3.tex:67: Package keyval Error: autogobble undefined.
+./chapter/chapter3.tex:71: Package keyval Error: autogobble undefined.
 
 See the keyval package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.67     \begin{lstlisting}[autogobble]
+l.71     \begin{lstlisting}[autogobble]
                                        
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 [18]
 
-./chapter/chapter3.tex:104: Package keyval Error: autogobble undefined.
+./chapter/chapter3.tex:108: Package keyval Error: autogobble undefined.
 
 See the keyval package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.104 \begin{lstlisting}[autogobble]
+l.108 \begin{lstlisting}[autogobble]
                                     
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 127--128
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 137--146
+Underfull \hbox (badness 10000) in paragraph at lines 131--132
 
  []
 
 [19]
+Underfull \hbox (badness 10000) in paragraph at lines 141--150
 
-./chapter/chapter3.tex:149: Package keyval Error: autogobble undefined.
+ []
+
+
+./chapter/chapter3.tex:153: Package keyval Error: autogobble undefined.
 
 See the keyval package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.149     \begin{lstlisting}[autogobble]
+l.153     \begin{lstlisting}[autogobble]
                                         
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-./chapter/chapter3.tex:158: Package keyval Error: autogobble undefined.
+./chapter/chapter3.tex:162: Package keyval Error: autogobble undefined.
 
 See the keyval package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.158     \begin{lstlisting}[autogobble]
+l.162     \begin{lstlisting}[autogobble]
                                         
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 [20]
-Underfull \hbox (badness 10000) in paragraph at lines 199--206
+Underfull \hbox (badness 10000) in paragraph at lines 203--210
 
  []
 
 [21]
-Overfull \hbox (21.40457pt too wide) in paragraph at lines 220--223
+Overfull \hbox (21.40457pt too wide) in paragraph at lines 224--227
 \T1/cmr/m/n/12 Verrá il-lu-stra-to un esem-pio di mo-di-fi-ca del fi-le di con-
 fi-gu-ra-zio-ne, de-no-mi-na-to \T1/cmtt/m/n/12 redis.conf\T1/cmr/m/n/12 . 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 220--223
+Underfull \hbox (badness 10000) in paragraph at lines 224--227
 
  []
 
 
-./chapter/chapter3.tex:225: Package keyval Error: autogobble undefined.
+./chapter/chapter3.tex:229: Package keyval Error: autogobble undefined.
 
 See the keyval package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.225 \begin{lstlisting}[autogobble]
+l.229 \begin{lstlisting}[autogobble]
                                     
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 228--231
+Underfull \hbox (badness 10000) in paragraph at lines 232--235
 
  []
 
 
-./chapter/chapter3.tex:233: Package keyval Error: autogobble undefined.
+./chapter/chapter3.tex:237: Package keyval Error: autogobble undefined.
 
 See the keyval package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.233 \begin{lstlisting}[autogobble]
-                                    
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 239--242
-
- []
-
-
-./chapter/chapter3.tex:244: Package keyval Error: autogobble undefined.
-
-See the keyval package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.244 \begin{lstlisting}[autogobble]
+l.237 \begin{lstlisting}[autogobble]
                                     
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 [22]
-Underfull \hbox (badness 10000) in paragraph at lines 272--275
+Underfull \hbox (badness 10000) in paragraph at lines 243--246
 
  []
 
-<img/masterslaveRedis.png, id=383, 2186.1675pt x 1276.77pt>
+
+./chapter/chapter3.tex:248: Package keyval Error: autogobble undefined.
+
+See the keyval package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.248 \begin{lstlisting}[autogobble]
+                                    
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 276--279
+
+ []
+
+<img/masterslaveRedis.png, id=400, 2186.1675pt x 1276.77pt>
 File: img/masterslaveRedis.png Graphic file (type png)
 <use img/masterslaveRedis.png>
-Package pdftex.def Info: img/masterslaveRedis.png  used on input line 276.
+Package pdftex.def Info: img/masterslaveRedis.png  used on input line 280.
 (pdftex.def)             Requested size: 430.00462pt x 251.1219pt.
 
-Overfull \hbox (17.62482pt too wide) in paragraph at lines 276--277
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 280--281
 [][] 
  []
 
 [23] [24 <./img/masterslaveRedis.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 317--319
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 328--330
+Underfull \hbox (badness 10000) in paragraph at lines 321--323
 
  []
 
 [25]
-Underfull \hbox (badness 10000) in paragraph at lines 358--361
+Underfull \hbox (badness 10000) in paragraph at lines 332--334
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 363--365
 
  []
 
 [26]
-Underfull \hbox (badness 10000) in paragraph at lines 363--368
+Underfull \hbox (badness 10000) in paragraph at lines 367--376
 
  []
 
-<img/cluster:master-slaveRedis.png, id=414, 2007.5pt x 1171.37625pt>
-File: img/cluster:master-slaveRedis.png Graphic file (type png)
-<use img/cluster:master-slaveRedis.png>
-Package pdftex.def Info: img/cluster:master-slaveRedis.png  used on input line 
-374.
-(pdftex.def)             Requested size: 430.00462pt x 250.89368pt.
+<img/hashslotCluster.png, id=435, 2047.65pt x 1056.94875pt>
+File: img/hashslotCluster.png Graphic file (type png)
+<use img/hashslotCluster.png>
+Package pdftex.def Info: img/hashslotCluster.png  used on input line 377.
+(pdftex.def)             Requested size: 430.00462pt x 221.94966pt.
 
-Overfull \hbox (17.62482pt too wide) in paragraph at lines 374--375
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 377--378
 [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 374--375
+Underfull \hbox (badness 10000) in paragraph at lines 377--378
 
  []
 
-) [27 <./img/cluster:master-slaveRedis.png>]
+
+Underfull \hbox (badness 10000) in paragraph at lines 379--384
+
+ []
+
+[27 <./img/hashslotCluster.png>]
+<img/cluster:master-slaveRedis.png, id=443, 2007.5pt x 1171.37625pt>
+File: img/cluster:master-slaveRedis.png Graphic file (type png)
+<use img/cluster:master-slaveRedis.png>
+Package pdftex.def Info: img/cluster:master-slaveRedis.png  used on input line 
+385.
+(pdftex.def)             Requested size: 430.00462pt x 250.89368pt.
+
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 385--386
+[][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 385--386
+
+ []
+
+) [28 <./img/cluster:master-slaveRedis.png>]
 \openout2 = `chapter/chapter4.aux'.
 
- (./chapter/chapter4.tex [28
-
-
-
-
-]
+ (./chapter/chapter4.tex
 Capitolo 4.
 
 Underfull \hbox (badness 10000) in paragraph at lines 21--24
@@ -921,7 +972,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 21--24
 
 Underfull \vbox (badness 1342) has occurred while \output is active []
 
- [29]
+ [29
+
+
+
+
+]
 Underfull \hbox (badness 10000) in paragraph at lines 43--44
 
  []
@@ -1155,7 +1211,7 @@ Capitolo 5.
 
 
 ]
-<img/redistimeseries.png, id=510, 1237.62375pt x 849.1725pt>
+<img/redistimeseries.png, id=533, 1237.62375pt x 849.1725pt>
 File: img/redistimeseries.png Graphic file (type png)
 <use img/redistimeseries.png>
 Package pdftex.def Info: img/redistimeseries.png  used on input line 43.
@@ -1351,7 +1407,7 @@ Overfull \hbox (5.75557pt too wide) in paragraph at lines 419--423
 tart() \T1/cmr/m/n/12 ese-guia-mo il me-to-do \T1/cmtt/m/n/12 run()
  []
 
-<img/chartTemperature.png, id=740, 3505.095pt x 2171.11125pt>
+<img/chartTemperature.png, id=764, 3505.095pt x 2171.11125pt>
 File: img/chartTemperature.png Graphic file (type png)
 <use img/chartTemperature.png>
 Package pdftex.def Info: img/chartTemperature.png  used on input line 425.
@@ -1371,6 +1427,15 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [45])
 [46 <./img/chartTemperature.png>]
+\openout2 = `chapter/bibliografia.aux'.
+
+ (./chapter/bibliografia.tex) [47
+
+
+
+
+
+]
 (/Users/matteorizzo/IdeaProjects/tesiRedis/out/main.aux
 (/Users/matteorizzo/IdeaProjects/tesiRedis/out/frontespizio.aux)
 (/Users/matteorizzo/IdeaProjects/tesiRedis/out/frontmatter/ringraziamenti.aux)
@@ -1379,15 +1444,16 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 (/Users/matteorizzo/IdeaProjects/tesiRedis/out/chapter/chapter2.aux)
 (/Users/matteorizzo/IdeaProjects/tesiRedis/out/chapter/chapter3.aux)
 (/Users/matteorizzo/IdeaProjects/tesiRedis/out/chapter/chapter4.aux)
-(/Users/matteorizzo/IdeaProjects/tesiRedis/out/chapter/chapter5.aux))
+(/Users/matteorizzo/IdeaProjects/tesiRedis/out/chapter/chapter5.aux)
+(/Users/matteorizzo/IdeaProjects/tesiRedis/out/chapter/bibliografia.aux))
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: BE81DD1E63188D4D82292C1857FC12AA;5050.
+(rerunfilecheck)             Checksum: 7CD0EF5EAC729858E25AE05FE65D0059;5156.
  ) 
 Here is how much of TeX's memory you used:
- 12979 strings out of 478994
- 190029 string characters out of 5858185
- 873154 words of memory out of 5000000
- 29810 multiletter control sequences out of 15000+600000
+ 13070 strings out of 478994
+ 191636 string characters out of 5858185
+ 875056 words of memory out of 5000000
+ 29877 multiletter control sequences out of 15000+600000
  429211 words of font info for 66 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  71i,7n,74p,383b,2040s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1410,11 +1476,11 @@ ic/cm-super/sfss1728.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public
 /cm-super/sfti1200.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/c
 m-super/sftt0800.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-
 super/sftt1200.pfb>
-Output written on /Users/matteorizzo/IdeaProjects/tesiRedis/out/main.pdf (54 pa
-ges, 4010158 bytes).
+Output written on /Users/matteorizzo/IdeaProjects/tesiRedis/out/main.pdf (57 pa
+ges, 4135872 bytes).
 PDF statistics:
- 901 PDF objects out of 1000 (max. 8388607)
- 796 compressed objects within 8 object streams
- 407 named destinations out of 1000 (max. 500000)
- 322 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 932 PDF objects out of 1000 (max. 8388607)
+ 821 compressed objects within 9 object streams
+ 416 named destinations out of 1000 (max. 500000)
+ 335 words of extra memory for PDF output out of 10000 (max. 10000000)
 
