@@ -4,18 +4,18 @@ Uno degli ambiti in cui viene maggiormente sfruttato Redis é quello IoT.
 \paragraph{Cos'é l'IoT?\\}
 L''Internet of Things é una tecnologia che permette di massimizzare le capacitá di raccolta e di utilizzo
 dei dati da una moltitudine di sorgenti, le quali possono essere prodotti industriali, sistemi di fabbrica, veicoli
-di trasporto e cosí via.
+di trasporto e molte altre.
 L'IoT consente di rendere disponibili i dati che servono a comprendere meglio il mondo reale.
 Permette di estrarre informazioni utili ai processi decisionali.\\
 Queste informazioni utili devono essere immagazzinate in maniera piú o meno persistente
 e devono essere elaborate con dei tempi di latenza piuttosto brevi, ed é proprio qua che interviene Redis.
 
-In questo capitolo verrá analizzata una possibile applicazione in ambito industriale, ma non solo:
+In questo capitolo verrá analizzata una possibile applicazione in ambito industriale:
 verrá utilizzato un sensore di temperatura e umiditá che preleva delle informazioni ad intervalli regolari e
-sfrutteremo Redis per la persistenza e l'organizzazione dei dati e l'elaborazione di essi.
+sfrutteremo Redis per la persistenza, l'organizzazione dei dati e l'elaborazione di essi.
 
 \section{Scelte progettuali}
-Per questo tipo di applicazione non si necessita di una fase di progettazione, in quanto
+Per questo tipo di applicazione non si necessita di una fase di progettazione concettuale/logica, in quanto
 nell'ambito che stiamo discutendo abbiamo una mole di dati elevati ma semplici.
 Peró, Prima di sviluppare lo sketch vero e proprio dobbiamo decidere che strutture dati messe a disposizione si adattano
 maggiormente al nostro caso d'uso.
@@ -31,64 +31,63 @@ i due approcci in questione sono:
     value -> \textbf{sensor.value} \\
     Un esempio possibile quindi:\\
     sensorTemp.11:23:49 $\to$ 27.8
-    \item metodo avanzato, dove viene utilizza una struttura piú complicata, non presente nelle strutture dati di base di Redis,
+    \item metodo avanzato, dove viene utilizza una struttura piú complessa, non presente nelle strutture dati di base di Redis,
     chiamata \texttt{RedisTimeSeries}, é un modulo aggiuntivo che é stato fatto su misura per questo tipo di applicazioni.
     Permette un alto volume di inserimenti di valori con letture a bassa latenza. Puó essere vista come una SortedSet che associa
     ad ogni valore inserito un timestamp come score.\\
-    Infatti sará fatto in questo modo:\\
+    Sará fatto in questo modo:\\
     si crea una serie temporale il cui nome sará quello del sensore e all'interno della serie temporale verranno aggiunti i valori
-    prelevati a intervalli temporali, e questi valori verranno associati al timestamp che corrisponde
-    al momento in cui vengono inseriti.
+    prelevati a intervalli regolari, e questi valori verranno associati al timestamp, che corrisponde
+    all'istante in cui vengono inseriti.
 
     \includegraphics[width=0.7\textwidth]{img/redistimeseries}
 \end{enumerate}
 
 \\
 
-Prima dello sviluppo vero e proprio dello sketch necessitiamo di un ultimo passaggio, ovvero apportare dei cambiamenti al file di configurazione del server Redis
-Per fare questo vi é una libreria, chiamata \texttt{Redis.h} la quale permette di comunicare con il database Redis.
-Eseguiamo una connessione sulla rete Locale sfruttando il modulo WiFi di ESP32.
+Prima dello sviluppo vero e proprio dello sketch necessitiamo di un ultimo passaggio, ovvero apportare dei cambiamenti al file di configurazione del server Redis.
+%Per fare questo vi é una libreria, chiamata \texttt{Redis.h} la quale permette di comunicare con il database Redis.
+%Eseguiamo una connessione sulla rete Locale sfruttando il modulo WiFi di ESP32.
 
-
-in quanto con la configurazione standard il server comunica solo su \texttt{localhost}(127.0.0.1).
+Con la configurazione standard il server comunica solo su \texttt{localhost}(127.0.0.1).
 Dobbiamo aggiungere un parametro per fare in modo che il server sia raggiungibile sulla rete locale aggiungendo indirizzo IP
 privato della macchina sulla quale viene eseguito il processo \texttt{redis-server}.
-Di conseguenza, il server sará raggiungibile tramite indirizzo IP e Port.\\
+Di conseguenza, il server sará raggiungibile tramite indirizzo IP e Porta.\\
 Nel nostro caso é: \textbf{192.168.179.25:6379}.
 Dobbiamo anche aggiungere una password di sicurezza per l'autenticazione con il server, anche questo viene fatto
 aggiungendo un parametro nel file di configurazione.
 
-La configurazione viene modificata cosí:
-\begin{lstlisting}[autogobble, style=redis-cli, language=...]
+La configurazione viene modificata aggiungendo le seguenti righe in \texttt{redis.conf}:
+\begin{lstlisting}[autogobble, style=redis-cli, language=SQL]
 bind  127.0.0.1  192.168.178.25
 
 requirepass "admin"\end{lstlisting}
 
 \\
 
-Per quanto riguarda la persistenza nei file di configurazione, possiamo lasciare quella base, che é una RDB.
+Per quanto riguarda la persistenza, possiamo lasciare quella base, che é una RDB.
 Per queste applicazioni non é necessario avere un massimo livello di persistenza.
 
 \section{Sketch Arduino}
-Dopo aver fatto le considerazioni precedenti possiamo passare allo sviluppo dello sketch vero e proprio, che avrá il compito
+Dopo aver fatto le considerazioni precedenti si può passare allo sviluppo dello sketch vero e proprio, che avrá il compito
 di inviare dati/informazioni al nostro database.
 Il materiale necessario per questo progetto é:
 \begin{itemize}
-    \item Un microcontrollore compatibile con l'ambiente di sviluppo arduino e, possibilmente, con WiFi integrato,
-          nel nostro caso utilizziamo un ESP32.
-    \item un sensore digitale di temperatura e umiditá dell'aria, utilizziamo un DHT11: costituito da una parte resistiva
+    \item Un microcontrollore compatibile con l'ambiente di sviluppo arduino e con WiFi integrato,
+          nel nostro caso viene utilizzato un ESP32.
+    \item un sensore digitale di temperatura e umiditá dell'aria, viene utilizzato un DHT11: costituito da una parte resistiva
     che si occupa della rilevazione dell'umiditá e da un NTC che rileva la temperatura, queste due parti sono gestite
     da un microcontrollore che é parte integrante del sensore.
 \end{itemize}
 
-Dopo che abbiamo collegato il tutto e verificato che il sensore funzioni correttamente, ovvero che mandi dei dati
-coerenti all'ESP32 possiamo cominciare a sviluppare il progetto.
+Dopo aver collegato il tutto e verificato che il sensore funzioni correttamente, ovvero che mandi dei dati
+coerenti all'ESP32, si può iniziare a sviluppare lo sketch da caricare su ESP32.
 
 \subsection{Connessione con Redis}
 Per comunicare ed inviare dati a Redis vi é una libreria apposita, sviluppata proprio per l'ambiente Arduino, chiamata \texttt{Redis.h},
 la quale permette di comunicare con il \texttt{redis-server}.\\
 Colleghiamoci come client alla rete Locale, grazie al modulo WiFi di ESP32, sfruttando la libreria \texttt{WiFi.h}.\\
-Nel metodo di \texttt{setup()}, che é il metodo che viene eseguito solo alla prima esecuzione dello sketch, andiamo a creare una connessione alla rete Locale tramite WiFi e, soprattutto, con il \texttt{server-redis}.
+Nel metodo di \texttt{setup()}, che viene eseguito solo alla prima esecuzione dello sketch, viene creata una connessione alla rete Locale tramite WiFi e, soprattutto, con il \texttt{server-redis}.
 \begin{lstlisting}[autogobble, style=c, language=C]
 #define WIFI_SSID "wifi-name"
 #define WIFI_PSW "wifi-psw"
@@ -119,24 +118,24 @@ void setup(){
     }
     else
     {
-        Serial.printf("Failed to authenticate to the Redis server! Errno: %d\n", (int)connRet);
+        Serial.printf("Failed to authenticate to the Redis server! Errno: %d\n", connRet);
         return;
     }
 }
 \end{lstlisting}
 
-Per quanto riguarda la connessione al Server Redis,  con \texttt{redisConn.connect(...)} creiamo una connessione con il server
-passando indirizzo Ip e Porta che individuano il processo \texttt{redis-server}, successivamente proviamo ad autenticarci con
-\texttt{redis.authenticate(...)}. Se tutto viene eseguito correttamente abbiamo il nostro \texttt{redis-client} che puó
-comunicare.
+Per quanto riguarda la connessione al Server Redis,  con \texttt{redisConn.connect(...)} viene creata una connessione con il server
+passando indirizzo Ip e Porta, le quali individuano il processo \texttt{redis-server}, successivamente si prova l'operazione di autenticazione con
+\texttt{redis.authenticate(...)}.
+Se tutto viene eseguito correttamente si dispone di \texttt{redis-client} su ESP32 che comunica in modo corretto.
 
 
 \subsection{NTP}
 Come specificato nella sezione dedicata alle scelte progettuali, qualunque modalitá venga utilizzata dobbiamo ricavare l'orario,
 indipendentemente che sia uno Unix timestamp o una data in formato hh:mm:ss.
 \paragraph{Come facciamo a ricavare l'ora attuale?\\}
-Arduino essendo sprovvisto di RTC (Real Time Clock), ovvero un componente elettronco che misura il tempo, ha bisogno di ottenere l'informazione
-sull'orario in qualche modo.
+Arduino essendo sprovvisto di RTC (Real Time Clock), ovvero un componente elettronico che misura il tempo, ha bisogno di ottenere l'informazione
+sull'orario da qualche servizio esterno.
 Per fare questo sfruttiamo \textbf{NTP} (Network Time Protocol), che é un protocollo client-server utilizzato appunto per allineare orari di applicazioni
 e prodotti elettronici.
 É disponibile una libreria arduino chiamata \texttt{NTPClient} che permette di collegarsi a un server NTP specificato ed ottenere
@@ -164,7 +163,7 @@ configTime(0, 0, ntpServer);  //configurazione per ottenere orario in Unix Times
 \end{lstlisting}
 
 \subsection{Invio dataSet}
-Adesso possiamo creare la parte di codice che permette di inviare il dataSet a Redis.
+In questa sezione viene creare la parte di codice che permette di inviare il dataSet a Redis.
 Analizziamo i due casi specificati nelle scelte progettuali:
 \begin{enumerate}
     \item Il primo tratta la casistica in cui viene adoperata la struttura dati piú semplice, ovvero la stringa:
@@ -209,13 +208,13 @@ void loop(){
 
 con il metodo \texttt{getTime()} si ottiene l'informazione sull'orario grazie al protocollo NTP.\\
 Per quanto riguarda Redis utilizziamo il metodo \texttt{redis.set()} a cui passiamo due parametri:
-il primo é la chiave ed il secondo il valore. Ripetiamo il procedimento per la temperatura e l'umiditá.
-Con \texttt{redis.expire()} diamo una scadenza alla chiave, la durata della chiave viene
+il primo é la chiave ed il secondo il valore. Il procedimento viene fatto per temperatura e umiditá.
+Con \texttt{redis.expire()} viene impostata una scadenza alla chiave, la durata della chiave viene
 espressa in secondi e viene passata come parametro del metodo.
 Alla fine di \texttt{loop()} mettiamo un \texttt{delay()} che indica la pausa che deve intercorrere tra l'esecuzione
-di un loop e quello successivo, ovvero dovrá ripetersi ogni 5000 ms (5 secondi).
+di un loop e quello successivo: dovrá ripetersi ogni 5000 ms.
 
-    \item Di seguito analizziamo la casistica in cui viene adoperata la struttura piú avanzata, RedisTimeSeries:
+    \item Di seguito analizziamo l'utilizzo della struttura piú avanzata, RedisTimeSeries:
 \begin{lstlisting}[autogobble, style=c, language=C]
 long getTime() {
   time_t now;
@@ -234,14 +233,16 @@ void loop()
    delay(5000);
 }\end{lstlisting}
 
-    Con \texttt{getTime()} otteniamo l'orario in Unix Timestamp, quindi rispetto allo sketch precedente
-    sará molto piú semplice l'implementazione, in quanto non dovremo fare conversioni particolari per ottenere
-    un formato come quello che dovevamo ottenere nel caso precedente.
-    Con il metodo \texttt{redis.tsadd} andiamo ad aggiungere ad una serie temporale un nuovo valore associandolo con il proprio timestamp,
+    Con \texttt{getTime()} viene ricavato l'orario in Unix Timestamp, quindi rispetto allo sketch precedente
+    sará molto piú semplice l'implementazione nel codice, in quanto non andranno fatte conversioni particolari per ottenere
+    un formato come quello che bisognava ottenere nel caso precedente.\\
+    Con il metodo \texttt{redis.tsadd} viene aggiunto ad una serie temporale un nuovo valore, associandolo con il proprio timestamp;
     se la serie temporale non esiste viene creata direttamente con questa istruzione.
-    Questo metodo ha un difetto, i valori inseriti possono essere solo interi, quindi, quando andiamo ad inserire
-    una nuova temperatura dovremo utilizzare un fattore moltiplicativo pari ai decimali presenti nella sua rilevazione.
-    Bisogna ricordarsi di tenerne conto nel software applicativo.
+    Questo metodo ha un difetto, i valori inseriti possono essere solo interi, quindi, quando verrà inviata
+    una nuova temperatura bisognerà utilizzare un fattore moltiplicativo pari ai decimali presenti nella sua rilevazione, per non perdere informazioni sulla
+    risoluzione dei valori rilevati.
+    Bisognerà ricordarsi di tenerne conto nell'interpretazione dei valori presenti nel database, ad esempio quando
+    verranno elaborati nell'applicativo Java.
 \end{enumerate}
 
 
@@ -293,15 +294,16 @@ public List<String> getValuesByKeys(Set<String> keys){
 }
 \end{lstlisting}
 
-   Nel costruttore \texttt{RedisClient(...)} creiamo la connessione con il server.\\
+   Nel costruttore \texttt{RedisClient(...)} viene creata la connessione con il server.\\
    Successivamente, sono stati creati due metodi fondamentali:
     \begin{itemize}
-        \item \texttt{getKeysByString(...)}: riusciamo ad ottenere l'insieme chiavi presenti nel database data una certa stringa,
+        \item \texttt{getKeysByString(...)}: si ottiene l'insieme di chiavi presenti nel database data una certa stringa;
         viene  sfruttato il metodo \texttt{jedis.keys(interrogation)} che ritorna un set di stringhe dato un certo pattern.
         L'idea é quella di ottenere un set composto da tutte le chiavi che cominciano per \texttt{sensorTemp} ed un altro set
         che comincia per \texttt{sensorHum}.
-        \item \texttt{getValuesByKeys(...)}: riusciamo ad ottenere l'insieme di valori dato un set di chiavi, questo viene ottenuto grazie
-        al metodo \texttt{jedis.mget(arrayKeys)}, che ritorna una lista di valori. Questo metodo vuole come parametro in ingresso
+        \item \texttt{getValuesByKeys(...)}: si ottiene l'insieme di valori dato un set di chiavi, questo viene ottenuto grazie
+        al metodo \texttt{jedis.mget(arrayKeys)}, che ritorna una lista di valori.
+        Questo metodo vuole come parametro in ingresso
         un array di chiavi, quindi bisogna fare una conversione da set ad array.
     \end{itemize}
 
@@ -332,10 +334,11 @@ public void alterRange(String key){
     \begin{itemize}
         \item \texttt{getValues(...)}:  otteniamo un array di \texttt{Value}, che é una classe messa a disposizione
         dalla libreria \textbf{RedisTimeSeries}, la quale possiede come attributi valore e timestamp.
-        Viene sfruttato il metodo \texttt{client.range(...)}, il quale ha il compito di ottenere un insieme di valori associati a timestamp in un certo
-        range temporale. Come parametro in ingresso a \texttt{getValues()} dobbiamo fornire una stringa che corrisponde  alla chiave della serie temporale.
-        \item \texttt{alterRange(...)}: serve per far scadere valori all'interno di una serie temporale. Viene sfruttato il metodo \texttt{client.alter(...)}.
-        Viene fatta la differenza con il timestamp del valore piú recente all'interno della serie; i valori con una differenza maggiore del range specificato vengono eliminati.
+        Viene sfruttato il metodo \texttt{client.range(...)}, il quale ha il compito di ottenere un insieme di valori con timestamp associati, in un certo
+        range temporale. Come parametro in ingresso a \texttt{getValues()} bisogna fornire una stringa che corrisponde  al nome (chiave) della serie temporale.
+        \item \texttt{alterRange(...)}: serve per eliminare valori all'interno di una serie temporale. Viene sfruttato il metodo \texttt{client.alter(...)}.
+        Vengono confrontati i timestamp di tutti i valori con quello più recente, il confronto viene fatto facendo la differenza con il timestamp del valore più recente
+        all'interno della serie; i valori che hanno una differenza maggiore del range specificato come parametro in ingresso vengono eliminati.
         Metodo utilizzato per non far saturare la serie temporale con valori vecchi e poco significativi.
     \end{itemize}
 \end{enumerate}
@@ -343,16 +346,16 @@ public void alterRange(String key){
 
 
 \subsection{DataSet RealTime}
-Dopo che abbiamo ottenuto l'intero dataset dal server bisogna modificarlo in modo da renderlo adatto per l'elaborazione grafica.
-Per rendere semplice la sua elaborazione in entrambi gli approcci é stata sfruttata una \texttt{TreeMap} che ha le chiavi
+Dopo che è stato ottenuto l'intero dataset dal server bisogna modificarlo in modo da renderlo adatto per l'elaborazione grafica.
+Per rendere semplice la sua elaborazione in entrambi gli approcci é stata sfruttata una \texttt{TreeMap}, che ha le chiavi
 di tipo \texttt{LocalTime} ed i valori di tipo \texttt{String}.
-Come abbiamo fatto nei due approcci :
+La conversione viene fatta nel modo seguente nei due approcci :
 \begin{enumerate}
-    \item Abbiamo dovuto estrarre da ogni elemento del set di chiavi la data, quindi da ogni chiave abbiamo dovuto estrarre la data e convertirla
+    \item da ogni elemento di tipo stringa appartenente al set di chiavi si estrae la data e la si converte
     in un \texttt{LocalTime}.
     Ad esempio, se abbiamo una chiave fatta in questo modo sensorTemp.12:24:25 estraiamo 12:24:25 e lo convertiamo in tipo \texttt{LocalTime} con l'apposito metodo.
-    Dopo di che, associamo ad ogni data il proprio valore e inseriamo tutto in una \texttt{TreeMap} in modo da mantenere l'ordine temporale.
-    \item Siamo partiti da un array di tipo \texttt{Value}, e abbiamo dovuto convertire lo Unix timestamp in un \texttt{LocalTime} e successivamente associare date
+    Dopo di che, viene associata ad ogni data il proprio valore inserendo tutto in una \texttt{TreeMap} in modo da mantenere l'ordine temporale.
+    \item Si parte da un array di tipo \texttt{Value}, si estrae il timestamp associato ad ogni valore e lo si converte in un \texttt{LocalTime}; successivamente vengono associate date
     e valori nella \texttt{TreeMap} come sopra.
 \end{enumerate}
 Dopo questo passaggio i due approcci si fondono insieme, in quanto da qui in poi si lavora sulle \texttt{TreeMap} generate che sono esattamente identiche.\\
@@ -360,7 +363,7 @@ Dopo questo passaggio i due approcci si fondono insieme, in quanto da qui in poi
 A questo punto rimane un ultimo problema, ovvero aggiornare il dataset in tempo reale.
 Ogni 5 secondi bisogna comunicare con Redis per ottenere i dati aggiornati.
 
-Per fare questo sfruttiamo i Thread.
+Per fare questo vengono sfruttati i Thread:
 
 
 \begin{lstlisting}[autogobble, title={\texttt{DataSetRealTime.java}}]
@@ -384,12 +387,13 @@ public void run() {
 }
 \end{lstlisting}
 
-In questa classe abbiamo implementato l'interfaccia \texttt{Runnable} e abbiamo fatto un override sul metodo \texttt{run()}.
-l'attributo di tipo \texttt{TimeSeries ts} fa parte della libreria \textbf{JFreeChart}, che é stata sfruttata per il disegno dei grafici.
-Questa classe funziona in modo analogo ad una Map, peró contiene dei metodi aggiuntivi dedicati alle serie temporali.\\
-Con l'istruzione \texttt{new DataSet(...)} andiamo a creare la \texttt{TreeMap} spiegata in precedenza, successivamente
-andiamo ad estrarre orario e valore di ogni entry con un ciclo for ed andiamo ad aggiungerlo alla \texttt{TimeSeries} con
-il metodo \texttt{ts.addOrUpdate(...)}. Questo metodo aggiunge nuove entry all'interno della sua struttura se vede nuovi istanti,
+Viene implementata l'interfaccia \texttt{Runnable} e viene fatto un override sul metodo \texttt{run()}.
+Il tipo dell'attributo \texttt{TimeSeries ts} fa parte della libreria \textbf{JFreeChart}, che é stata sfruttata per il disegno dei grafici.
+Questo oggetto funziona in modo analogo ad una Map, peró contiene dei metodi aggiuntivi dedicati alle serie temporali.\\
+Con l'istruzione \texttt{new DataSet(...)} viene generata la \texttt{TreeMap} spiegata in precedenza, successivamente
+vengono estratti orario e valore di ogni entry con un ciclo for e si aggiungono alla \texttt{TimeSeries} con
+il metodo \texttt{ts.addOrUpdate(...)}.
+Questo metodo aggiunge nuove entry all'interno della sua struttura se trova nuovi istanti nei cicli successivi,
 le lascia inalterate se sono composte da stesso istante e stesso valore associato, mentre le modifica se vede stesso istante e valore associato
 modificato.
 
@@ -398,8 +402,9 @@ grazie a \texttt{Thread.sleep(5000)}, che ha il compito di disattivare il thread
 
 
 \subsection{JFreeChart}
-Per generare il grafico finale vero e proprio abbiamo sfruttato una libreria adatta alla creazione di diagrammi temporali, che supporta una frequenza di
-aggiornamento di questo tipo. Nel caso in cui volessimo sfruttate frequenze di aggiornamento molto piú elevate questa libreria non é adatta,
+Per generare il grafico finale vero e proprio è stata sfruttata una libreria adatta alla creazione di diagrammi temporali, che supporta una frequenza di
+aggiornamento di questo tipo.
+Nel caso in cui volessimo sfruttare frequenze di aggiornamento molto piú elevate questa libreria non é adatta,
 bisognerebbe utilizzare soluzioni proprietarie, o fatte ad hoc per il caso d'uso in questione.
 
 \begin{lstlisting}[autogobble, title={\texttt{DataSetRealTime.java}}]
@@ -420,10 +425,10 @@ va passato come parametro d'ingresso il dataset e altri parametri per la grafica
 \includegraphics[width=1\textwidth]{img/chartTemperature}
 \\
 
-
-Prima di avviare il software bisogna avviare il \texttt{redis-server} con il file di configurazione specifico,
-successivamente il grafico si aggiornerà automaticamente in tempo reale con una frequenza di 5 secondi.
 Nel grafico sopra riportato può essere apprezzato che sull'asse delle ascisse abbiamo il tempo, quindi le chiavi, mentre
 sull'asse delle ordinate abbiamo i valori legati alle chiavi.\\
+Prima di eseguire il software bisogna avviare il \texttt{redis-server} con il file di configurazione specifico,
+successivamente il grafico verrà disegnato coerentemente con i valori memorizzati in Redis.
+Si aggiornerà automaticamente in tempo reale con una frequenza di 5 secondi.\\
 Questo software può essere sfruttato anche per elaborare dati completamente diversi da temperatura e umidità, quindi può essere
 adattato in modo molto semplice per dataset di diversa natura.

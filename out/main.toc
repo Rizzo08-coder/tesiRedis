@@ -38,8 +38,8 @@
 \contentsline {paragraph}{Cos'é l'IoT?\\}{35}{section*.16}%
 \contentsline {section}{\numberline {5.1}Scelte progettuali}{35}{section.5.1}%
 \contentsline {section}{\numberline {5.2}Sketch Arduino}{37}{section.5.2}%
-\contentsline {subsection}{\numberline {5.2.1}Connessione con Redis}{38}{subsection.5.2.1}%
-\contentsline {subsection}{\numberline {5.2.2}NTP}{39}{subsection.5.2.2}%
+\contentsline {subsection}{\numberline {5.2.1}Connessione con Redis}{37}{subsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.2.2}NTP}{38}{subsection.5.2.2}%
 \contentsline {paragraph}{Come facciamo a ricavare l'ora attuale?\\}{39}{section*.17}%
 \contentsline {subsection}{\numberline {5.2.3}Invio dataSet}{39}{subsection.5.2.3}%
 \contentsline {section}{\numberline {5.3}Java}{41}{section.5.3}%
