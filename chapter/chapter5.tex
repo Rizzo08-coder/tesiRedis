@@ -40,7 +40,10 @@ i due approcci in questione sono:
     prelevati a intervalli regolari, e questi valori verranno associati al timestamp, che corrisponde
     all'istante in cui vengono inseriti.
 
+    \begin{figure}[H]
     \includegraphics[width=0.7\textwidth]{img/redistimeseries}
+        \caption{struttura RedisTimeSeries}
+    \end{figure} 
 \end{enumerate}
 
 \\
@@ -421,8 +424,11 @@ illustrato in precedenza su un thread specifico.\\
 Il grafico vero e proprio viene creato con \texttt{ChartFactory.createTimeSeriesChart()}, a cui
 va passato come parametro d'ingresso il dataset e altri parametri per la grafica.
 
-
+\begin{figure}[H]
 \includegraphics[width=1\textwidth]{img/chartTemperature}
+    \caption{Grafico Temperatura JFreeChart}
+\end{figure}
+
 \\
 
 Nel grafico sopra riportato può essere apprezzato che sull'asse delle ascisse abbiamo il tempo, quindi le chiavi, mentre

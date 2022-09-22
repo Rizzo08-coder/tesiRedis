@@ -9,7 +9,10 @@ di tipo request-response.
 Il client invia una richiesta al server attendendo la risposta sul socket ed il server elabora il comando e
 invia la risposta al client.
 
+\begin{figure}[H]
 \includegraphics[width=1\textwidth]{img/redisClientServer}
+\caption{Modello client-server Redis}
+\end{figure}
 
 \section{Caratteristiche}
 \subsection{Strutture Dati}
@@ -176,7 +179,7 @@ EXEC\end{lstlisting}
     L'unica chiave che esiste é quella primaria e deve essere univoca;
     l'integrita referenziale non é mantenuta da Redis stesso e deve essere gestita dalle applicazioni client.
 
-    \item \textbf{persistenza(durability)}:
+    \item \textbf{persistenza (durability)}:
     l'efficienza di Redis é dovuta in buona parte al suo modo di gestire questa proprietá.
     É un database in memoria ma con possibilitá di essere persistente su disco, quindi rappresenta un compromesso in cui si ottengono
     velocitá di scrittura e lettura molto elevate con la limitazione di avere un set di dati non piú grande della memoria.
@@ -277,7 +280,10 @@ Redis Master funge da interfaccia con il mondo esterno, gestendo tutte le richie
 quelle di lettura;
 ogni volta che viene apportata una modifica al database master, la modifica viene propagata ai database slave collegati al master.\\
 
+\begin{figure}[H]
 \includegraphics[width=1\textwidth]{img/masterslaveRedis}
+\caption{Redis distribuito master-slave}
+\end{figure}
 
 La propagazione della replica puó avvenire in due modi:
 \begin{itemize}
@@ -373,15 +379,18 @@ Quindi, al momento dell'inserimento/richiesta di informazioni di una chiave vien
 ed in base al numero ottenuto la richiesta verrà demandata al nodo proprietario del numero di slot otttenuto.\\
 Dopo un certo numero di interrogazioni i client riescono ad ottenere una mappatura completa di quali nodi sono proprietari di quali slot,
 potendo contattare direttamente i nodi corretti.\\
-
-\includegraphics[width=1\textwidth]{img/hashslotCluster}\\
-
+\begin{figure}[H]
+\includegraphics[width=1\textwidth]{img/hashslotCluster}
+\caption{Redis distribuito Cluster}
+\end{figure}
 Lo sharding dei dati in molte istanze non risolve il problema della sicurezza dei dati e della ridondanza. Se una delle istanze muore
 a causa di un guasto hardware e non si hanno backup da cui ripristinare i dati, tutti i dati di quella istanza saranno persi.
 Per evitare, o quanto meno diminuire, questo problema si potrebbero utilizzare diverse tecniche, come la replicazione su disco oppure l'architettura master-slave.\\
 Inoltre, le transazioni relative a piú chiavi distribuite su piú istanze non sono supportate, poiché richiederebbero lo spostamento
 dei dati tra diversi nodi, con conseguente calo delle prestazioni.\\
 
-\includegraphics[width=1\textwidth]{img/cluster:master-slaveRedis}\\
-
+\begin{figure}[H]
+\includegraphics[width=1\textwidth]{img/cluster:master-slaveRedis}
+\caption{Redis distribuito completo con Cluster e Master-Slave}
+\end{figure}
 La figura sopra riportata mostra un sistema avanzato in cui si ha una combinazione di Redis Cluster e Redis Master-Slave.
