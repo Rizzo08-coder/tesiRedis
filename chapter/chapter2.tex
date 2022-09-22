@@ -50,7 +50,9 @@ Infatti:
 \end{itemize}
 Preso come esempio un dominio in cui vanno salvati in modo persistente dati su giocatori e giochi
 \begin{figure}[H]
-\includegraphics[width=1.05\textwidth]{img/designAggregati}
+    \begin{center}
+        \includegraphics[width=1.05\textwidth]{img/designAggregati}
+    \end{center}
 \caption{esempio modello di dominio}
 \end{figure}
 Nella figura sopra riportata l'oggetto con lo scomparto superiore colorato é un'entità, altrimenti
@@ -104,8 +106,10 @@ Vi sono due modalità principali per rappresentare gli aggregati:
     Questa metodologia é proprio quella che rispecchia in modo piú appropriato i database key-value.
 \end{itemize}
 \vspace{0.5cm}
-\begin{figure}[H] 
-    \includegraphics[width=1\textwidth]{img/eao.eav}
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[width=1\textwidth]{img/eao.eav}
+    \end{center}
     \caption{entry per aggregate objec...}
 \end{figure}
 Nella figura \emph{EAO} si ha per ogni \texttt{blocco} \emph{Player} o \emph{Game} una singola \texttt{entry} con chiave vuota,
@@ -119,7 +123,9 @@ Ovviamente queste due sono le rappresentazioni piú estreme che si possono otten
 viene utilizzata una \texttt{entry} distinta per ogni campo di livello superiore, quindi si ha una sorta di struttura mista.
 
 \begin{figure}[H]
-\includegraphics[width=0.7\textwidth]{img/etf}
+    \begin{center}
+        \includegraphics[width=0.7\textwidth]{img/etf}
+    \end{center}
 \caption{entry per top level field}
 \end{figure}
 Se dovessimo aver bisogno di una rappresentazione degli aggregati ancora piú flessibile é possibile effettuarne il partizionamento,
@@ -138,7 +144,9 @@ il dbms di cui disponiamo per verificare se saranno presenti delle strutture dat
 presente nei database key-value.\\
 
 \begin{figure}[H]
-\includegraphics[width=1\textwidth]{img/implementazione}
+    \begin{center}
+        \includegraphics[width=1\textwidth]{img/implementazione}
+    \end{center}
 \caption{implementazione...}\\
 \end{figure}
 
