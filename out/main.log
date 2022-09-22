@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.4.1)  22 SEP 2022 14:15
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.4.1)  22 SEP 2022 14:17
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -568,27 +568,31 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 File: img/dbDocumentale.png Graphic file (type png)
 <use img/dbDocumentale.png>
 Package pdftex.def Info: img/dbDocumentale.png  used on input line 69.
-(pdftex.def)             Requested size: 301.00192pt x 289.9693pt.
+(pdftex.def)             Requested size: 258.00539pt x 248.53246pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [3]
-[4pdfTeX warning (ext4): destination with the same identifier (name{figure.1.1}
-) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  
-l.85 
-      <./img/dbDocumentale.png>]
-<img/dbColumnOriented.png, id=276, 2267.47125pt x 1327.96124pt>
+<img/dbColumnOriented.png, id=271, 2267.47125pt x 1327.96124pt>
 File: img/dbColumnOriented.png Graphic file (type png)
 <use img/dbColumnOriented.png>
 Package pdftex.def Info: img/dbColumnOriented.png  used on input line 90.
 (pdftex.def)             Requested size: 387.00153pt x 226.642pt.
+
+[4pdfTeX warning (ext4): destination with the same identifier (name{figure.1.1}
+) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  
+l.94 
+      <./img/dbDocumentale.png>]
 <img/dbGrafo.png, id=277, 1547.7825pt x 1273.75874pt>
 File: img/dbGrafo.png Graphic file (type png)
 <use img/dbGrafo.png>
 Package pdftex.def Info: img/dbGrafo.png  used on input line 106.
 (pdftex.def)             Requested size: 344.005pt x 283.10431pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
  [5pdfTeX warning (ext4): destination with the same identifier (name{figure.1.2
 }) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
@@ -1511,7 +1515,7 @@ ic/cm-super/sfss1728.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public
 m-super/sftt0800.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-
 super/sftt1200.pfb>
 Output written on /Users/matteorizzo/IdeaProjects/tesiRedis/out/main.pdf (59 pa
-ges, 4201433 bytes).
+ges, 4201414 bytes).
 PDF statistics:
  964 PDF objects out of 1000 (max. 8388607)
  850 compressed objects within 9 object streams
