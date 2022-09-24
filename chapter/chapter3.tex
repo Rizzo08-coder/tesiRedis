@@ -173,7 +173,6 @@ EXEC\end{lstlisting}
     Con questa implementazione, se si dovesse verificare una race condition ed un client modifica il valore di \texttt{sampleKey} tra il nostro
     \texttt{WATCH} e \texttt{EXEC}, la transazione verrá interrotta. Avremo bisogno di ripetere la transazione quando la race condition non sará
     piú presente.\\
-    Quindi questo é un modo efficace per ottenere un buon livello di isolamento nel caso di transazioni multiple.
 
     \item \textbf{Consistenza}: I vincoli di integritá sono dei concetti relazionali, quindi é difficile fare un collegamento con un database di questo tipo.
     L'unica chiave che esiste é quella primaria e deve essere univoca;
@@ -193,7 +192,7 @@ EXEC\end{lstlisting}
           \item \textbf{Database in Memory}
       \end{itemize}%parlate anche dei dati salvati in cache, vantaggi/svantaggi che ne derivano
         
-       \paragraph{RDB $\to$ Redis Database File}
+       \paragraph{RDB $\to$ Redis Database File:}
          Questo tipo di persistenza esegue snapshot del set di dati a intervalli specificati. Viene prodotto come risultato un file
          compatto, pertanto agevole da salvare su qualsiasi tipo di supporto. Inoltre, il recupero dei dati all'avvio del server Redis
          é molto efficiente.
@@ -202,8 +201,8 @@ EXEC\end{lstlisting}
          Conviene utilizzare questo tipo di persistenza quando si richiede un salvataggio meno oneroso per il server e si ha particolare interesse
          ad avere un backup piú comodo.
 
-    \paragraph{AOF $\to$ Append Only File}
-    é un meccanismo di persistenza che consente al server Redis di tenere traccia e registrare ogni comando eseguito dal server.
+    \paragraph{AOF $\to$ Append Only File:}
+    É un meccanismo di persistenza che consente al server Redis di tenere traccia e registrare ogni comando eseguito dal server.
     Quindi vi é un file di log dove vengono aggiunti i comandi ogni volta che vengono eseguiti.
     Questo registro di comandi puó essere riprodotto all'avvio del server, ricreando il database al suo stato originale.
     Il vantaggio é che basandosi su un log scritto continuamente, non vi é il rischio di incorrere in perdite in caso di crash. Inoltre,
@@ -215,18 +214,19 @@ EXEC\end{lstlisting}
     maggiore completezza.
 
 
-    \paragraph{Database In Memory}
-    é possibile rinunciare ad entrambi i meccanismi definiti precedentemente per dare vita ad un database in memory senza persistenza su disco, risultando molto piú
+    \paragraph{Database In Memory:}
+    É possibile rinunciare ad entrambi i meccanismi definiti precedentemente per dare vita ad un database in memory senza persistenza su disco, risultando molto piú
     efficiente, poiché non deve piú occuparsi dei salvataggi, e puó essere utilizzato per immagazzinare dati ad uso temporaneo la cui
     perdita non risulterebbe irreparabile per il sistema.\\
-    Redis puó anche essere utilizzato come memoria cache, in cui viene fissata la quantitá massima di memoria utilizzabile. Quando questa sará
+    Questa modalità solitamente é quella utilizzata per fare caching, nella quale viene fissata la quantità massima di memoria utilizzabile. Quando questa sará
     colma, i dati piú vecchi verranno eliminato con una politica LRU o LFU.
 \end{itemize}
 
 \paragraph{Come configurare i diversi livelli di persistenza?\\}
 Per fare ció bisogna accedere al file di configurazione del server Redis andando a modificare/cancellare dei parametri e riavviando il server,
-oppure digitando \texttt{CONFIG SET ...} da CLI con la possibilitá di avere un effetto immediato sulle modifiche apportate alla configurazione del server senza doverlo riavviare.\\
-Verrá illustrato un esempio di modifica del file di configurazione, denominato \texttt{redis.conf}.\\
+oppure digitando \texttt{CONFIG SET ...} da CLI, con la possibilitá di avere un effetto immediato sulle modifiche apportate alla configurazione del server senza doverlo riavviare.\\
+
+Di seguito viene illustrato un esempio di modifica del file di configurazione, denominato \texttt{redis.conf}.\\
 
 RDB é l'impostazione predefinita. In particolare sono giá impostati i seguenti parametri di default:
 \begin{lstlisting}[autogobble, style=redis-cli, language=SQL]
@@ -271,8 +271,8 @@ controlla o coordina piú dispositivi o processi subordinati (gli slave).
 
 il server Redis puó essere eseguito in due modalitá:
 \begin{itemize}
-    \item Modalitá Master (Redis Master);
-    \item Modalitá Slave (Redis Slave o Redis Replica).
+    \item Modalità Master (Redis Master);
+    \item Modalità Slave (Redis Slave o Redis Replica).
 \end{itemize}
 
 
@@ -303,17 +303,17 @@ vi sono due scelte:
     \item aggiungi una nuova macchina come Redis Master;
     \item rendi qualsiasi Redis Slave esistente come nuovo Redis Master.
 \end{enumerate}
-Il problema con l'approccio \textbf{1} é che nel momento in cui aggiungiamo una nuova macchina che fa da Master e questa sincronizzerá
+Il problema con l'approccio \textbf{1} é che nel momento in cui aggiungiamo una nuova macchina che fa da Master e questa sincronizzerà
 tutti i dati sui vari Slaves perderemo tutti i dati.\\
-L'approccio \textbf{2} é quello migliore perché lo slave esistente avrá giá tutti i dati e una volta che lo avremo impostato in modalitá
+L'approccio \textbf{2} é quello migliore perché lo slave esistente avrá giá tutti i dati e una volta che lo avremo impostato in modalità
 Master, esso replicherà/sincronizzerà i dati su tutti gli Slaves, il che significa che non avremo una perdita di dati, o comunque
 avremo una minima perdita di dati nel caso in cui il guasto del Master si sia verificato prima della sincronizzazione con gli slaves.
 
 Invece, nel caso di crash di Redis Slave le sue richieste di lettura saranno semplicemente sostituite da altri Redis Slave.
 
 \paragraph{Teorema CAP\\}
-Formulato da Eric Brewer nel 1998, afferma che se i dati sono in un sistema i distribuito tra i nodi di una rete, solo due delle seguenti
-proprietá possono essere soddisfatte contemporaneamente:
+Formulato da Eric Brewer nel 1998, afferma che se i dati vengono memorizzati in un sistema distribuito tra i nodi di una rete, solo due delle seguenti
+proprietà possono essere soddisfatte contemporaneamente:
 \begin{itemize}
     \item \textbf{Consistency}: le operazioni di lettura restituiscono il dato aggiornato, ovvero proveniente dall'ultima scrittura dello stesso,
     oppure un messaggio d'errore. Non bisogna confonderla con la consistenza delle proprietá ACID, infatti questa fa riferimento al valore piú aggiornato
@@ -340,14 +340,14 @@ Se supponiamo che il guasto del Master avvenga prima del completamento della rep
 
 Potremmo pensare di migliorare la coerenza con la replica sincrona, forzando prima il Redis Master a replicare e poi mandare l'ack
 di conferma al client, ma questo riduce pesantemente le prestazioni di scrittura e comunque non si ha una garanzia di consistenza.
-Infatti, potrebbe verificarsi uno scenario in cui uno slave non ha ricevuto la scrittura e viene promosso a Master.
+Infatti, potrebbe verificarsi lo scenario in cui uno Slave non ha ricevuto la scrittura e viene promosso a Master.
 
 
 \subsubsection{Redis Cluster}
 Uno dei piú grandi limiti di Redis, essendo un database in-memory, é la limitazione della memoria che un'istanza di Redis puó avere, in quanto
-tutto il set di dati archiviato non deve mai superare la dimensione massima.
+tutto il set di dati archiviato non deve mai superare la dimensione massima della memoria stessa.
 
-Vi é la possibilità di dividere i dati in diverse istanze eseguite su piú server, in modo che ogni
+Vi é la possibilità di suddividere i dati in diverse istanze eseguite su piú server, in modo che ogni
 istanza contenga solo un sottoinsieme delle chiavi; tutto questo avviene tramite l'operazione di
 \textbf{sharding}, ovvero il partizionamento orizzontale.
 
@@ -374,23 +374,27 @@ Si introduce l'idea degli \textbf{Hash Slot}, in particolare un cluster dispone 
 Essi vengono assegnati in maniera piú o meno equa tra i vari nodi.
 Ad ogni chiave viene associato un numero, ottenuto applicando alla chiave una Hash Function chiamata \texttt{CRC16}
 e facendo il modulo di 16384.
-Il numero ottenuto indicherà lo slot di appartenenza, e di conseguenza, il nodo di appartenza.
+Il numero ottenuto indicherà lo slot di appartenenza, e di conseguenza, il nodo di appartenenza.
 Quindi, al momento dell'inserimento/richiesta di informazioni di una chiave viene applicata questa funzione alla chiave stessa,
-ed in base al numero ottenuto la richiesta verrà demandata al nodo proprietario del numero di slot otttenuto.\\
+ed in base al numero ottenuto il client verrà reindirizzato al nodo proprietario del numero di slot ottenuto, ed eseguirà la richiesta.\\
 Dopo un certo numero di interrogazioni i client riescono ad ottenere una mappatura completa di quali nodi sono proprietari di quali slot,
-potendo contattare direttamente i nodi corretti.\\
+potendo contattare direttamente i nodi corretti.
 \begin{figure}[H]
-\includegraphics[width=1\textwidth]{img/hashslotCluster}
+    \begin{center}
+        \includegraphics[width=1\textwidth]{img/hashslotCluster}
+    \end{center}
 \caption{Redis distribuito Cluster}
 \end{figure}
 Lo sharding dei dati in molte istanze non risolve il problema della sicurezza dei dati e della ridondanza. Se una delle istanze muore
 a causa di un guasto hardware e non si hanno backup da cui ripristinare i dati, tutti i dati di quella istanza saranno persi.
 Per evitare, o quanto meno diminuire, questo problema si potrebbero utilizzare diverse tecniche, come la replicazione su disco oppure l'architettura master-slave.\\
 Inoltre, le transazioni relative a piú chiavi distribuite su piú istanze non sono supportate, poiché richiederebbero lo spostamento
-dei dati tra diversi nodi, con conseguente calo delle prestazioni.\\
-
+dei dati tra diversi nodi, con conseguente calo delle prestazioni.
 \begin{figure}[H]
-\includegraphics[width=1\textwidth]{img/cluster:master-slaveRedis}
-\caption{Redis distribuito completo con Cluster e Master-Slave}
+    \begin{center}
+        \includegraphics[width=1\textwidth]{img/cluster:master-slaveRedis}
+    \end{center}
+    \label{clusterMasterSlave}
+\caption{Redis distribuito avanzato con Cluster e Master-Slave}
 \end{figure}
-La figura sopra riportata mostra un sistema avanzato in cui si ha una combinazione di Redis Cluster e Redis Master-Slave.
+La Figura mostra un sistema avanzato in cui si ha una combinazione di Redis Cluster e Redis Master-Slave.

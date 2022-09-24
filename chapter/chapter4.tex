@@ -11,8 +11,8 @@ i NoSQL, di conseguenza anche Redis, si caratterizzano da schemi non fissi, che 
 diverse tabelle all'interno della base di dati (non vi sono operazioni di "join").
 Per memorizzare e ricavare dati, i quali possono essere strutturati, semi-strutturati, non strutturati e polimorfici, un dbms noSQL utilizza un'ampia gamma di
 tecnologie proprietarie in grado di fare questo.
-Quindi, é compito del produttore del dbms di mettere a disposizione un insieme di comandi che permettano di sfruttare pienamente le potenzialitá del NoSQL da lui fornito.
-Ne deriva che il linguaggio SQL non é supportato;
+Quindi, é compito del produttore del dbms di mettere a disposizione un insieme di comandi che permettano di sfruttare pienamente le potenzialità del NoSQL da lui fornito.
+Ne deriva che non vi é un linguaggio standard comune ai NoSQL, o comunque comune ad una specifica categoria;
 sono disponibili delle interfacce di comunicazione per i principali linguaggi di programmazione che vengono
 offerte direttamente al programmatore, con le quali si riesce a gestire il dialogo con il dbms.
 
@@ -20,20 +20,20 @@ Sulla documentazione di Redis é presente un elenco completo di tutte le API dis
 
 Il modo piú rapido e semplice per interagire con il server é da linea di comando, infatti esiste una libreria chiamata
 \texttt{redis-cli}, con la quale viene semplificato notevolmente il lavoro di hacking.
-In questo capitolo per fare un confronto tra comandi Redis e SQL adopereremo questa libreria.\\
+In questo capitolo per fare un confronto tra comandi Redis e SQL verrà adoperata questa libreria.\\
 
-Sappiamo che il linguaggio SQL é diviso in due sezioni principali:
+Il linguaggio SQL é diviso in due sezioni principali:
 \begin{itemize}
     \item Data Definition Language
     \item Data Manipulation Language
 \end{itemize}
 
-Per quanto riguarda il Data Definition Language, a differenza di un database relazionale, non abbiamo la possibilitá di definire
-domini, tabelle, vincoli sulle strutture e cosí via; non avremo a disposizione nessuna operazione di questo tipo.\\
+Per quanto riguarda il Data Definition Language, a differenza di un database relazionale, non abbiamo la possibilità di definire
+domini, tabelle, vincoli sulle strutture e così via; non avremo a disposizione nessuna operazione di questo tipo.\\
 Redis essendo un key-value é composto da tuple, quindi, viene creato un legame tra chiave e valore al momento dell'aggiunta di una chiave; inoltre, il tipo del valore
-associato sará definito al momento dell'aggiunta.
+associato sarà definito al momento dell'aggiunta.
 \section{Data Manipulation Language}
-Come nel linguaggio SQL si hanno delle operazioni di query, di modifica e addirittura anche comandi transazionali.
+Come nel linguaggio SQL si hanno delle operazioni di query, di modifica e addirittura, anche, comandi transazionali.
 
 \subsection{Comandi di Modifica}
 come in SQL i comandi di modifica sono quelle istruzioni che permettono:
@@ -44,47 +44,49 @@ come in SQL i comandi di modifica sono quelle istruzioni che permettono:
 \end{itemize}
 
 
-Come esempio di confronto adoperiamo un database che rappresenta i profili di utenti.
+Come esempio di confronto viene adoperato un database che rappresenta i profili di utenti.
 Un utente é composto da: nome utente, nome, cognome, password, data di creazione.\\
 
-In Redis avremo una tupla cosí composta:\\
-\textbf{chiave} $\to$ \textbf{utente:}nomeutente\\
-\textbf{valore} $\to$ tipo \textbf{hash}, in cui saranno contenute le informazioni\\
+In Redis ogni una tupla sarà composta nel seguente modo:
+\begin{itemize}
+    \item \textbf{chiave} $\to$ \textbf{utente:}nomeutente
+    \item \textbf{valore} $\to$ tipo \textbf{hash}, in cui saranno contenute le informazioni riguardo a nome, cognome, password e data di creazione.
+\end{itemize}
 I comandi che verranno analizzati sono associati al tipo Hash, in quanto Redis dedica dei comandi specifici per ogni struttura dati.\\
 
-Nel database relazionale avremo un record composto da tutti gli attributi sopra definiti, la chiave primaria sará rappresentata dallo username;\\
+Nel database relazionale si avrà un record composto da tutti gli attributi sopra definiti, la chiave primaria sarà rappresentata dallo username;\\
 
 L'\textbf{INSERIMENTO} di un record con linguaggio SQL viene eseguito in questo modo:
 \begin{lstlisting}[autogobble, style=redis-cli, language=SQL]
 INSERT INTO Utenti (username, nome, cognome, password, dataCreazione)
 VALUES ('matteo00', 'matteo', 'rizzo', 'mypsw', '12092020')\end{lstlisting}
 
-Analizziamo una possibile aggiunta in Redis:
-Se utilizziamo una Hash come valore, il comando di cui abbiamo bisogno é \texttt{HSET}, il quale viene utilizzato per aggiungere una nuova tupla.
+Un inserimento di una tupla in Redis viene fatta nel modo seguente:\\
+se utilizziamo una Hash come valore, il comando di cui abbiamo bisogno é \texttt{HSET}, il quale viene utilizzato per aggiungere una nuova tupla.
 \begin{lstlisting}[autogobble, style=redis-cli, language=SQL]
 >HSET utente:matteo00 nome matteo cognome rizzo password mypsw dataCreazione 12092020
 (integer) 4\end{lstlisting}
 
-Si puó notare che in Redis non abbiamo definito uno schema fisso della hash, ma siamo noi al momento della creazione della tupla a definire le chiavi e i valori che compongono la hash,
-infatti potremo avere utenti con una hash con schema non coerente alle altre, questo ha, ovviamente, i suoi vantaggi e svantaggi.\\
+Si puó notare che in Redis non abbiamo definito uno schema fisso della Hash, ma siamo noi al momento della creazione della tupla a definire le chiavi e i valori che compongono la hash,
+infatti sarà possibile avere utenti con una Hash non coerente alle altre, questo ha i suoi vantaggi e svantaggi.\\
 
-Per la \textbf{CANCELLAZIONE} di un record in SQL facciamo:
+Per la \textbf{CANCELLAZIONE} di un record in SQL:
 \begin{lstlisting}[autogobble, style=redis-cli, language=SQL]
 DELETE FROM Utenti WHERE username = 'matteo00'\end{lstlisting}
 
-Mentre in Redis dobbiamo eliminare una chiave; questo comando non dipende dal tipo di valore utilizzato, ma é un comando comune
+Mentre in Redis bisogna eliminare una chiave; questo comando non dipende dal tipo di valore utilizzato, ma é un comando comune
 a tutti i tipi, il comando si chiama \texttt{DEL}.
 
 \begin{lstlisting}[autogobble, style=redis-cli, language=SQL]
 >DEL utente:matteo00
 (integer) 1\end{lstlisting}
 
-In Redis questo approccio é poco utilizzato, solitamente viene impostata una scadenza alle chiavi, ovvero dopo un certo periodo le chiavi vengono eliminate automaticamente.
-Per fare questo si utilizza il comando \texttt{EXPIRE}, in cui viene passato come parametro la chiave, a cui va impostata la scadenza definendola in secondi.
+In Redis la cancellazione di una tupla é poco utilizzata, solitamente viene impostata una scadenza alle chiavi, ovvero dopo un certo periodo le chiavi vengono eliminate automaticamente.
+Per fare questo si utilizza il comando \texttt{EXPIRE}, in cui vengono passati come parametri la chiave ed il numero di secondi che definiscono la scadenza.
 \begin{lstlisting}[autogobble, style=redis-cli, language=SQL]
 >EXPIRE utente:matteo00 60
 (integer) 1\end{lstlisting}
-Il valore 60 indica i secondi di tempo dopo i quali la chiave deve essere cancellata.\\
+Il valore 60 indica i secondi di tempo dopo i quali la chiave \texttt{utente:matteo00} deve essere cancellata.\\
  \\
 
 
@@ -99,11 +101,11 @@ i campi che vogliamo modificare con il loro nuovo valore:
 \begin{lstlisting}[autogobble, style=redis-cli, language=SQL]
 >HSET utente:matteo00 password newpsw
 (integer) 4\end{lstlisting}
-Cosí facendo abbiamo modificato il valore associato alla password di \texttt{utente:matteo00}, il valore passa da \texttt{"mypsw"} a \texttt{"newpsw"}.
+Così facendo viene modificato il valore associato alla password di \texttt{utente:matteo00}, il valore passa da \texttt{"mypsw"} a \texttt{"newpsw"}.
 
 \subsection{Comandi di Query}
 In SQL le interrogazioni hanno una struttura \texttt{select-from-where}, che puó essere estesa in diversi modi. Sono comandi
-che possono anche avere una certa complessitá semantica, questo é dovuto principalmente dal fatto che si possono eseguire dei join
+che possono anche avere una certa complessità semantica, questo é dovuto principalmente dal fatto che si possono eseguire dei join
 tra diverse tabelle presenti nel database.\\
 Questo non avviene in Redis, infatti le interrogazioni di una base di dati chiave-valore non possono avere una complessitá paragonabile a quella SQL.\\
 

@@ -59,12 +59,12 @@ Preso come esempio un dominio in cui vanno salvati in modo persistente dati su g
 Nella Figura \ref{modelloDominio} l'oggetto con lo scomparto superiore colorato é un'entità, altrimenti
 é un oggetto di valore. La linea chiusa denota il confine di un aggregato.
 Pertanto avremo due classi aggregate principali: Player e Game.\\
-Quindi, per costruire un aggregato si parte sempre da un'entità.
+Per costruire un aggregato si parte sempre da un'entità.
 Le frecce uscenti indicano la composizione dell'entità e, ricorsivamente, degli oggetti di valore.
 Se consideriamo l'entità \texttt{mary:Player}, essa sarà composta, oltre che dai suoi attributi, da:\\
 due oggetti di valore, rispettivamente \texttt{games[0]} e \texttt{games[1]}, a sua volta \texttt{games[0]} é formato dall'oggetto
 di valore \texttt{:GameInfo} così composto:\\
-il valore di \texttt{game} sarà \texttt{2345:Game}, il valore di \texttt{opponent} sarà composto da \texttt{rick:Player}.
+il valore di \texttt{game} sarà \texttt{2345:Game}, il valore di \texttt{opponent} sarà \texttt{rick:Player}.
 Stesso procedimento verrà fatto per \texttt{games[1]}.\\
 Bisognerà ripetere tutto il procedimento per ogni entità presente nel diagramma.
 
@@ -111,7 +111,7 @@ Vi sono due modalità principali per rappresentare gli aggregati:
     \begin{center}
         \includegraphics[width=1\textwidth]{img/eao.eav}
     \end{center}
-    \caption{entry per aggregate objec...}
+    \caption{Entry per Aggregate Object (EAO)}
 \end{figure}
 Nella figura \emph{EAO} si ha per ogni \texttt{blocco} \emph{Player} o \emph{Game} una singola \texttt{entry} con chiave vuota,
 valore strutturato in modo complesso
@@ -127,7 +127,7 @@ viene utilizzata una \texttt{entry} distinta per ogni campo di livello superiore
     \begin{center}
         \includegraphics[width=0.7\textwidth]{img/etf}
     \end{center}
-\caption{entry per top level field}
+\caption{Entry per Top level Field (ETF)}
 \end{figure}
 Se dovessimo aver bisogno di una rappresentazione degli aggregati ancora piú flessibile é possibile effettuarne il partizionamento,
 ovvero si possono raggruppare \texttt{entry} che vengono accedute insieme, oppure separare certe \texttt{entry} per avere dei

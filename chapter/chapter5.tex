@@ -10,54 +10,57 @@ Permette di estrarre informazioni utili ai processi decisionali.\\
 Queste informazioni utili devono essere immagazzinate in maniera piú o meno persistente
 e devono essere elaborate con dei tempi di latenza piuttosto brevi, ed é proprio qua che interviene Redis.
 
-In questo capitolo verrá analizzata una possibile applicazione in ambito industriale:
-verrá utilizzato un sensore di temperatura e umiditá che preleva delle informazioni ad intervalli regolari e
-sfrutteremo Redis per la persistenza, l'organizzazione dei dati e l'elaborazione di essi.
+In questo capitolo verrà analizzata una possibile applicazione in ambito industriale:
+si sfrutterà un sensore di temperatura e umidità che preleverà delle informazioni ad intervalli regolari e
+verrà sfruttato Redis per la persistenza(se sarà necessaria), l'organizzazione dei dati e l'elaborazione di essi.
 
 \section{Scelte progettuali}
 Per questo tipo di applicazione non si necessita di una fase di progettazione concettuale/logica, in quanto
 nell'ambito che stiamo discutendo abbiamo una mole di dati elevati ma semplici.
 Peró, Prima di sviluppare lo sketch vero e proprio dobbiamo decidere che strutture dati messe a disposizione si adattano
 maggiormente al nostro caso d'uso.
-Possono esserci diversi tipi di implementazione; approfondiamo due modalitá potenzialmente utilizzabili:
+Possono esserci diversi tipi di implementazione; verranno approfondite due modalitá potenzialmente utilizzabili:
 una per casi piú semplificati ed una per casi piú avanzati (in cui si potrebbe sfruttare anche una rete di sensori).
 
-Queste modalitá dipendono direttamente dalla struttura dati che intendiamo utilizzare in Redis per salvare i valori;
+Queste modalità dipendono direttamente dalla struttura dati che intendiamo utilizzare in Redis per salvare i valori;
 i due approcci in questione sono:
 \begin{enumerate}
-    \item metodo semplificato, dove ogni valore prelevato dal sensore lo memorizziamo in Redis con il tipo stringa,
-    quindi avremo una tupla che viene generata per ogni prelevamento ad intervalli regolari, e sará cosí composta:\\
+    \item metodo semplificato, dove ogni valore prelevato dal sensore viene memorizzato in Redis con il tipo \textbf{String},
+    quindi si avrà una tupla che viene generata per ogni prelevamento ad intervalli regolari, e sarà così composta:\\
     key -> \textbf{nameSensor.time}\\
     value -> \textbf{sensor.value} \\
     Un esempio possibile quindi:\\
     sensorTemp.11:23:49 $\to$ 27.8
-    \item metodo avanzato, dove viene utilizza una struttura piú complessa, non presente nelle strutture dati di base di Redis,
-    chiamata \texttt{RedisTimeSeries}, é un modulo aggiuntivo che é stato fatto su misura per questo tipo di applicazioni.
+    \item metodo avanzato, dove viene utilizzata una struttura piú complessa, non presente nelle strutture dati di base di Redis,
+    chiamata \texttt{RedisTimeSeries}, la quale é un modulo aggiuntivo che é stato fatto su misura per questo tipo di applicazioni.
     Permette un alto volume di inserimenti di valori con letture a bassa latenza. Puó essere vista come una SortedSet che associa
     ad ogni valore inserito un timestamp come score.\\
-    Sará fatto in questo modo:\\
-    si crea una serie temporale il cui nome sará quello del sensore e all'interno della serie temporale verranno aggiunti i valori
+    Sarà fatto in questo modo:\\
+    verrà creata una serie temporale il cui nome sarà quello del sensore e all'interno della serie temporale verranno aggiunti i valori
     prelevati a intervalli regolari, e questi valori verranno associati al timestamp, che corrisponde
     all'istante in cui vengono inseriti.
 
     \begin{figure}[H]
-    \includegraphics[width=0.7\textwidth]{img/redistimeseries}
+        \begin{center}
+            \includegraphics[width=0.65\textwidth]{img/redistimeseries}
+        \end{center}
         \caption{struttura RedisTimeSeries}
     \end{figure} 
 \end{enumerate}
 
 \\
 
-Prima dello sviluppo vero e proprio dello sketch necessitiamo di un ultimo passaggio, ovvero apportare dei cambiamenti al file di configurazione del server Redis.
+Prima dello sviluppo vero e proprio dello sketch, che avrà il compito di far comunicare il sensore con Redis,
+si necessita di un ultimo passaggio, ovvero apportare dei cambiamenti al file di configurazione del server Redis.
 %Per fare questo vi é una libreria, chiamata \texttt{Redis.h} la quale permette di comunicare con il database Redis.
 %Eseguiamo una connessione sulla rete Locale sfruttando il modulo WiFi di ESP32.
 
 Con la configurazione standard il server comunica solo su \texttt{localhost}(127.0.0.1).
-Dobbiamo aggiungere un parametro per fare in modo che il server sia raggiungibile sulla rete locale aggiungendo indirizzo IP
+Bisogna aggiungere un parametro per fare in modo che il server sia raggiungibile sulla rete locale aggiungendo indirizzo IP
 privato della macchina sulla quale viene eseguito il processo \texttt{redis-server}.
-Di conseguenza, il server sará raggiungibile tramite indirizzo IP e Porta.\\
+Di conseguenza, il server sarà raggiungibile tramite indirizzo IP e Porta.\\
 Nel nostro caso é: \textbf{192.168.179.25:6379}.
-Dobbiamo anche aggiungere una password di sicurezza per l'autenticazione con il server, anche questo viene fatto
+Bisogna anche aggiungere una password di sicurezza per l'autenticazione con il server, anche questo viene fatto
 aggiungendo un parametro nel file di configurazione.
 
 La configurazione viene modificata aggiungendo le seguenti righe in \texttt{redis.conf}:
@@ -68,12 +71,13 @@ requirepass "admin"\end{lstlisting}
 
 \\
 
-Per quanto riguarda la persistenza, possiamo lasciare quella base, che é una RDB.
-Per queste applicazioni non é necessario avere un massimo livello di persistenza.
+Per quanto riguarda la persistenza, può essere lasciata quella base, che é una RDB.
+Per questa applicazione non é necessario avere un massimo livello di persistenza, anzi si potrebbe pensare
+di avere addirittura un database in memory senza salvataggi su disco.
 
 \section{Sketch Arduino}
 Dopo aver fatto le considerazioni precedenti si può passare allo sviluppo dello sketch vero e proprio, che avrá il compito
-di inviare dati/informazioni al nostro database.
+di inviare dati/informazioni al database.
 Il materiale necessario per questo progetto é:
 \begin{itemize}
     \item Un microcontrollore compatibile con l'ambiente di sviluppo arduino e con WiFi integrato,
@@ -127,14 +131,14 @@ void setup(){
 }
 \end{lstlisting}
 
-Per quanto riguarda la connessione al Server Redis,  con \texttt{redisConn.connect(...)} viene creata una connessione con il server
+Per quanto riguarda la connessione al redis-server,  con \texttt{redisConn.connect(...)} viene creata una connessione con esso
 passando indirizzo Ip e Porta, le quali individuano il processo \texttt{redis-server}, successivamente si prova l'operazione di autenticazione con
 \texttt{redis.authenticate(...)}.
 Se tutto viene eseguito correttamente si dispone di \texttt{redis-client} su ESP32 che comunica in modo corretto.
 
 
 \subsection{NTP}
-Come specificato nella sezione dedicata alle scelte progettuali, qualunque modalitá venga utilizzata dobbiamo ricavare l'orario,
+Come specificato nella sezione dedicata alle scelte progettuali, qualunque modalità venga utilizzata bisogna ricavare l'orario,
 indipendentemente che sia uno Unix timestamp o una data in formato hh:mm:ss.
 \paragraph{Come facciamo a ricavare l'ora attuale?\\}
 Arduino essendo sprovvisto di RTC (Real Time Clock), ovvero un componente elettronico che misura il tempo, ha bisogno di ottenere l'informazione
@@ -242,9 +246,9 @@ void loop()
     Con il metodo \texttt{redis.tsadd} viene aggiunto ad una serie temporale un nuovo valore, associandolo con il proprio timestamp;
     se la serie temporale non esiste viene creata direttamente con questa istruzione.
     Questo metodo ha un difetto, i valori inseriti possono essere solo interi, quindi, quando verrà inviata
-    una nuova temperatura bisognerà utilizzare un fattore moltiplicativo pari ai decimali presenti nella sua rilevazione, per non perdere informazioni sulla
+    una nuova temperatura bisognerà utilizzare un fattore moltiplicativo proporzionale ai decimali presenti nella sua rilevazione, per non perdere informazioni sulla
     risoluzione dei valori rilevati.
-    Bisognerà ricordarsi di tenerne conto nell'interpretazione dei valori presenti nel database, ad esempio quando
+    Bisognerà ricordarsi di tenerne conto nell'interpretazione dei valori presenti nel database, soprattutto quando
     verranno elaborati nell'applicativo Java.
 \end{enumerate}
 
@@ -252,7 +256,7 @@ void loop()
 \section{Java}
 Per sviluppare il software applicativo viene adoperato Java, lo scopo é quello di generare due grafici differenti,
 uno per la temperatura e uno per l'umiditá, sfruttando il dataset presente in Redis ed aggiornandolo in tempo reale, con
-una frequenza di aggiornamento pari alla frequenza con cui i dati vengono inviati al server.
+una frequenza di aggiornamento pari alla frequenza con cui i dati vengono inviati al database.
 
 \subsection{Jedis e RedisTimeSeries}
 Redis mette a disposizione un numero elevato di librerie, per i due approcci vengono utilizzate due librerie differenti,
@@ -341,7 +345,7 @@ public void alterRange(String key){
         range temporale. Come parametro in ingresso a \texttt{getValues()} bisogna fornire una stringa che corrisponde  al nome (chiave) della serie temporale.
         \item \texttt{alterRange(...)}: serve per eliminare valori all'interno di una serie temporale. Viene sfruttato il metodo \texttt{client.alter(...)}.
         Vengono confrontati i timestamp di tutti i valori con quello più recente, il confronto viene fatto facendo la differenza con il timestamp del valore più recente
-        all'interno della serie; i valori che hanno una differenza maggiore del range specificato come parametro in ingresso vengono eliminati.
+        all'interno della serie; i valori che hanno un timestamp associato che ha una differenza maggiore del range specificato come parametro in ingresso vengono eliminati.
         Metodo utilizzato per non far saturare la serie temporale con valori vecchi e poco significativi.
     \end{itemize}
 \end{enumerate}
@@ -408,7 +412,7 @@ grazie a \texttt{Thread.sleep(5000)}, che ha il compito di disattivare il thread
 Per generare il grafico finale vero e proprio è stata sfruttata una libreria adatta alla creazione di diagrammi temporali, che supporta una frequenza di
 aggiornamento di questo tipo.
 Nel caso in cui volessimo sfruttare frequenze di aggiornamento molto piú elevate questa libreria non é adatta,
-bisognerebbe utilizzare soluzioni proprietarie, o fatte ad hoc per il caso d'uso in questione.
+bisognera utilizzare soluzioni proprietarie, o fatte ad hoc per il caso d'uso in questione.
 
 \begin{lstlisting}[autogobble, title={\texttt{DataSetRealTime.java}}]
 DataSetRealTime dataRealTime = new DataSetRealTime(...);
@@ -431,8 +435,8 @@ va passato come parametro d'ingresso il dataset e altri parametri per la grafica
 
 \\
 
-Nel grafico sopra riportato può essere apprezzato che sull'asse delle ascisse abbiamo il tempo, quindi le chiavi, mentre
-sull'asse delle ordinate abbiamo i valori legati alle chiavi.\\
+Nel grafico può essere apprezzato che sull'asse delle ascisse abbiamo il tempo, quindi le chiavi del primo approccio o i timestamp del secondo approccio,
+mentre sull'asse delle ordinate abbiamo i valori legati alle chiavi del primo approccio, oppure i valori inseriti nella serie temporale nel caso del secondo approccio.\\
 Prima di eseguire il software bisogna avviare il \texttt{redis-server} con il file di configurazione specifico,
 successivamente il grafico verrà disegnato coerentemente con i valori memorizzati in Redis.
 Si aggiornerà automaticamente in tempo reale con una frequenza di 5 secondi.\\
