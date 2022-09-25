@@ -1,6 +1,6 @@
 \chapter{Redis $\to$ Remote Dictionary Server}
 
-\emph{Redis}, acronimo di \emph{Remote Dictionary Server}, é un archivio dati veloce, open source, in memoria e di tipo chiave-valore(\textbf{dbms NoSQL}).
+\emph{Redis}, acronimo di \emph{Remote Dictionary Server}, é un archivio dati veloce, open source, in memoria e di tipo chiave-valore (\textbf{dbms NoSQL}).
 Si basa su una struttura a dizionario: ogni valore immagazzinato é abbinato ad una chiave univoca che ne permette il recupero.
 É stato sviluppato nel linguaggio di programmazione C, e funziona principalmente con sistemi unix based, non esiste un supporto ufficiale
 per Windows.
@@ -16,18 +16,18 @@ invia la risposta al client.
 
 \section{Caratteristiche}
 \subsection{Strutture Dati}
-Una caratteristica di Redis é mettere a disposizione una grande varietá di tipi di dati associabili alle chiavi, infatti il valore archiviato
+Una peculiarità di Redis é mettere a disposizione una grande varietá di tipi di dati associabili alle chiavi, infatti il valore archiviato
 in corrispondenza di una certa chiave puó essere molto differente da un tipo semplice come la stringa ed il valore stesso puó addirittura
 rappresentare una struttura dati. Inoltre vi é una grandissima possibilitá di manipolazione grazie all'elevato numero di funzioni presenti.\\
 I principali tipi di dato disponibili sono:
 \begin{itemize}
     \item \textbf{Stringhe}: é il tipo piú semplice, vengono memorizzate sequenze di byte, inclusi testo, oggetti serializzati e array binari;
     sono spesso usati per la memorizzazione nella cache;
-    \item \textbf{Liste}:rappresentano un elenco di stringhe indicizzate in base all'ordine di inserimento nella struttura. Possono essere
+    \item \textbf{Liste}: rappresentano un elenco di stringhe indicizzate in base all'ordine di inserimento nella struttura. Possono essere
     modificate con inserimenti in testa o in coda. Vi é la possibilitá di trattare una lista come una coda (First In First Out) tramite il comando di inserimento
     \texttt{LPUSH} e il comando di prelievo \texttt{RPOP} oppure puó essere trattata come una pila (First In Last Out) tramite i rispettivi comandi 
     \texttt{LPUSH} e \texttt{LPOP};
-    \item \textbf{Set}: é una raccolta non ordinata di stringhe univoche(sono chiamate \emph{membri} del set); quindi vi é la possiblitá
+    \item \textbf{Set}: é una raccolta non ordinata di stringhe univoche (sono chiamate \emph{membri} del set); quindi vi é la possiblitá
     di utilizzare questa struttura dati per tenere traccia degli elementi univoci, rappresentare relazioni o eseguire operazioni di insiemi
     comuni come intersezioni, unioni e differenze;
     \item \textbf{Hash}: sono oggetti strutturati come raccolte di coppie campo(chiave)-valore. Possono essere utilizzati per rappresentare oggetti
@@ -36,7 +36,8 @@ I principali tipi di dato disponibili sono:
     includono un valore detto \texttt{score} associato ad ogni elemento, in base al quale é possibile ordinare in senso ascendento o discendente i valori
     dell'insieme.
 \end{itemize}
-    Associati a queste strutture dati vi sono comandi specifici dedicati ad ognuna, per avere maggiori informazioni rimando al manuale %inserire link.
+    Associati a queste strutture dati vi sono comandi specifici dedicati ad ognuna, per avere maggiori informazioni consultare
+    \url{https://redis.io/docs/data-types}.
 
 \subsection{Ambiti di utilizzo}
 Redis é estremamente flessibile e grazie alla sua efficienza puó essere applicato a casi d'uso molto diversi tra loro:

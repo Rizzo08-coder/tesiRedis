@@ -2,24 +2,25 @@
 %correggere introduzione
 Uno degli ambiti in cui viene maggiormente sfruttato Redis é quello IoT.
 \paragraph{Cos'é l'IoT?\\}
-L''Internet of Things é una tecnologia che permette di massimizzare le capacitá di raccolta e di utilizzo
+L'Internet of Things é una tecnologia che permette di massimizzare le capacitá di raccolta e di utilizzo
 dei dati da una moltitudine di sorgenti, le quali possono essere prodotti industriali, sistemi di fabbrica, veicoli
-di trasporto e molte altre.
+di trasporto e molte altre.\\
 L'IoT consente di rendere disponibili i dati che servono a comprendere meglio il mondo reale.
 Permette di estrarre informazioni utili ai processi decisionali.\\
 Queste informazioni utili devono essere immagazzinate in maniera piú o meno persistente
-e devono essere elaborate con dei tempi di latenza piuttosto brevi, ed é proprio qua che interviene Redis.
+e devono essere elaborate con dei tempi di latenza piuttosto brevi, ed é in questa circostanza che interviene Redis.
 
 In questo capitolo verrà analizzata una possibile applicazione in ambito industriale:
 si sfrutterà un sensore di temperatura e umidità che preleverà delle informazioni ad intervalli regolari e
-verrà sfruttato Redis per la persistenza(se sarà necessaria), l'organizzazione dei dati e l'elaborazione di essi.
+verrà sfruttato Redis per la persistenza (se sarà necessaria), l'organizzazione dei dati e l'elaborazione di essi.
 
 \section{Scelte progettuali}
-Per questo tipo di applicazione non si necessita di una fase di progettazione concettuale/logica, in quanto
-nell'ambito che stiamo discutendo abbiamo una mole di dati elevati ma semplici.
-Peró, Prima di sviluppare lo sketch vero e proprio dobbiamo decidere che strutture dati messe a disposizione si adattano
+Per questo tipo di applicazione non si necessita di una fase di progettazione concettuale/logica, in quanto,
+nell'ambito che stiamo discutendo abbiamo una mole di dati elevati ma, semplici.
+Prima di sviluppare lo sketch vero e proprio dobbiamo decidere che strutture dati messe a disposizione si adattano
 maggiormente al nostro caso d'uso.
-Possono esserci diversi tipi di implementazione; verranno approfondite due modalitá potenzialmente utilizzabili:
+Possono esserci diversi tipi di implementazione;
+verranno approfondite due modalità potenzialmente utilizzabili:
 una per casi piú semplificati ed una per casi piú avanzati (in cui si potrebbe sfruttare anche una rete di sensori).
 
 Queste modalità dipendono direttamente dalla struttura dati che intendiamo utilizzare in Redis per salvare i valori;
@@ -51,7 +52,7 @@ i due approcci in questione sono:
 \\
 
 Prima dello sviluppo vero e proprio dello sketch, che avrà il compito di far comunicare il sensore con Redis,
-si necessita di un ultimo passaggio, ovvero apportare dei cambiamenti al file di configurazione del server Redis.
+si necessita di un ultimo passaggio, ossia apportare dei cambiamenti al file di configurazione del server Redis.
 %Per fare questo vi é una libreria, chiamata \texttt{Redis.h} la quale permette di comunicare con il database Redis.
 %Eseguiamo una connessione sulla rete Locale sfruttando il modulo WiFi di ESP32.
 
@@ -77,7 +78,7 @@ di avere addirittura un database in memory senza salvataggi su disco.
 
 \section{Sketch Arduino}
 Dopo aver fatto le considerazioni precedenti si può passare allo sviluppo dello sketch vero e proprio, che avrá il compito
-di inviare dati/informazioni al database.
+di inviare dati/informazioni al database.\\
 Il materiale necessario per questo progetto é:
 \begin{itemize}
     \item Un microcontrollore compatibile con l'ambiente di sviluppo arduino e con WiFi integrato,
@@ -404,7 +405,7 @@ Questo metodo aggiunge nuove entry all'interno della sua struttura se trova nuov
 le lascia inalterate se sono composte da stesso istante e stesso valore associato, mentre le modifica se vede stesso istante e valore associato
 modificato.
 
-Tutte queste istruzione vengono ripetute all'infinito grazie a \texttt{while(true)} ed eseguite ad intervalli temporali regolari,
+Tutte queste istruzioni vengono ripetute all'infinito grazie a \texttt{while(true)} ed eseguite ad intervalli temporali regolari,
 grazie a \texttt{Thread.sleep(5000)}, che ha il compito di disattivare il thread per 5000 ms e dopo riavviarlo.
 
 
@@ -412,7 +413,7 @@ grazie a \texttt{Thread.sleep(5000)}, che ha il compito di disattivare il thread
 Per generare il grafico finale vero e proprio è stata sfruttata una libreria adatta alla creazione di diagrammi temporali, che supporta una frequenza di
 aggiornamento di questo tipo.
 Nel caso in cui volessimo sfruttare frequenze di aggiornamento molto piú elevate questa libreria non é adatta,
-bisognera utilizzare soluzioni proprietarie, o fatte ad hoc per il caso d'uso in questione.
+bisognerà utilizzare soluzioni proprietarie, o fatte ad hoc per il caso d'uso in questione.
 
 \begin{lstlisting}[autogobble, title={\texttt{DataSetRealTime.java}}]
 DataSetRealTime dataRealTime = new DataSetRealTime(...);

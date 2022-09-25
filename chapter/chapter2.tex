@@ -53,7 +53,7 @@ Preso come esempio un dominio in cui vanno salvati in modo persistente dati su g
     \begin{center}
         \includegraphics[width=1.05\textwidth]{img/designAggregati}
     \end{center}
-\caption{esempio modello di dominio}
+\caption{Esempio Modello di Dominio}
     \label{modelloDominio}
 \end{figure}
 Nella Figura \ref{modelloDominio} l'oggetto con lo scomparto superiore colorato é un'entità, altrimenti
@@ -92,7 +92,7 @@ Ogni \texttt{entry} é composta da una coppia chiave-valore, la quale é univoca
 Per effettuare il passaggio da aggregati a modellazione NoSQL, ogni classe di aggregati viene rappresentata da una \texttt{collection} ed
 ogni singolo aggregato viene rappresentato da un \texttt{blocco}.\\
 Un paragone puó essere fatto con la programmazione ad oggetti, in cui una \texttt{collection} é
-una classe, ed un \texttt{blocco} é l'istanza di quella classe.
+un insieme d'istanze di una certa classe, ed un \texttt{blocco} é l'istanza di quella classe.
 
 Vi sono due modalità principali per rappresentare gli aggregati:
 \begin{itemize}
@@ -111,7 +111,7 @@ Vi sono due modalità principali per rappresentare gli aggregati:
     \begin{center}
         \includegraphics[width=1\textwidth]{img/eao.eav}
     \end{center}
-    \caption{Entry per Aggregate Object (EAO)}
+    \caption{Esempio Entry per Aggregate Object (EAO) ed Entry per Atomic Value (EAV)}
 \end{figure}
 Nella figura \emph{EAO} si ha per ogni \texttt{blocco} \emph{Player} o \emph{Game} una singola \texttt{entry} con chiave vuota,
 valore strutturato in modo complesso
@@ -127,7 +127,7 @@ viene utilizzata una \texttt{entry} distinta per ogni campo di livello superiore
     \begin{center}
         \includegraphics[width=0.7\textwidth]{img/etf}
     \end{center}
-\caption{Entry per Top level Field (ETF)}
+\caption{Esempio Entry per Top level Field (ETF)}
 \end{figure}
 Se dovessimo aver bisogno di una rappresentazione degli aggregati ancora piú flessibile é possibile effettuarne il partizionamento,
 ovvero si possono raggruppare \texttt{entry} che vengono accedute insieme, oppure separare certe \texttt{entry} per avere dei
@@ -140,7 +140,7 @@ precedente.\\
 In base alle scelte di progetto si decide quale modello NoAM utilizzare (EAO/EAV/ETF); bisogna decidere che livello di
 complessità vogliamo avere su chiavi e valori.
 Se vogliamo ottenere dei valori semplici, rappresentabili semplicemente con dei tipi atomici, utilizzeremo il metodo \emph{EAV}, questo, però, comporterà una maggiore complessità delle chiavi.
-Mentre, se vogliamo chiavi molto semplici dovremo utilizzare \emph{EAO}, però otterremo dei valori strutturati e complessi, quindi, dovremo anche confrontarci con
+Mentre, se vogliamo chiavi molto semplici dovremo utilizzare \emph{EAO}, però, otterremo dei valori strutturati e complessi, quindi, dovremo anche confrontarci con
 il dbms di cui disponiamo per verificare se saranno presenti delle strutture dati adatte a rappresentare dei valori con un certo livello di complessità, cosa non sempre
 presente nei database key-value.\\
 
@@ -148,7 +148,7 @@ presente nei database key-value.\\
     \begin{center}
         \includegraphics[width=1\textwidth]{img/implementazione}
     \end{center}
-\caption{implementazione...}\\
+\caption{Esempio fase di Implementazione}\\
 \end{figure}
 
 La figura \emph{EAV} é quella che rispecchia maggiormente un database key-value classico con valori atomici.
