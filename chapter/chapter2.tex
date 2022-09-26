@@ -1,4 +1,4 @@
-\chapter{Progettazione Concettuale/Logica}
+\chapter{Progettazione Concettuale-Logica}
 Sebbene i database \emph{NoSQL} vengano definiti \emph{schemaless}, la progettazione dell'organizzazione dei dati richiede
 di prendere decisioni significative. Infatti, i dati persistenti delle applicazioni hanno un impatto sui principali requisiti
 di qualità che devono essere soddisfatti in un'applicazione vera e propria (scalabilità, prestazioni, coerenza).
@@ -71,7 +71,7 @@ Bisognerà ripetere tutto il procedimento per ogni entità presente nel diagramm
 
 \subsection{Partizionamento degli Aggregati e modellazione NoSQL}
 In questa fase viene utilizzato \emph{NoAM} come modello intermedio tra gli aggregati e i database NoSQL, quindi potrebbe
-essere visto come un equivalente della \emph{progettazione concettuale} fatta nei database relazionali.\\
+essere visto come un equivalente della \emph{progettazione logica} fatta nei database relazionali.\\
 Il modello NoAM $\to$ modello di dati astratti, ha il compito di sfruttare i punti in comune dei vari modelli di dati, ma
 introduce anche astrazioni per bilanciare le variazioni che vi sono tra diversi modelli di NoSQL.\\
 Da questa trasformazione si ottengono due strutture con diverse granularità:\\
@@ -156,3 +156,11 @@ Si puó notare che le chiavi hanno una struttura gerarchica, si ha una larga som
 questo viene fatto principalmente per facilitare la ricerca dei valori nelle interrogazioni.
 %inserire immagine che mostra differenza tra progettazione relazione (foto che si puo prendere dalle slide di basi di dati) e
 %creare schema a blocchi che rappresenta questa progettazione
+
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[width=1\textwidth]{img/confrontoRelazionaleNosql}
+    \end{center}
+    \caption{Confronto tra modellazione Relazione e modellazione NoSQL}
+\end{figure}
+
