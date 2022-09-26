@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.4.1)  26 SEP 2022 13:04
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.4.1)  26 SEP 2022 14:36
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -621,18 +621,18 @@ l.28     \include{chapter/chapter1}
 (./chapter/chapter2.tex
 Capitolo 2.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <17.28> on input line 12.
+(Font)              <17.28> on input line 11.
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 12.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\to' on input line 12.
+(hyperref)                removing `math shift' on input line 11.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 12.
+(hyperref)                removing `\to' on input line 11.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 11.
 
 [7
 
@@ -640,27 +640,27 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 25--29
+Underfull \hbox (badness 10000) in paragraph at lines 24--28
 
  []
 
 <img/designAggregati.png, id=295, 1882.03125pt x 957.5775pt>
 File: img/designAggregati.png Graphic file (type png)
 <use img/designAggregati.png>
-Package pdftex.def Info: img/designAggregati.png  used on input line 54.
+Package pdftex.def Info: img/designAggregati.png  used on input line 53.
 (pdftex.def)             Requested size: 451.50616pt x 229.72101pt.
 
-Overfull \hbox (21.50154pt too wide) in paragraph at lines 54--55
+Overfull \hbox (21.50154pt too wide) in paragraph at lines 53--54
  [] 
  []
 
 [8]
 LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 6
-4.
+3.
  (/usr/local/texlive/2021/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
-Underfull \hbox (badness 10000) in paragraph at lines 73--79
+Underfull \hbox (badness 10000) in paragraph at lines 72--78
 
  []
 
@@ -668,40 +668,38 @@ Underfull \hbox (badness 10000) in paragraph at lines 73--79
 ) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.79     \item
+l.78     \item
                \texttt{blocco}, unitÃ  di dimensione maggiore, ha massima co...
  <./img/designAggregati.png>]
-Overfull \hbox (6.7208pt too wide) in paragraph at lines 92--96
+Overfull \hbox (6.7208pt too wide) in paragraph at lines 91--95
 \T1/cmr/m/n/12 Un pa-ra-go-ne puó es-se-re fat-to con la pro-gram-ma-zio-ne ad 
 og-get-ti, in cui una \T1/cmtt/m/n/12 collection
  []
 
-<img/eao.eav.png, id=309, 3062.44125pt x 2351.78625pt>
+[10]
+<img/eao.eav.png, id=313, 3062.44125pt x 2351.78625pt>
 File: img/eao.eav.png Graphic file (type png)
 <use img/eao.eav.png>
-Package pdftex.def Info: img/eao.eav.png  used on input line 112.
+Package pdftex.def Info: img/eao.eav.png  used on input line 111.
 (pdftex.def)             Requested size: 430.00462pt x 330.21674pt.
-[10]
-Underfull \hbox (badness 10000) in paragraph at lines 116--125
+
+Underfull \hbox (badness 10000) in paragraph at lines 115--124
 
  []
 
-<img/etf.png, id=314, 1433.355pt x 1358.07375pt>
-File: img/etf.png Graphic file (type png)
-<use img/etf.png>
-Package pdftex.def Info: img/etf.png  used on input line 128.
-(pdftex.def)             Requested size: 301.00192pt x 285.18318pt.
-
-Underfull \vbox (badness 1472) has occurred while \output is active []
-
- [11pdfTeX warning (ext4): destination with the same identifier (name{figure.2.
-2}) has been already used, duplicate ignored
+[11pdfTeX warning (ext4): destination with the same identifier (name{figure.2.2
+}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.132 S
-       e dovessimo aver bisogno di una rappresentazione degli aggregati anco...
- <./img/eao.eav.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 137--146
+l.124 
+       <./img/eao.eav.png>]
+<img/etf.png, id=320, 1433.355pt x 1358.07375pt>
+File: img/etf.png Graphic file (type png)
+<use img/etf.png>
+Package pdftex.def Info: img/etf.png  used on input line 127.
+(pdftex.def)             Requested size: 301.00192pt x 285.18318pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 136--145
 
  []
 
@@ -709,22 +707,22 @@ Underfull \hbox (badness 10000) in paragraph at lines 137--146
 }) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.146 
+l.145 
        <./img/etf.png>]
 <img/implementazione.png, id=326, 2261.44875pt x 1282.7925pt>
 File: img/implementazione.png Graphic file (type png)
 <use img/implementazione.png>
-Package pdftex.def Info: img/implementazione.png  used on input line 149.
+Package pdftex.def Info: img/implementazione.png  used on input line 148.
 (pdftex.def)             Requested size: 430.00462pt x 243.90927pt.
 
 
-./chapter/chapter2.tex:152: LaTeX Error: There's no line here to end.
+./chapter/chapter2.tex:151: LaTeX Error: There's no line here to end.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.152 \end
+l.151 \end
           {figure}
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -734,16 +732,13 @@ or  <return>  to continue without it.
 File: img/confrontoRelazionaleNosql.png Graphic file (type png)
 <use img/confrontoRelazionaleNosql.png>
 Package pdftex.def Info: img/confrontoRelazionaleNosql.png  used on input line 
-162.
+161.
 (pdftex.def)             Requested size: 430.00462pt x 255.58707pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [13pdfTeX warning (ext4): destination with the same identifier (name{figure.2.
-4}) has been already used, duplicate ignored
+[13pdfTeX warning (ext4): destination with the same identifier (name{figure.2.4
+}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.166 
+l.165 
        <./img/implementazione.png>]) [14pdfTeX warning (ext4): destination with
  the same identifier (name{figure.2.5}) has been already used, duplicate ignore
 d
@@ -1524,7 +1519,7 @@ ic/cm-super/sfss1728.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public
 m-super/sftt0800.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-
 super/sftt1200.pfb>
 Output written on /Users/matteorizzo/IdeaProjects/tesiRedis/out/main.pdf (59 pa
-ges, 4340253 bytes).
+ges, 4340246 bytes).
 PDF statistics:
  1003 PDF objects out of 1200 (max. 8388607)
  887 compressed objects within 9 object streams

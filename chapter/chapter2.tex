@@ -4,8 +4,7 @@ di prendere decisioni significative. Infatti, i dati persistenti delle applicazi
 di qualità che devono essere soddisfatti in un'applicazione vera e propria (scalabilità, prestazioni, coerenza).
 Il mondo NoSQL é altamente eterogeneo, quindi questa attivitá di progettazione di solito si basa su pratiche e linee guida da seguire
 in base al sistema adoperato. Peró, sono stati studiati diversi approcci che vogliono generalizzare il problema di progettazione
-che é alla base di ogni sistema di persistenza.
-
+che é alla base di ogni sistema di persistenza.\\
 \emph{NoAM} é uno dei principali strumenti di modellazione astratto per database NoSQL. Grazie ad esso riusciamo a definire
 una progettazione che é indipendente dal sistema specifico in cui viene usata. Viene utilizzato un modello dei dati intermedio e astratto,
 che, a sua volta, viene utilizzato per rappresentare i dati dell'applicazione come raccolte di oggetti aggregati.
@@ -80,15 +79,15 @@ Da questa trasformazione si ottengono due strutture con diverse granularità:\\
     \item \texttt{entry}, unità di dimensione minore, che permette l'accesso ai dati
 \end{itemize}
 Con riferimento in particolare alle basi di dati chiave-valore una \texttt{entry} corrisponde a una coppia chiave-valore, mentre
-un \texttt{blocco} corrisponde a un gruppo di coppie chiave-valore correlate tra loro.
-
-Quindi, si ha che:\\
-Un \texttt{database} é un insieme di \texttt{collections};\\
-Ogni \texttt{collection} ha un nome distinto; Una \texttt{collection} é un insieme di \texttt{blocchi};\\
-Ogni \texttt{blocco} all'interno della \texttt{collection} é identificato da una chiave di blocco, che deve essere univoca;
-Un \texttt{blocco} é un insieme non vuoto di \texttt{entries};\\
-Ogni \texttt{entry} é composta da una coppia chiave-valore, la quale é univoca all'interno del blocco, il valore puó essere anche complesso.
-
+un \texttt{blocco} corrisponde a un gruppo di coppie chiave-valore correlate tra loro.\\
+Quindi, si ha che:
+\begin{itemize}
+    \item Un \texttt{database} é un insieme di \texttt{collections};
+    \item Ogni \texttt{collection} ha un nome distinto; Una \texttt{collection} é un insieme di \texttt{blocchi};
+    \item Ogni \texttt{blocco} all'interno della \texttt{collection} é identificato da una chiave di blocco, che deve essere univoca;
+    \item Un \texttt{blocco} é un insieme non vuoto di \texttt{entries};
+    \item Ogni \texttt{entry} é composta da una coppia chiave-valore, la quale é univoca all'interno del blocco, il valore puó essere anche complesso.
+\end{itemize}
 Per effettuare il passaggio da aggregati a modellazione NoSQL, ogni classe di aggregati viene rappresentata da una \texttt{collection} ed
 ogni singolo aggregato viene rappresentato da un \texttt{blocco}.\\
 Un paragone puó essere fatto con la programmazione ad oggetti, in cui una \texttt{collection} é
@@ -119,7 +118,7 @@ valore strutturato in modo complesso
 Nella figura \emph{EAV} si ha per ogni \texttt{blocco} piú \texttt{entry} in modo da avere valori atomici al suo interno
 \\
 \\
-Ovviamente queste due sono le rappresentazioni piú estreme che si possono ottenere.\\
+Ovviamente, queste due sono le rappresentazioni piú estreme che si possono ottenere.\\
 É possibile adottare una strategia di rappresentazione intermedia, denominata \emph{Entry per Top level Field (ETF)}, in cui
 viene utilizzata una \texttt{entry} distinta per ogni campo di livello superiore, quindi si ha una sorta di struttura mista.
 
@@ -134,7 +133,7 @@ ovvero si possono raggruppare \texttt{entry} che vengono accedute insieme, oppur
 valori meno complessi.
 
 \subsection{Implementazione}
-Consiste nel tradurre i modelli NoAM ottenuti nella fase precedente in strutture adatte al dbms specifico che stiamo utilizzando.
+Consiste nel tradurre i modelli NoAM ottenuti nella fase precedente in strutture adatte al dbms specifico che stiamo utilizzando.\\
 Per quanto riguarda i database chiave-valore si utilizzerà una coppia chiave-valore per ogni \texttt{entry} ottenuta nella struttura
 precedente.\\
 In base alle scelte di progetto si decide quale modello NoAM utilizzare (EAO/EAV/ETF); bisogna decidere che livello di
