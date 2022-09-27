@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.4.1)  26 SEP 2022 14:36
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.4.1)  27 SEP 2022 11:48
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -767,15 +767,12 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <24.88> on input line 1.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <20.74> on input line 1.
-<img/redisClientServer.png, id=338, 2580.64125pt x 984.67876pt>
+<img/redisClientServer.png, id=338, 2234.3475pt x 984.67876pt>
 File: img/redisClientServer.png Graphic file (type png)
 <use img/redisClientServer.png>
-Package pdftex.def Info: img/redisClientServer.png  used on input line 13.
-(pdftex.def)             Requested size: 430.00462pt x 164.07265pt.
-
-Underfull \vbox (badness 2790) has occurred while \output is active []
-
- [15
+Package pdftex.def Info: img/redisClientServer.png  used on input line 14.
+(pdftex.def)             Requested size: 430.00462pt x 189.4949pt.
+[15
 
 
 
@@ -784,17 +781,17 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.3.1})
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.24     \item
+l.26     \item
                \textbf{Stringhe}: é il tipo piú semplice, vengono memorizz...
  <./img/redisClientServer.png>] [16] [17]
 
-./chapter/chapter3.tex:70: Package keyval Error: autogobble undefined.
+./chapter/chapter3.tex:72: Package keyval Error: autogobble undefined.
 
 See the keyval package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.70 ...autogobble, style=redis-cli, language=SQL]
+l.72 ...autogobble, style=redis-cli, language=SQL]
                                                   
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -803,133 +800,133 @@ If that doesn't work, type  X <return>  to quit.
 File: lstlang1.sty 2020/03/24 1.8d listings language file
 )
 
-./chapter/chapter3.tex:75: Package keyval Error: autogobble undefined.
+./chapter/chapter3.tex:77: Package keyval Error: autogobble undefined.
 
 See the keyval package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.75 ...autogobble, style=redis-cli, language=SQL]
+l.77 ...autogobble, style=redis-cli, language=SQL]
                                                   
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 [18]
 
-./chapter/chapter3.tex:112: Package keyval Error: autogobble undefined.
+./chapter/chapter3.tex:114: Package keyval Error: autogobble undefined.
 
 See the keyval package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.112 ...utogobble, style=redis-cli, language=SQL]
+l.114 ...utogobble, style=redis-cli, language=SQL]
                                                   
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 135--136
+Underfull \hbox (badness 10000) in paragraph at lines 137--138
 
  []
 
 [19]
-Underfull \hbox (badness 10000) in paragraph at lines 145--154
+Underfull \hbox (badness 10000) in paragraph at lines 147--156
 
  []
 
 
-./chapter/chapter3.tex:157: Package keyval Error: autogobble undefined.
+./chapter/chapter3.tex:159: Package keyval Error: autogobble undefined.
 
 See the keyval package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.157 ...utogobble, style=redis-cli, language=SQL]
+l.159 ...utogobble, style=redis-cli, language=SQL]
                                                   
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-./chapter/chapter3.tex:166: Package keyval Error: autogobble undefined.
+./chapter/chapter3.tex:168: Package keyval Error: autogobble undefined.
 
 See the keyval package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.166 ...utogobble, style=redis-cli, language=SQL]
+l.168 ...utogobble, style=redis-cli, language=SQL]
                                                   
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 174--177
+Underfull \hbox (badness 10000) in paragraph at lines 176--179
 
  []
 
 [20]
-Underfull \hbox (badness 10000) in paragraph at lines 206--213
+Underfull \hbox (badness 10000) in paragraph at lines 208--215
 
  []
 
 [21]
-Underfull \hbox (badness 10000) in paragraph at lines 227--229
+Underfull \hbox (badness 10000) in paragraph at lines 229--231
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 230--231
+Underfull \hbox (badness 10000) in paragraph at lines 232--233
 
  []
 
 
-./chapter/chapter3.tex:233: Package keyval Error: autogobble undefined.
+./chapter/chapter3.tex:235: Package keyval Error: autogobble undefined.
 
 See the keyval package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.233 ...utogobble, style=redis-cli, language=SQL]
+l.235 ...utogobble, style=redis-cli, language=SQL]
                                                   
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 236--239
+Underfull \hbox (badness 10000) in paragraph at lines 238--241
 
  []
 
 [22]
 
-./chapter/chapter3.tex:241: Package keyval Error: autogobble undefined.
+./chapter/chapter3.tex:243: Package keyval Error: autogobble undefined.
 
 See the keyval package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.241 ...utogobble, style=redis-cli, language=SQL]
+l.243 ...utogobble, style=redis-cli, language=SQL]
                                                   
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 247--250
+Underfull \hbox (badness 10000) in paragraph at lines 249--252
 
  []
 
 
-./chapter/chapter3.tex:252: Package keyval Error: autogobble undefined.
+./chapter/chapter3.tex:254: Package keyval Error: autogobble undefined.
 
 See the keyval package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.252 ...utogobble, style=redis-cli, language=SQL]
+l.254 ...utogobble, style=redis-cli, language=SQL]
                                                   
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 280--283
+Underfull \hbox (badness 10000) in paragraph at lines 282--285
 
  []
 
@@ -937,33 +934,33 @@ Underfull \hbox (badness 10000) in paragraph at lines 280--283
 <img/masterslaveRedis.png, id=441, 2186.1675pt x 1276.77pt>
 File: img/masterslaveRedis.png Graphic file (type png)
 <use img/masterslaveRedis.png>
-Package pdftex.def Info: img/masterslaveRedis.png  used on input line 285.
+Package pdftex.def Info: img/masterslaveRedis.png  used on input line 287.
 (pdftex.def)             Requested size: 430.00462pt x 251.1219pt.
  [24pdfTeX warning (ext4): destination with the same identifier (name{figure.3.
 2}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.304     \item a
+l.306     \item a
                  ggiungi una nuova macchina come Redis Master; <./img/mastersla
 veRedis.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 328--330
+Underfull \hbox (badness 10000) in paragraph at lines 330--332
 
  []
 
 [25]
-Underfull \hbox (badness 10000) in paragraph at lines 339--341
+Underfull \hbox (badness 10000) in paragraph at lines 341--343
 
  []
 
 [26]
-Underfull \hbox (badness 10000) in paragraph at lines 370--372
+Underfull \hbox (badness 10000) in paragraph at lines 372--374
 
  []
 
 <img/hashslotCluster.png, id=463, 2047.65pt x 1056.94875pt>
 File: img/hashslotCluster.png Graphic file (type png)
 <use img/hashslotCluster.png>
-Package pdftex.def Info: img/hashslotCluster.png  used on input line 385.
+Package pdftex.def Info: img/hashslotCluster.png  used on input line 387.
 (pdftex.def)             Requested size: 430.00462pt x 221.94966pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -973,7 +970,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 File: img/cluster:master-slaveRedis.png Graphic file (type png)
 <use img/cluster:master-slaveRedis.png>
 Package pdftex.def Info: img/cluster:master-slaveRedis.png  used on input line 
-396.
+398.
 (pdftex.def)             Requested size: 430.00462pt x 250.89368pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -982,7 +979,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 3}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.401 L
+l.403 L
        a Figura mostra un sistema avanzato in cui si ha una combinazione di ...
  <./img/hashslotCluster.png>]) [29pdfTeX warning (ext4): destination with the s
 ame identifier (name{figure.3.4}) has been already used, duplicate ignored
@@ -1494,7 +1491,7 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 Here is how much of TeX's memory you used:
  13143 strings out of 478994
  192909 string characters out of 5858185
- 881780 words of memory out of 5000000
+ 881779 words of memory out of 5000000
  29919 multiletter control sequences out of 15000+600000
  429211 words of font info for 66 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1519,7 +1516,7 @@ ic/cm-super/sfss1728.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public
 m-super/sftt0800.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-
 super/sftt1200.pfb>
 Output written on /Users/matteorizzo/IdeaProjects/tesiRedis/out/main.pdf (59 pa
-ges, 4340246 bytes).
+ges, 4328718 bytes).
 PDF statistics:
  1003 PDF objects out of 1200 (max. 8388607)
  887 compressed objects within 9 object streams
