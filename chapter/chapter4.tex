@@ -3,24 +3,25 @@ Le capacitá piú essenziali per il lavoro su database sono saperli popolare di 
 intelligente, per ricavare l'informazione che si sta cercando in mezzo a volumi di dati che possono essere immensi.
 Quindi, per raggiungere questo obiettivo viene adoperato un linguaggio per l'interrogazione dei database, il quale serve per formulare delle
 query, in modo adeguato alla struttura delle informazioni.
-Nei database di tipo relazionale é presente il linguaggio SQL (Structured Query Language), il quale é comune a tutti i dbms di questo tipo, quindi
-é diventato negli anni un vero e proprio standard.
+Nei database di tipo relazionale é presente il linguaggio SQL (Structured Query Language), uno standard che si è sviluppato
+durante il corso degli anni.
 
 \paragraph{nei NoSQL vi é un linguaggio standard da adoperare?\\}
 i NoSQL, di conseguenza anche Redis, si caratterizzano da schemi non fissi, che possono variare in modo dinamico e, soprattutto, non vi sono vincoli referenziali che possono associare
 diverse tabelle all'interno della base di dati (non vi sono operazioni di "join").
 Per memorizzare e ricavare dati, i quali possono essere strutturati, semi-strutturati, non strutturati e polimorfici, un dbms noSQL utilizza un'ampia gamma di
-tecnologie proprietarie in grado di fare questo.
-Quindi, é compito del produttore del dbms di mettere a disposizione un insieme di comandi che permettano di sfruttare pienamente le potenzialità del NoSQL da lui fornito.
-Ne deriva che non vi é un linguaggio standard comune ai NoSQL, o comunque comune ad una specifica categoria;
-sono disponibili delle interfacce di comunicazione per i principali linguaggi di programmazione che vengono
+tecnologie proprietarie.
+È compito del produttore del dbms di mettere a disposizione un insieme di comandi che permettano di sfruttare pienamente le potenzialità del NoSQL da lui fornito.
+Ne deriva che non vi é un linguaggio standard comune ai NoSQL, o comune ad una specifica categoria.\\
+Sono disponibili delle interfacce di comunicazione per i principali linguaggi di programmazione, che vengono
 offerte direttamente al programmatore, con le quali si riesce a gestire il dialogo con il dbms.
 
-Sulla documentazione di Redis é presente un elenco completo di tutte le API disponibili per i principali linguaggi, tramite le quali si riesce a comunicare con il server in questione.
+Sulla documentazione di Redis é presente un elenco completo di tutte le API disponibili per i principali linguaggi:
+\url{https://redis.io/docs/clients}
 
 Il modo piú rapido e semplice per interagire con il server é da linea di comando, infatti esiste una libreria chiamata
 \texttt{redis-cli}, con la quale viene semplificato notevolmente il lavoro di hacking.
-In questo capitolo per fare un confronto tra comandi Redis e SQL verrà adoperata questa libreria.\\
+In questo capitolo, per fare un confronto tra comandi Redis e SQL, verrà adoperata questa libreria.\\
 
 Il linguaggio SQL é diviso in due sezioni principali:
 \begin{itemize}
@@ -31,12 +32,12 @@ Il linguaggio SQL é diviso in due sezioni principali:
 Per quanto riguarda il Data Definition Language, a differenza di un database relazionale, non abbiamo la possibilità di definire
 domini, tabelle, vincoli sulle strutture e così via; non avremo a disposizione nessuna operazione di questo tipo.\\
 Redis essendo un key-value é composto da tuple, quindi, viene creato un legame tra chiave e valore al momento dell'aggiunta di una chiave; inoltre, il tipo del valore
-associato sarà definito al momento dell'aggiunta.
+associato sarà definito al momento dell'inserimento.
 \section{Data Manipulation Language}
-Come nel linguaggio SQL si hanno delle operazioni di query, di modifica e addirittura, anche, comandi transazionali.
+Come nel linguaggio SQL si hanno delle operazioni di query, di modifica ed, anche, comandi transazionali.
 
 \subsection{Comandi di Modifica}
-come in SQL i comandi di modifica sono quelle istruzioni che permettono:
+I comandi di modifica sono quelle istruzioni che permettono:
 \begin{itemize}
     \item inserimento;
     \item cancellazione;
@@ -44,58 +45,57 @@ come in SQL i comandi di modifica sono quelle istruzioni che permettono:
 \end{itemize}
 
 
-Come esempio di confronto viene adoperato un database che rappresenta i profili di utenti.
-Un utente é composto da: nome utente, nome, cognome, password, data di creazione.\\
+Come esempio di confronto verrà adoperato un dominio che rappresenta i profili di utenti.
+Un utente sarà composto da: nome utente, nome, cognome, password, data di creazione.\\
 
-In Redis ogni una tupla sarà composta nel seguente modo:
+In Redis ogni tupla sarà composta nel seguente modo:
 \begin{itemize}
     \item \textbf{chiave} $\to$ \textbf{utente:}nomeutente
     \item \textbf{valore} $\to$ tipo \textbf{hash}, in cui saranno contenute le informazioni riguardo a nome, cognome, password e data di creazione.
 \end{itemize}
 I comandi che verranno analizzati sono associati al tipo Hash, in quanto Redis dedica dei comandi specifici per ogni struttura dati.\\
-
+\\
 Nel database relazionale si avrà un record composto da tutti gli attributi sopra definiti, la chiave primaria sarà rappresentata dallo username;\\
-
+\\
 L'\textbf{INSERIMENTO} di un record con linguaggio SQL viene eseguito in questo modo:
 \begin{lstlisting}[autogobble, style=redis-cli, language=SQL]
 INSERT INTO Utenti (username, nome, cognome, password, dataCreazione)
 VALUES ('matteo00', 'matteo', 'rizzo', 'mypsw', '12092020')\end{lstlisting}
-
+\\
 Un inserimento di una tupla in Redis viene fatta nel modo seguente:\\
 se utilizziamo una Hash come valore, il comando di cui abbiamo bisogno é \texttt{HSET}, il quale viene utilizzato per aggiungere una nuova tupla.
 \begin{lstlisting}[autogobble, style=redis-cli, language=SQL]
 >HSET utente:matteo00 nome matteo cognome rizzo password mypsw dataCreazione 12092020
 (integer) 4\end{lstlisting}
-
-Si puó notare che in Redis non abbiamo definito uno schema fisso della Hash, ma siamo noi al momento della creazione della tupla a definire le chiavi e i valori che compongono la hash,
-infatti sarà possibile avere utenti con una Hash non coerente alle altre, questo ha i suoi vantaggi e svantaggi.\\
-
+\\
+Si puó notare che non abbiamo definito uno schema fisso della Hash, ma siamo noi al momento della creazione della tupla a definire le chiavi e i valori che compongono la hash,
+infatti sarà possibile avere utenti con una Hash non coerente alle altre.\\
+\\
 Per la \textbf{CANCELLAZIONE} di un record in SQL:
 \begin{lstlisting}[autogobble, style=redis-cli, language=SQL]
 DELETE FROM Utenti WHERE username = 'matteo00'\end{lstlisting}
-
+\\
 Mentre in Redis bisogna eliminare una chiave; questo comando non dipende dal tipo di valore utilizzato, ma é un comando comune
 a tutti i tipi, il comando si chiama \texttt{DEL}.
 
 \begin{lstlisting}[autogobble, style=redis-cli, language=SQL]
 >DEL utente:matteo00
 (integer) 1\end{lstlisting}
-
-In Redis la cancellazione di una tupla é poco utilizzata, solitamente viene impostata una scadenza alle chiavi, ovvero dopo un certo periodo le chiavi vengono eliminate automaticamente.
+\\
+La cancellazione di una tupla é poco utilizzata, solitamente viene impostata una scadenza alle chiavi, ovvero dopo un certo periodo le chiavi vengono eliminate automaticamente.
 Per fare questo si utilizza il comando \texttt{EXPIRE}, in cui vengono passati come parametri la chiave ed il numero di secondi che definiscono la scadenza.
 \begin{lstlisting}[autogobble, style=redis-cli, language=SQL]
 >EXPIRE utente:matteo00 60
 (integer) 1\end{lstlisting}
 Il valore 60 indica i secondi di tempo dopo i quali la chiave \texttt{utente:matteo00} deve essere cancellata.\\
  \\
-
-
+\\
 Per \textbf{MODIFICARE} i valori degli attributi di uno o piú record tramite SQL:
 \begin{lstlisting}[autogobble, style=redis-cli, language=SQL]
 UPDATE Utenti
 SET password = 'newpsw'
 WHERE username = 'matteo00'\end{lstlisting}
-
+\\
 In Redis non vi é un comando specifico per la modifica dei valori delle tuple, ma viene utilizzato \texttt{HSET} passando come parametri del comando
 i campi che vogliamo modificare con il loro nuovo valore:
 \begin{lstlisting}[autogobble, style=redis-cli, language=SQL]
@@ -108,13 +108,13 @@ In SQL le interrogazioni hanno una struttura \texttt{select-from-where}, che pu�
 che possono anche avere una certa complessità semantica, questo é dovuto principalmente dal fatto che si possono eseguire dei join
 tra diverse tabelle presenti nel database.\\
 Questo non avviene in Redis, infatti le interrogazioni di una base di dati chiave-valore non possono avere una complessitá paragonabile a quella SQL.\\
-
+\\
 Per fare una selezione di un record in SQL:
 \begin{lstlisting}[autogobble,style=redis-cli, language=SQL]
 SELECT *
 FROM Utenti
 WHERE username = 'matteo00'\end{lstlisting}
-
+\\
 Mentre in Redis per selezionare il valore di una certa tupla, nel caso in cui sia di tipo Hash, viene messo a disposizione \texttt{HGETALL}, che ha il compito di mostrare tutto
 il contenuto associato ad una certa chiave.
 \begin{lstlisting}[autogobble, style=redis-cli, language=SQL]
@@ -128,14 +128,14 @@ il contenuto associato ad una certa chiave.
 7) "dataCreazione"
 8) "12092020"
 \end{lstlisting}
-
-Inoltre, viene messo a disposizione il comando \texttt{HGET} per ottenere solo il valore di un campo tra quelli presenti nella Hash, questo viene fatto per permettere
+\\
+Inoltre, viene messo a disposizione il comando \texttt{HGET}, per ottenere solo il valore di un campo tra quelli presenti nella Hash, questo viene fatto per permettere
 agli sviluppatori di risparmiare operazioni di trasformazione delle strutture all'interno del proprio software.
 \begin{lstlisting}[autogobble, style=redis-cli, language=SQL]
 > HGET utente:matteo00 nome
 "matteo"
 \end{lstlisting}
-
+\\
 Vi é anche la possibilitá di fare una sorta di proiezione sulle chiavi utilizzando il comando \texttt{KEYS}, il quale restituisce tutte le chiavi che corrispondono al pattern passato come parametro.
 \begin{lstlisting}[autogobble, style=redis-cli, language=SQL]
 > KEYS utente:*
@@ -145,7 +145,7 @@ Vi é anche la possibilitá di fare una sorta di proiezione sulle chiavi utilizz
 4) "utente:matteo00"
 \end{lstlisting}
 Comando che viene ampiamente utilizzato perché é possibile filtrare su chiavi che hanno un prefisso particolare.\\
-
+\\
 Per quanto riguarda i comandi transazionali, sono giá stati definiti nel capitolo precedente nella sezione del confronto con le proprietá ACID.
 
 \section{Store procedure}
@@ -156,7 +156,7 @@ Il vantaggio é la grande efficienza che si ottiene nella lettura e scrittura de
 memorizzati sono eseguiti completamente server-side.
 É garantita l'esecuzione atomica dello script e durante la sua esecuzione tutte le attivitá del server vengono bloccate.
 É supportato un unico motore di scripting, ovvero l'interprete \texttt{LUA}, che é un particolare linguaggio di scripting.
-
+\\
 Ci sono diverse modalitá lato client per invocare/caricare gli script:
 \begin{itemize}
     \item Il comando \texttt{EVAL} serve per eseguire direttamente uno script; vanno forniti diversi argomenti:\\
@@ -183,6 +183,6 @@ Ci sono diverse modalitá lato client per invocare/caricare gli script:
 >EVALSHA "c664a3bf70bd1d45c4284ffebb65a6f2299bfc9f" 0
 "example of script load!"\end{lstlisting}
 \end{itemize}
-
-La cache degli script Redis é sempre volatile, non é considerato come parte del database e non é persistente, quindi gli script memorizzati
+\\
+La cache degli script Redis é sempre volatile, non é considerata come parte del database e non é persistente, quindi gli script memorizzati
 sono temporanei e il contenuto della cache puó essere perso in qualsiasi momento.
