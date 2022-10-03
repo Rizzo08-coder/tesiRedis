@@ -28,8 +28,8 @@ i due approcci in questione sono:
 \begin{enumerate}
     \item metodo semplificato, dove ogni valore prelevato dal sensore viene memorizzato in Redis con il tipo \textbf{String},
     quindi si avrà una tupla che viene generata per ogni prelevamento ad intervalli regolari, e sarà così composta:\\
-    key -> \textbf{nameSensor.time}\\
-    value -> \textbf{sensor.value} \\
+    \textbf{-} key -> \textbf{nameSensor.time}\\
+    \textbf{-} value -> \textbf{sensor.value} \\
     Un esempio possibile quindi:\\
     sensorTemp.11:23:49 $\to$ 27.8
     \item metodo avanzato, dove viene utilizzata una struttura piú complessa, non presente nelle strutture dati di base di Redis,
@@ -60,7 +60,7 @@ Con la configurazione standard il server comunica solo su \texttt{localhost}(127
 Bisogna aggiungere un parametro per fare in modo che il server sia raggiungibile sulla rete locale aggiungendo indirizzo IP
 privato della macchina sulla quale viene eseguito il processo \texttt{redis-server}.
 Di conseguenza, il server sarà raggiungibile tramite indirizzo IP e Porta.\\
-Nel nostro caso é: \textbf{192.168.179.25:6379}.
+Nel nostro caso é: \textbf{192.168.179.25:6379}.\\
 Bisogna anche aggiungere una password di sicurezza per l'autenticazione con il server, anche questo viene fatto
 aggiungendo un parametro nel file di configurazione.
 
