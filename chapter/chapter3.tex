@@ -20,7 +20,7 @@ invia la risposta al client.
 \subsection{Strutture Dati}
 Una peculiarità di Redis é mettere a disposizione una grande varietá di tipi di dati associabili alle chiavi, infatti il valore archiviato
 in corrispondenza di una certa chiave puó essere molto differente da un tipo semplice come la stringa ed il valore stesso puó addirittura
-rappresentare una struttura dati. Inoltre vi é una grandissima possibilitá di manipolazione grazie all'elevato numero di funzioni presenti.\\
+rappresentare una struttura dati. Inoltre, vi é una grandissima possibilitá di manipolazione grazie all'elevato numero di funzioni presenti.\\
 I principali tipi di dato disponibili sono:
 \begin{itemize}
     \item \textbf{Stringhe}: é il tipo piú semplice, vengono memorizzate sequenze di byte, inclusi testo, oggetti serializzati e array binari;
@@ -64,8 +64,9 @@ Redis é estremamente flessibile e grazie alla sua efficienza puó essere applic
     per lo streaming di contenuti multimediali in tempo reale, in particolare per memorizzare metadati di profili utente e cronologie di visualizzazione,
     informazioni di autenticazione per milioni di utenti e file manifest con cui permettere la distribuzione di contenuti a milioni di utenti
     contemporaneamente;
+    %FIXME: mettere maiuscola
     \item \textbf{Dati Geospaziali}: viene offerta una struttura per gestire dati geospaziali reali, chiamata \texttt{Geospatial},
-    su vasta scala e con la massima rapiditá. Praticamente é una SortedSet con uno score che viene calcolato in base alle coordinate che vengono assegnate ad un certo membro.
+    su vasta scala e con la massima rapiditá. è una SortedSet con uno score che viene calcolato in base alle coordinate che vengono assegnate ad un certo membro.
     Vengono offerti diversi comandi, tra cui \texttt{GEOADD} che permette di aggiungere elementi ad un indice geospaziale.
     Infatti, se consideriamo un esempio in cui stiamo tracciando un gruppo di auto basterá fare nel modo seguente:
     \begin{lstlisting}[autogobble, style=redis-cli, language=SQL]
@@ -202,14 +203,14 @@ EXEC\end{lstlisting}
 
     \paragraph{AOF $\to$ Append Only File:}
     É un meccanismo di persistenza che consente al server Redis di tenere traccia e registrare ogni comando eseguito dal server.
-    Quindi vi é un file di log dove vengono aggiunti i comandi ogni volta che vengono eseguiti.
+    Vi é un file di log dove vengono aggiunti i comandi ogni volta che vengono eseguiti.
     Questo registro di comandi puó essere riprodotto all'avvio del server, ricreando il database al suo stato originale.
     Il vantaggio é che basandosi su un log scritto continuamente, non vi é il rischio di incorrere in perdite in caso di crash. Inoltre,
     il formato dei file che vengono prodotti da questa modalitá permette un recupero piú semplice in caso di corruzione.
     Peró, i file AOF risultano meno compatti e piú voluminosi rispetto a quelli in formato RDB e da ció consegue un ripristino del database
     meno rapido all'avvio. Questo meccanismo viene utilizzato quando la principale preoccupazione é la perdita di dati.\\
 
-    É possibile utilizzare contemporaneamente AOF e RDB, e durante il ripristino del database verrá preferito l'utilizzo di file AOF per la loro
+    É possibile utilizzare contemporaneamente AOF e RDB, e durante il ripristino del database verrá preferito l'utilizzo di file AOF, per la loro
     maggiore completezza.
 
 
@@ -275,7 +276,7 @@ il server Redis puó essere eseguito in due modalitá:
 \end{itemize}
 
 
-Redis Master funge da interfaccia con il mondo esterno, gestendo tutte le richieste scrittura esterne e puó gestire anche
+Redis Master funge da interfaccia con il mondo esterno, gestendo tutte le richieste di scrittura esterne e puó gestire anche
 quelle di lettura;
 ogni volta che viene apportata una modifica al database master, la modifica viene propagata ai database slave collegati al master.\\
 

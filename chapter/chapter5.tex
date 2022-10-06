@@ -34,7 +34,7 @@ i due approcci in questione sono:
     sensorTemp.11:23:49 $\to$ 27.8
     \item metodo avanzato, dove viene utilizzata una struttura piú complessa, non presente nelle strutture dati di base di Redis,
     chiamata \texttt{RedisTimeSeries}, la quale é un modulo aggiuntivo che é stato fatto su misura per questo tipo di applicazioni.
-    Permette un alto volume di inserimenti di valori con letture a bassa latenza. Puó essere vista come una SortedSet che associa
+    Permette un alto volume di inserimenti di valori con letture a bassa latenza. Puó essere vista come una SortedSet con membri non univoci, che associa
     ad ogni valore inserito un timestamp come score.\\
     Sarà fatto in questo modo:\\
     verrà creata una serie temporale il cui nome sarà quello del sensore e all'interno della serie temporale verranno aggiunti i valori
