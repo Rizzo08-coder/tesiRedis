@@ -25,18 +25,19 @@ Un aggregato é una porzione di dati correlati, con una struttura piú o meno co
 Gli aggregati regolano anche la distribuzione dei dati, infatti per supportare la scalabilità sono distribuiti tra i nodi
 di un sistema;
 ogni oggetto aggregato si trova su un singolo nodo.\\
-
+\\
+Le classi di aggregati sono un'astrazione di un insieme di aggregati correlati tra loro.\\
 Sono possibili diversi approcci per identificare classi di aggregati per una particolare applicazione.
 L'approccio Domain-Driven Design(\emph{DDD}), attraverso il quale viene generato un diagramma UML delle classi,
 é guidato dai casi d'uso, ovvero dai requisiti funzionali, e da esigenze di scalabilità e coerenza all'interno dell'aggregato.\\
 Si procede nel modo seguente:
 \begin{itemize}
-    \item I dati persistenti di un'applicazione sono modellati in termini di entità, oggetti di valore e
+    \item I dati persistenti di un'applicazione sono modellati in termini di entità, oggetti valore e
     relazioni.
     Un'entità é un oggetto persistente che ha un'esistenza indipendente ed é caratterizzata da un identificatore
-    univoco, mentre un oggetto di valore é caratterizzato appunto da un suo valore senza un proprio identificatore
-    \item Entità e oggetti di valore vengono raggruppati in \emph{aggregati}.
-    Un aggregato ha un'entità come radice e puó contenere molti oggetti di valore.
+    univoco, mentre un oggetto valore é caratterizzato appunto da un suo valore senza un proprio identificatore
+    \item Entità e oggetti valore vengono raggruppati in \emph{aggregati}.
+    Un aggregato ha un'entità come radice e puó contenere molti oggetti valore.
 \end{itemize}
 A causa delle loro caratteristiche, la progettazione degli aggregati comporta un compromesso per quanto riguarda
 la loro granularità.
@@ -56,13 +57,13 @@ Preso come esempio un dominio in cui vanno salvati in modo persistente dati su g
     \label{modelloDominio}
 \end{figure}
 Nella Figura \ref{modelloDominio} l'oggetto con lo scomparto superiore colorato é un'entità, altrimenti
-é un oggetto di valore. La linea chiusa denota il confine di un aggregato.
-Pertanto avremo due classi aggregate principali: Player e Game.\\
+é un oggetto valore. La linea chiusa denota il confine di un aggregato.
+Pertanto possiamo definire due classi di aggregati principali: Player e Game.\\
 Per costruire un aggregato si parte sempre da un'entità.
-Le frecce uscenti indicano la composizione dell'entità e, ricorsivamente, degli oggetti di valore.
+Le frecce uscenti indicano la composizione dell'entità e, ricorsivamente, degli oggetti valore.
 Se consideriamo l'entità \texttt{mary:Player}, essa sarà composta, oltre che dai suoi attributi, da:\\
-due oggetti di valore, rispettivamente \texttt{games[0]} e \texttt{games[1]}, a sua volta \texttt{games[0]} é formato dall'oggetto
-di valore \texttt{:GameInfo} così composto:\\
+due oggetti valore, rispettivamente \texttt{games[0]} e \texttt{games[1]}, a sua volta \texttt{games[0]} é formato dall'oggetto
+valore \texttt{:GameInfo} così composto:\\
 il valore di \texttt{game} sarà \texttt{2345:Game}, il valore di \texttt{opponent} sarà \texttt{rick:Player}.
 Stesso procedimento verrà fatto per \texttt{games[1]}.\\
 Bisognerà ripetere tutto il procedimento per ogni entità presente nel diagramma.
@@ -91,7 +92,7 @@ Quindi, si ha che:
 Per effettuare il passaggio da aggregati a modellazione NoSQL, ogni classe di aggregati viene rappresentata da una \texttt{collection} ed
 ogni singolo aggregato viene rappresentato da un \texttt{blocco}.\\
 Un paragone puó essere fatto con la programmazione ad oggetti, in cui una \texttt{collection} é
-un insieme d'istanze di una certa classe, ed un \texttt{blocco} é l'istanza di quella classe.
+un insieme d'istanze di una certa classe, ed un \texttt{blocco} é un'istanza di quella classe.
 
 Vi sono due modalità principali per rappresentare gli aggregati:
 \begin{itemize}
@@ -113,9 +114,11 @@ Vi sono due modalità principali per rappresentare gli aggregati:
     \caption{Esempio Entry per Aggregate Object (EAO) ed Entry per Atomic Value (EAV)}
 \end{figure}
 Nella figura \emph{EAO} si ha per ogni \texttt{blocco} \emph{Player} o \emph{Game} una singola \texttt{entry} con chiave vuota,
-valore strutturato in modo complesso
+valore strutturato in modo complesso.
 \\
-Nella figura \emph{EAV} si ha per ogni \texttt{blocco} piú \texttt{entry} in modo da avere valori atomici al suo interno
+Nella figura \emph{EAV} si ha per ogni \texttt{blocco} piú \texttt{entry}, in modo da avere valori atomici al suo interno; ad esempio, nel primo blocco
+le chiavi delle entry sono \texttt{username}, \texttt{firstName}, \texttt{lastName} e così via.\\
+Le chiavi di blocco di entrambe le figure sono \texttt{mary}, \texttt{rick} e \texttt{2345}.
 \\
 \\
 Ovviamente, queste due sono le rappresentazioni piú estreme che si possono ottenere.\\

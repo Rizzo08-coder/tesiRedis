@@ -1,0 +1,15 @@
+\chapter{Conclusioni}
+Dopo aver fornito una panoramica delle basi di dati NoSQL nel corso del primo capitolo,
+è stata definita una modellazione astratta ed indipendente dal dbms specifico.
+Dal terzo capitolo si è preso in considerazione come caso di studio \textbf{Redis}, sono state fatte notare le proprie caratteristiche
+ed ambiti di utilizzo. Si è notato che non vengono implementate tutte le proprietà ACID, inoltre certe proprietà
+possono essere modificate a livello di configurazione del server, oppure devono essere gestite a livello applicativo.
+Nel corso del quarto capitolo è stato fatto un confronto tra il Data Manipulation Language di SQL
+e quello di Redis, utilizzando come caso di studio un database che memorizza dati utente, in Redis è stata sfruttata la struttura dati Hash.
+Nell'ultimo capitolo, l'applicativo software è stato progettato sfruttando due strutture dati differenti:String e RedisTimeSeries.
+Per il disegno del grafico in Java è stata utilizzata la libreria JFreeChart.\\
+Un possibile miglioramento potrebbe essere andare l'aumento della frequenza di campionamento del sensore; per fare questo, si avrebbe la necessità
+di andare ad implementare una libreria diversa da JFreeChart, adatta ad una frequenza di aggiornamento maggiore.\\
+Inoltre, potremmo pensare di avere un grafico che implementa maggiori funzionalità, ad esempio per fare un confronto tra diversi sensori all' interno di una rete, oppure
+andare a ripercorrere indietro nel tempo i prelevamenti in caso di maggiore persistenza dei dati, magari potremmo pensare di utilizzare un database non in memory per fare questo,
+quindi l'applicativo dovrebbe disporre di un database in memory per i dati istantanei ed uno differente per dati vecchi.

@@ -11,18 +11,18 @@
 \contentsline {subsection}{\numberline {2.1.1}Modellazione Concettuale e design degli Aggregati}{8}{subsection.2.1.1}%
 \contentsline {paragraph}{Cos'é un aggregato?}{8}{section*.4}%
 \contentsline {subsection}{\numberline {2.1.2}Partizionamento degli Aggregati e modellazione NoSQL}{9}{subsection.2.1.2}%
-\contentsline {subsection}{\numberline {2.1.3}Implementazione}{12}{subsection.2.1.3}%
+\contentsline {subsection}{\numberline {2.1.3}Implementazione}{13}{subsection.2.1.3}%
 \contentsline {chapter}{\numberline {3}Redis $\to $ Remote Dictionary Server}{15}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Caratteristiche}{16}{section.3.1}%
 \contentsline {subsection}{\numberline {3.1.1}Strutture Dati}{16}{subsection.3.1.1}%
 \contentsline {subsection}{\numberline {3.1.2}Ambiti di utilizzo}{17}{subsection.3.1.2}%
-\contentsline {subsection}{\numberline {3.1.3}Confronto con \emph {proprietá ACID}}{18}{subsection.3.1.3}%
+\contentsline {section}{\numberline {3.2}Confronto con \emph {proprietá ACID}}{18}{section.3.2}%
 \contentsline {paragraph}{Quali proprietá ACID implementa Redis?}{19}{section*.5}%
 \contentsline {paragraph}{RDB $\to $ Redis Database File:}{21}{section*.6}%
 \contentsline {paragraph}{AOF $\to $ Append Only File:}{21}{section*.7}%
 \contentsline {paragraph}{Database In Memory:}{22}{section*.8}%
 \contentsline {paragraph}{Come configurare i diversi livelli di persistenza?\\}{22}{section*.9}%
-\contentsline {subsection}{\numberline {3.1.4}sistema distribuito}{23}{subsection.3.1.4}%
+\contentsline {section}{\numberline {3.3}sistema distribuito}{23}{section.3.3}%
 \contentsline {subsubsection}{Redis Master-Slave}{23}{section*.10}%
 \contentsline {paragraph}{Come avviene il failover nel caso di guasto di Redis Master?\\}{24}{section*.11}%
 \contentsline {paragraph}{Teorema CAP\\}{25}{section*.12}%
@@ -34,7 +34,7 @@
 \contentsline {section}{\numberline {4.1}Data Manipulation Language}{30}{section.4.1}%
 \contentsline {subsection}{\numberline {4.1.1}Comandi di Modifica}{30}{subsection.4.1.1}%
 \contentsline {subsection}{\numberline {4.1.2}Comandi di Query}{32}{subsection.4.1.2}%
-\contentsline {section}{\numberline {4.2}Store procedure}{33}{section.4.2}%
+\contentsline {section}{\numberline {4.2}Stored procedure}{33}{section.4.2}%
 \contentsline {chapter}{\numberline {5}Caso reale nell'IoT}{35}{chapter.5}%
 \contentsline {paragraph}{Cos'é l'IoT?\\}{35}{section*.17}%
 \contentsline {section}{\numberline {5.1}Scelte progettuali}{35}{section.5.1}%
@@ -47,4 +47,5 @@
 \contentsline {subsection}{\numberline {5.3.1}Jedis e RedisTimeSeries}{41}{subsection.5.3.1}%
 \contentsline {subsection}{\numberline {5.3.2}DataSet RealTime}{44}{subsection.5.3.2}%
 \contentsline {subsection}{\numberline {5.3.3}JFreeChart}{45}{subsection.5.3.3}%
-\contentsline {chapter}{Bibliografia}{47}{chapter*.19}%
+\contentsline {chapter}{Conclusioni}{47}{chapter*.19}%
+\contentsline {chapter}{Bibliografia}{49}{chapter*.20}%
