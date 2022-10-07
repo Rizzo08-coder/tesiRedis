@@ -42,10 +42,10 @@
 \contentsline {subsection}{\numberline {5.2.1}Connessione con Redis}{38}{subsection.5.2.1}%
 \contentsline {subsection}{\numberline {5.2.2}NTP}{39}{subsection.5.2.2}%
 \contentsline {paragraph}{Come facciamo a ricavare l'ora attuale?\\}{39}{section*.18}%
-\contentsline {subsection}{\numberline {5.2.3}Invio dataSet}{39}{subsection.5.2.3}%
-\contentsline {section}{\numberline {5.3}Java}{41}{section.5.3}%
-\contentsline {subsection}{\numberline {5.3.1}Jedis e RedisTimeSeries}{41}{subsection.5.3.1}%
+\contentsline {subsection}{\numberline {5.2.3}Invio dataSet}{40}{subsection.5.2.3}%
+\contentsline {section}{\numberline {5.3}Java}{42}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}Jedis e RedisTimeSeries}{42}{subsection.5.3.1}%
 \contentsline {subsection}{\numberline {5.3.2}DataSet RealTime}{44}{subsection.5.3.2}%
-\contentsline {subsection}{\numberline {5.3.3}JFreeChart}{45}{subsection.5.3.3}%
-\contentsline {chapter}{Conclusioni}{47}{chapter*.19}%
-\contentsline {chapter}{Bibliografia}{49}{chapter*.20}%
+\contentsline {subsection}{\numberline {5.3.3}JFreeChart}{46}{subsection.5.3.3}%
+\contentsline {chapter}{Conclusioni}{49}{chapter*.19}%
+\contentsline {chapter}{Bibliografia}{51}{chapter*.20}%
