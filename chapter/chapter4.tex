@@ -15,20 +15,20 @@ tecnologie proprietarie.
 Ne deriva che non vi é un linguaggio standard comune ai NoSQL, o comune ad una specifica categoria.\\
 Sono disponibili delle interfacce di comunicazione per i principali linguaggi di programmazione, che vengono
 offerte direttamente al programmatore, con le quali si riesce a gestire il dialogo con il dbms.
-
+\\
 Sulla documentazione di Redis é presente un elenco completo di tutte le API disponibili per i principali linguaggi:
-\url{https://redis.io/docs/clients}
-
+\url{https://redis.io/docs/clients}\\
+\\
 Il modo piú rapido e semplice per interagire con il server é da linea di comando, infatti esiste una libreria chiamata
 \texttt{redis-cli}, con la quale viene semplificato notevolmente il lavoro di hacking.
 In questo capitolo, per fare un confronto tra comandi Redis e SQL, verrà adoperata questa libreria.\\
-
+\\
 Il linguaggio SQL é diviso in due sezioni principali:
 \begin{itemize}
     \item Data Definition Language
     \item Data Manipulation Language
-\end{itemize}
-
+\end{itemize}\\
+\\
 Per quanto riguarda il Data Definition Language, a differenza di un database relazionale, non abbiamo la possibilità di definire
 domini, tabelle, vincoli sulle strutture e così via; non avremo a disposizione nessuna operazione di questo tipo.\\
 Redis essendo un key-value é composto da tuple, quindi, viene creato un legame tra chiave e valore al momento dell'aggiunta di una chiave; inoltre, il tipo del valore
@@ -42,12 +42,12 @@ I comandi di modifica sono quelle istruzioni che permettono:
     \item inserimento;
     \item cancellazione;
     \item modifica dei valori associati a delle chiavi.\\
-\end{itemize}
-
-
+\end{itemize}\\
+\\
+\\
 Come esempio di confronto verrà adoperato un dominio che rappresenta i profili di utenti.
 Un utente sarà composto da: nome utente, nome, cognome, password, data di creazione.\\
-
+\\
 In Redis ogni tupla sarà composta nel seguente modo:
 \begin{itemize}
     \item \textbf{chiave} $\to$ \textbf{utente:}nomeutente
@@ -109,7 +109,7 @@ che possono anche avere una certa complessità semantica, questo é dovuto princ
 tra diverse tabelle presenti nel database.\\
 Questo non avviene in Redis, infatti le interrogazioni di una base di dati chiave-valore non possono avere una complessitá paragonabile a quella SQL.\\
 \\
-Per fare una selezione di un record in SQL:
+Per fare una \textbf{SELEZIONE} di un record in SQL:
 \begin{lstlisting}[autogobble,style=redis-cli, language=SQL]
 SELECT *
 FROM Utenti
@@ -149,8 +149,8 @@ Comando che viene ampiamente utilizzato perché é possibile filtrare su chiavi 
 Per quanto riguarda i comandi transazionali, sono giá stati definiti nel capitolo precedente nella sezione del confronto con le proprietá ACID.
 
 \section{Stored procedure}
-In SQL vi é la possibilitá di definire procedure che vengono memorizzate nella base di dati come parte dello schema ed eseguite dal dbms,
-ovvero con una modalitá opposta rispetto all'esecuzione dei client. Queste procedure svolgono una specifica attivitá di manipolazione dei dati.\\
+In SQL vi é la possibilità di definire procedure che vengono memorizzate nella base di dati come parte dello schema ed eseguite dal dbms,
+ovvero con una modalità opposta rispetto all'esecuzione dei client. Queste procedure svolgono una specifica attivitá di manipolazione dei dati.\\
 Anche Redis offre un meccanismo analogo: viene consentito ai client di caricare ed eseguire script lato server.
 Il vantaggio é la grande efficienza che si ottiene nella lettura e scrittura dei dati poché gli script
 memorizzati sono eseguiti completamente server-side.

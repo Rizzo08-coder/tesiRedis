@@ -64,9 +64,8 @@ Redis é estremamente flessibile e grazie alla sua efficienza puó essere applic
     per lo streaming di contenuti multimediali in tempo reale, in particolare per memorizzare metadati di profili utente e cronologie di visualizzazione,
     informazioni di autenticazione per milioni di utenti e file manifest con cui permettere la distribuzione di contenuti a milioni di utenti
     contemporaneamente;
-    %FIXME: mettere maiuscola
     \item \textbf{Dati Geospaziali}: viene offerta una struttura per gestire dati geospaziali reali, chiamata \texttt{Geospatial},
-    su vasta scala e con la massima rapiditá. è una SortedSet con uno score che viene calcolato in base alle coordinate che vengono assegnate ad un certo membro.
+    su vasta scala e con la massima rapiditá. È una SortedSet con uno score che viene calcolato in base alle coordinate che vengono assegnate ad un certo membro.
     Vengono offerti diversi comandi, tra cui \texttt{GEOADD} che permette di aggiungere elementi ad un indice geospaziale.
     Infatti, se consideriamo un esempio in cui stiamo tracciando un gruppo di auto basterá fare nel modo seguente:
     \begin{lstlisting}[autogobble, style=redis-cli, language=SQL]
@@ -83,10 +82,9 @@ Redis é estremamente flessibile e grazie alla sua efficienza puó essere applic
 
 
 \section{Confronto con \emph{proprietá ACID}}
-%FIXME: questa introduzione
-Nelle basi di dati relazionali ogni transazione gode delle proprietà ACID. Nei database NoSQL non é vera questa affermazione, in questa
-sezione si vogliono mettere in evidenza quali proprietà vengono soddisfatte da Redis e quali no.
-
+Nelle basi di dati relazionali ogni transazione gode delle proprietà ACID. Nei database NoSQL non é vera questa affermazione.\\
+In questa sezione si vogliono mettere in evidenza quali proprietà vengono soddisfatte da Redis e quali no.
+\\
 Innanzitutto, bisogna vedere in che modo sono gestite le transazioni in Redis:\\
 i comandi utilizzati per le transazioni sono quattro:
 \begin{itemize}
@@ -97,7 +95,7 @@ i comandi utilizzati per le transazioni sono quattro:
     di una transazione (serve per la gestione di lock, ovvero controllo della concorrenza)
 \end{itemize}
 
-Quindi una transazione viene eseguita in questo modo:
+Quindi, una transazione viene eseguita in questo modo:
 \begin{enumerate}
     \item inviamo il comando \texttt{MULTI}. Redis risponde \texttt{OK};
     \item digitiamo i comandi che devono far parte della transazione. Redis risponde \texttt{QUEUED}, ovvero il comando non viene eseguito
@@ -105,8 +103,8 @@ Quindi una transazione viene eseguita in questo modo:
     \item conclusione della transazione: si puó scegliere se eseguire tutti i comandi con \texttt{EXEC} oppure annullare la transazione
     con \texttt{DISCARD}.
 \end{enumerate}
-
-Di seguito riporto un esempio utilizzando \texttt{redis-cli} con la struttura dati lista; i comandi per gestire le liste in questo esempio
+\\
+Di seguito viene riportato un esempio utilizzando \texttt{redis-cli} con la struttura dati lista; i comandi per gestire le liste in questo esempio
 sono 2: \texttt{LPUSH}: comando per inserire un singolo elemento nella lista; \texttt{LRANGE}: comando per ottenere tutti i valori presenti nella lista
 
 \begin{lstlisting}[autogobble, style=redis-cli, language=SQL]
@@ -225,9 +223,9 @@ EXEC\end{lstlisting}
 \paragraph{Come configurare i diversi livelli di persistenza?\\}
 Per fare ció bisogna accedere al file di configurazione del server Redis andando a modificare/cancellare dei parametri e riavviando il server,
 oppure digitando \texttt{CONFIG SET ...} da CLI, con la possibilitá di avere un effetto immediato sulle modifiche apportate alla configurazione del server senza doverlo riavviare.\\
-
+\\
 Di seguito viene illustrato un esempio di modifica del file di configurazione, denominato \texttt{redis.conf}.\\
-
+\\
 RDB é l'impostazione predefinita. In particolare sono giá impostati i seguenti parametri di default:
 \begin{lstlisting}[autogobble, style=redis-cli, language=SQL]
 save 900 1
@@ -235,19 +233,19 @@ save 300 10\end{lstlisting}
 Ció significa che viene eseguito uno snapshot dopo 900 secondi se vi é almeno 1 modifica al set di dati e dopo
 300 secondi se vi sono almeno 10 modifiche al set di dati.
 Di conseguenza, se si ha la necessitá di avere intervalli aggiuntivi o diversi é molto semplice andare a modificarli aggiungendo o togliendo questi parametri predefiniti.\\
-
+\\
 Al momento del salvataggio verrá visualizzato un messaggio di questo tipo nella CLI del server:
 \begin{lstlisting}[autogobble, style=redis-cli, language=SQL]
 10 changes in 300 seconds. Saving...
 Background saving started by pid ...
-DB saved on disk\end{lstlisting}
-
-
+DB saved on disk\end{lstlisting}\\
+\\
+\\
 La strategia AOF viene configurata mediante due parole chiave:\\
 \texttt{appendonly}, che se impostato a \texttt{yes} attiva AOF;\\
 \texttt{appendfilename}, che specifica il nome del file in cui verranno salvate le operazioni.\\
-
-Per avere un \emph{database in memory} é sufficiente includere questi comandi:
+\\
+Per ottenere un \emph{database in memory} senza persistenza é sufficiente includere questi comandi:
 \begin{lstlisting}[autogobble, style=redis-cli, language=SQL]
 save ""
 appendonly no\end{lstlisting}
@@ -255,27 +253,26 @@ appendonly no\end{lstlisting}
 
 
 \section{sistema distribuito}
-%FIXME: cambiare introduzione
-Redis supporta una distribuzione di vari processi server su piú macchine con la possibilitá di collaborazione tra di loro.
-Oltre alle soluzioni proprietarie fatte su misura in base al caso d'uso specifico, Redis offre la possibilitá di implementare lato server un
+Redis supporta una distribuzione di vari processi server su piú macchine con la possibilità di collaborazione tra di loro.
+Oltre alle soluzioni proprietarie fatte su misura in base al caso d'uso specifico, Redis offre la possibilità di avere lato server un
 sistema distribuito in modo piuttosto semplice ed efficiente.\\
 vi sono due tipologie di sistemi distribuiti che é possibile implementare:
 \begin{itemize}
     \item \textbf{Redis Master-Slave}
     \item \textbf{Redis Cluster}
 \end{itemize}
-Per sistemi estremamente avanzati, vi é la possibilitá di fondere queste due modalitá.
+Per sistemi estremamente avanzati, vi é la possibilità di fondere queste due modalità.
 \subsubsection{Redis Master-Slave}
 Redis puó implementare un'architettura master-slave, ovvero un noto paradigma informatico in cui un dispositivo o processo (il master)
 controlla o coordina piú dispositivi o processi subordinati (gli slave).
-
-il server Redis puó essere eseguito in due modalitá:
+\\
+Il server Redis puó essere eseguito in due modalitá:
 \begin{itemize}
     \item Modalità Master (Redis Master);
     \item Modalità Slave (Redis Slave o Redis Replica).
 \end{itemize}
-
-
+\\
+\\
 Redis Master funge da interfaccia con il mondo esterno, gestendo tutte le richieste di scrittura esterne e puó gestire anche
 quelle di lettura;
 ogni volta che viene apportata una modifica al database master, la modifica viene propagata ai database slave collegati al master.\\
@@ -284,14 +281,14 @@ ogni volta che viene apportata una modifica al database master, la modifica vien
 \includegraphics[width=1\textwidth]{img/masterslaveRedis}
 \caption{Redis distribuito master-slave}
 \end{figure}
-
+\\
 La propagazione della replica puó avvenire in due modi:
 \begin{itemize}
     \item sincrona: le modifiche ai database slave avvengono apportate istantaneamente;
     \item asincrona: le modifiche vengono apportate solo a distanza di tempo, é l'impostazione predefinita poiché si adatta
     alla maggior parte dei casi d'uso di Redis.
 \end{itemize}
-
+\\
 La replica master-slave é in gran parte non bloccante, il che significa che il database master puó continuare a funzionare
 mentre i database slave sincronizzano i dati.
 I Redis Slave saranno in grado di gestire le query utilizzando la versione non aggiornata del database, tranne che per un breve
@@ -308,7 +305,7 @@ tutti i dati sui vari Slaves perderemo tutti i dati.\\
 L'approccio \textbf{2} é quello migliore perché lo slave esistente avrá giá tutti i dati e una volta che lo avremo impostato in modalità
 Master, esso replicherà/sincronizzerà i dati su tutti gli Slaves, il che significa che non avremo una perdita di dati, o comunque
 avremo una minima perdita di dati nel caso in cui il guasto del Master si sia verificato prima della sincronizzazione con gli slaves.
-
+\\
 Invece, nel caso di crash di Redis Slave le sue richieste di lettura saranno semplicemente sostituite da altri Redis Slave.
 
 \paragraph{Teorema CAP\\}
@@ -323,10 +320,10 @@ proprietà possono essere soddisfatte contemporaneamente:
     \item \textbf{Partition Tolerance}: il sistema continua a funzionare nonostante alcuni messaggi vengano persi o subiscano rallentamenti
     nelle comunicazioni tra i nodi della rete.
 \end{itemize}
-
+\\
 É un teorema che viene utilizzato per analizzare le dinamiche dei sistemi informativi che possiedono due o piú archivi di dati posti su
 nodi distinti della rete. Quindi, la versione distribuita di Redis rientra perfettamente in questa categoria.\\
-
+\\
 Redis é un sistema \textbf{AP}, ovvero non fornisce una forte coerenza.
 \paragraph{Per quale motivo?\\}
 Quando Redis Master riceve una richiesta di scrittura da un cliente:
@@ -334,10 +331,10 @@ Quando Redis Master riceve una richiesta di scrittura da un cliente:
     \item Esegue la richiesta del cliente e manda un ack di conferma;
     \item Redis Master replica la richiesta di scrittura su uno o piú slave.
 \end{enumerate}
-
+\\
 Redis Master non attende il completamento della replica sugli slave, ma esegue prima la richiesta del client.
 Se supponiamo che il guasto del Master avvenga prima del completamento della replica agli Slave avremo una perdita di coerenza.\\
-
+\\
 Potremmo pensare di migliorare la coerenza con la replica sincrona, forzando prima il Redis Master a replicare e poi mandare l'ack
 di conferma al client, ma questo riduce pesantemente le prestazioni di scrittura e comunque non si ha una garanzia di consistenza.
 Infatti, potrebbe verificarsi lo scenario in cui uno Slave non ha ricevuto la scrittura e viene promosso a Master.
@@ -346,11 +343,11 @@ Infatti, potrebbe verificarsi lo scenario in cui uno Slave non ha ricevuto la sc
 \subsubsection{Redis Cluster}
 Uno dei piú grandi limiti di Redis, essendo un database in-memory, é la limitazione della memoria che un'istanza di Redis puó avere, in quanto
 tutto il set di dati archiviato non deve mai superare la dimensione massima della memoria stessa.
-
+\\
 Vi é la possibilità di suddividere i dati in diverse istanze eseguite su piú server, in modo che ogni
 istanza contenga solo un sottoinsieme delle chiavi; tutto questo avviene tramite l'operazione di
 \textbf{sharding}, ovvero il partizionamento orizzontale.
-
+\\
 Vi sono dei compromessi da considerare: suddividendo i dati in molte istanze, nasce il problema della
 ricerca delle chiavi, quindi i dati devono essere partizionati seguendo alcune regole coerenti.\\
 Sono possibili diverse implementazioni per il partizionamento dei dati:
@@ -359,12 +356,12 @@ Sono possibili diverse implementazioni per il partizionamento dei dati:
     scrivere o leggere una determinata chiave;
     \item \textbf{partizionamento assistito da proxy}: i client inviano le richieste a un proxy che supporta il protocollo Redis,
     invece di inviare le richieste direttamente alle istanze Redis corrette. Il proxy si assicurerá di inoltrare le richieste
-    alle istanze corrette in base allo schema di partizionamento configurato e invierá le risposte ai client.
+    alle istanze corrette in base allo schema di partizionamento configurato e invierà le risposte ai client.
     Il limite principale di questa implementazione é che il proxy puó diventare un "collo di bottiglia", poiché
     tutte le richieste e risposte passano per esso.
     \item \textbf{instradamento della query}: i client inviano la query a un'istanza Redis casuale e l'istanza si
     assicurerà di inoltrare la query a quella corretta.
-    Il client successivamente dovrá essere reindirizzato all'istanza corretta.
+    Il client successivamente dovrà essere reindirizzato all'istanza corretta.
 \end{itemize}
 In realtà, Redis Cluster utilizza una \textbf{forma ibrida di instradamento della query}, in cui il nodo casuale che viene interrogato
 non inoltra la query al nodo corretto, ma reindirizza solo il client.\\
@@ -384,7 +381,7 @@ potendo contattare direttamente i nodi corretti.
         \includegraphics[width=0.9\textwidth]{img/hashslotCluster}
     \end{center}
 \caption{Redis distribuito Cluster}
-\end{figure}
+\end{figure}\\
 \\
 Lo sharding dei dati in molte istanze non risolve il problema della sicurezza dei dati e della ridondanza. Se una delle istanze muore
 a causa di un guasto hardware e non si hanno backup da cui ripristinare i dati, tutti i dati di quella istanza saranno persi.

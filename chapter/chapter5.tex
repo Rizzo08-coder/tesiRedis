@@ -9,7 +9,7 @@ L'IoT consente di rendere disponibili i dati che servono a comprendere meglio il
 Permette di estrarre informazioni utili ai processi decisionali.\\
 Queste informazioni utili devono essere immagazzinate in maniera piú o meno persistente
 e devono essere elaborate con dei tempi di latenza piuttosto brevi, ed é in questa circostanza che interviene Redis.
-
+\\
 In questo capitolo verrà analizzata una possibile applicazione in ambito industriale:
 si sfrutterà un sensore di temperatura e umidità che preleverà delle informazioni ad intervalli regolari e
 verrà sfruttato Redis per la persistenza (se sarà necessaria), l'organizzazione dei dati e l'elaborazione di essi.
@@ -22,7 +22,7 @@ maggiormente al nostro caso d'uso.
 Possono esserci diversi tipi di implementazione;
 verranno approfondite due modalità potenzialmente utilizzabili:
 una per casi piú semplificati ed una per casi piú avanzati (in cui si potrebbe sfruttare anche una rete di sensori).
-
+\\
 Queste modalità dipendono direttamente dalla struttura dati che intendiamo utilizzare in Redis per salvare i valori;
 i due approcci in questione sono:
 \begin{enumerate}
@@ -48,14 +48,12 @@ i due approcci in questione sono:
         \caption{struttura RedisTimeSeries}
     \end{figure} 
 \end{enumerate}
-
 \\
-
+\\
+\\
 Prima dello sviluppo vero e proprio dello sketch, che avrà il compito di far comunicare il sensore con Redis,
 si necessita di un ultimo passaggio, ossia apportare dei cambiamenti al file di configurazione del server Redis.
-%Per fare questo vi é una libreria, chiamata \texttt{Redis.h} la quale permette di comunicare con il database Redis.
-%Eseguiamo una connessione sulla rete Locale sfruttando il modulo WiFi di ESP32.
-
+\\
 Con la configurazione standard il server comunica solo su \texttt{localhost}(127.0.0.1).
 Bisogna aggiungere un parametro per fare in modo che il server sia raggiungibile sulla rete locale aggiungendo indirizzo IP
 privato della macchina sulla quale viene eseguito il processo \texttt{redis-server}.
@@ -63,21 +61,21 @@ Di conseguenza, il server sarà raggiungibile tramite indirizzo IP e Porta.\\
 Nel nostro caso é: \textbf{192.168.179.25:6379}.\\
 Bisogna anche aggiungere una password di sicurezza per l'autenticazione con il server, anche questo viene fatto
 aggiungendo un parametro nel file di configurazione.
-
+\\
 La configurazione viene modificata aggiungendo le seguenti righe in \texttt{redis.conf}:
 \begin{lstlisting}[autogobble, style=redis-cli, language=SQL]
 bind  127.0.0.1  192.168.178.25
 
 requirepass "admin"\end{lstlisting}
-
 \\
-
+\\
+\\
 Per quanto riguarda la persistenza, può essere lasciata quella base, che é una RDB.
 Per questa applicazione non é necessario avere un massimo livello di persistenza, anzi si potrebbe pensare
 di avere addirittura un database in memory senza salvataggi su disco.
 
 \section{Sketch Arduino}
-Dopo aver fatto le considerazioni precedenti si può passare allo sviluppo dello sketch vero e proprio, che avrá il compito
+Si può passare allo sviluppo dello sketch vero e proprio, che avrà il compito
 di inviare dati/informazioni al database.\\
 Il materiale necessario per questo progetto é:
 \begin{itemize}
@@ -87,7 +85,7 @@ Il materiale necessario per questo progetto é:
     che si occupa della rilevazione dell'umiditá e da un NTC che rileva la temperatura, queste due parti sono gestite
     da un microcontrollore che é parte integrante del sensore.
 \end{itemize}
-
+\\
 Dopo aver collegato il tutto e verificato che il sensore funzioni correttamente, ovvero che mandi dei dati
 coerenti all'ESP32, si può iniziare a sviluppare lo sketch da caricare su ESP32.
 
@@ -131,7 +129,7 @@ void setup(){
     }
 }
 \end{lstlisting}
-
+\\
 Per quanto riguarda la connessione al redis-server,  con \texttt{redisConn.connect(...)} viene creata una connessione con esso
 passando indirizzo Ip e Porta, le quali individuano il processo \texttt{redis-server}, successivamente si prova l'operazione di autenticazione con
 \texttt{redis.authenticate(...)}.
@@ -367,10 +365,10 @@ La conversione viene fatta nel modo seguente nei due approcci :
     e valori nella \texttt{TreeMap} come sopra.
 \end{enumerate}
 Dopo questo passaggio i due approcci si fondono insieme, in quanto da qui in poi si lavora sulle \texttt{TreeMap} generate che sono esattamente identiche.\\
-
+\\
 A questo punto rimane un ultimo problema, ovvero aggiornare il dataset in tempo reale.
 Ogni 5 secondi bisogna comunicare con Redis per ottenere i dati aggiornati.
-
+\\
 Per fare questo vengono sfruttati i Thread:
 
 
@@ -394,8 +392,8 @@ public void run() {
  }
 }
 \end{lstlisting}
-
-Viene implementata l'interfaccia \texttt{Runnable} e viene fatto un override sul metodo \texttt{run()}.
+\\
+Si implementa l'interfaccia \texttt{Runnable} e viene fatto un override sul metodo \texttt{run()}.
 Il tipo dell'attributo \texttt{TimeSeries ts} fa parte della libreria \textbf{JFreeChart}, che é stata sfruttata per il disegno dei grafici.
 Questo oggetto funziona in modo analogo ad una Map, peró contiene dei metodi aggiuntivi dedicati alle serie temporali.\\
 Con l'istruzione \texttt{new DataSet(...)} viene generata la \texttt{TreeMap} spiegata in precedenza, successivamente
@@ -404,8 +402,8 @@ il metodo \texttt{ts.addOrUpdate(...)}.
 Questo metodo aggiunge nuove entry all'interno della sua struttura se trova nuovi istanti nei cicli successivi,
 le lascia inalterate se sono composte da stesso istante e stesso valore associato, mentre le modifica se vede stesso istante e valore associato
 modificato.
-
-Tutte queste istruzioni vengono ripetute all'infinito grazie a \texttt{while(true)} ed eseguite ad intervalli temporali regolari,
+\\
+Tutte queste istruzioni vengono ripetute durante l'intera esecuzione dell'applicazione, grazie a \texttt{while(true)}, ed eseguite ad intervalli temporali regolari,
 grazie a \texttt{Thread.sleep(5000)}, che ha il compito di disattivare il thread per 5000 ms e dopo riavviarlo.
 
 
@@ -423,7 +421,7 @@ TimeSeriesCollection dataset = new TimeSeriesCollection(dataRealTime.getTimeSeri
 JFreeChart chart = ChartFactory.createTimeSeriesChart(..., dataset, ...);
 ... //istruzioni grafiche
 \end{lstlisting}
-
+\\
 Con l'istruzione \texttt{new Thread(dataRealTime).start()} eseguiamo il metodo \texttt{run()}
 illustrato in precedenza su un thread specifico.\\
 Il grafico vero e proprio viene creato con \texttt{ChartFactory.createTimeSeriesChart()}, a cui
@@ -432,13 +430,15 @@ va passato come parametro d'ingresso il dataset e altri parametri per la grafica
 \begin{figure}[H]
 \includegraphics[width=1\textwidth]{img/chartTemperature}
     \caption{Grafico Temperatura JFreeChart}
-\end{figure}
-
+\end{figure}\\
 \\
-
-Nel grafico può essere apprezzato che sull'asse delle ascisse abbiamo il tempo, quindi le chiavi del primo approccio o i timestamp del secondo approccio,
-mentre sull'asse delle ordinate abbiamo i valori legati alle chiavi del primo approccio, oppure i valori inseriti nella serie temporale nel caso del secondo approccio.\\
-Prima di eseguire il software bisogna avviare il \texttt{redis-server} con il file di configurazione specifico,
+\\
+\\
+Nel grafico può essere apprezzato che sull'asse delle ascisse abbiamo il tempo, quindi la parte di chiavi del primo approccio o i timestamp convertiti del secondo approccio;
+mentre sull'asse delle ordinate abbiamo i valori legati alle chiavi oppure i valori inseriti nella serie temporale.\\
+\\
+\\
+Prima dell'avvio del software bisogna avviare il \texttt{redis-server} con il file di configurazione specifico,
 successivamente il grafico verrà disegnato coerentemente con i valori memorizzati in Redis.
 Si aggiornerà automaticamente in tempo reale con una frequenza di 5 secondi.\\
 Questo software può essere sfruttato anche per elaborare dati completamente diversi da temperatura e umidità, quindi può essere
