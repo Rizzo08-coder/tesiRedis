@@ -1,21 +1,22 @@
 \chapter{Conclusioni}
 Dopo aver fornito una panoramica delle basi di dati NoSQL nel corso del primo capitolo,
-è stata definita una modellazione astratta ed indipendente dal dbms specifico, grazie alla quale si puó pensare solo nell'ultima fase
-al dbms specifico, permettendo di avere un'astrazione maggiore nelle fasi precedenti.\\
+è stata definita una modellazione astratta ed indipendente dal dbms specifico, grazie alla quale si ha una libertà
+di progettazione dal sistema utilizzato, ad eccezione dell'ultima fase.\\
 Dal terzo capitolo si è preso in considerazione come caso di studio \textbf{Redis}, sono state fatte notare le proprie caratteristiche
-ed ambiti di utilizzo. Si è visto che non vengono implementate tutte le proprietà ACID ed, inoltre, certe proprietà
-possono essere modificate a livello di configurazione del server, oppure devono essere gestite a livello applicativo.\\
+ed ambiti di utilizzo.\\
+Si è visto che non vengono implementate tutte le proprietà ACID ed, inoltre, certe proprietà
+possono essere modificate a livello di file di configurazione del server, oppure devono essere gestite a livello applicativo.\\
 Nel corso del quarto capitolo è stato fatto un confronto tra il Data Manipulation Language di SQL
-e quello di Redis, utilizzando come dominio il caso di memorizzazione del profilo di un utente;
+e quello di Redis;
 in Redis è stata sfruttata la struttura dati Hash per questo paragone.\\
 Nell'ultimo capitolo, l'applicativo software è stato progettato sfruttando due strutture dati differenti: String e RedisTimeSeries.\\
 Per il disegno del grafico è stata utilizzata la libreria JFreeChart.\\
-Un possibile miglioramento potrebbe essere l'aumento della frequenza di campionamento da parte dei sensori, con un conseguente aumento di frequenza di aggiornamento del grafico.
+Un possibile miglioramento potrebbe essere l'aumento della frequenza di campionamento da parte dei sensori, con un conseguente aumento di velocità di aggiornamento del grafico.
 Per farlo con risultati estetici apprezzabili, si avrebbe la necessità
-di implementare una libreria diversa da quella utilizzata, adatta ad intervalli di aggiornamento piú brevi.\\
-Inoltre, potremmo pensare di avere un grafico che abbia al suo interno maggiori funzionalità, ad esempio per fare un confronto tra diversi sensori all' interno di una rete, oppure
+di implementare una libreria diversa da quella utilizzata, adatta ad intervalli di refresh piú brevi.\\
+Inoltre, potremmo volere un grafico che abbia al suo interno maggiori funzionalità, ad esempio per fare un confronto tra diversi sensori all' interno di una rete, oppure
 ripercorrere indietro nel tempo i prelevamenti.
 A questo punto, converrebbe utilizzare librerie che mettono a disposizione costrutti per ottenere grafici che dispongono di funzionalità piú avanzate.\\
-Si potrebbe pensare di memorizzare i dati meno recenti in database non in memory, in modo da avere uno storico molto piú prolungato di dati.
-In questo modo, Redis verrebbe sfruttato solo per dati istantanei, o comunque in un intervallo temporale abbastanza vicino a quello attuale.\\
+Si potrebbe pensare di memorizzare i dati meno recenti in database non in memory, in modo da avere uno storico molto piú prolungato di dati con garanzie di persistenza.
+In questo modo, Redis verrebbe sfruttato solo per dati istantanei, o comunque per dati generati in un intervallo temporale abbastanza vicino a quello attuale.\\
 Quindi, l'applicativo dovrebbe interfacciarsi con due basi di dati differenti, aumentando la complessitá generale del sistema.
