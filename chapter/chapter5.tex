@@ -94,7 +94,7 @@ Il materiale necessario per questo progetto é:
     \caption{ESP32 e DHT11 su breadboard}
 \end{figure}
 Dopo aver collegato il tutto e verificato che il sensore funzioni correttamente, ovvero che mandi dei dati
-coerenti all'ESP32, si può iniziare a sviluppare lo sketch da caricare su ESP32.
+coerenti al microcontrollore, si può iniziare a sviluppare lo sketch da caricare su ESP32.
 
 \subsection{Connessione con Redis}
 Per comunicare ed inviare dati a Redis vi é una libreria apposita, sviluppata proprio per l'ambiente Arduino, chiamata \texttt{Redis.h},
@@ -412,8 +412,6 @@ modificato.
 \\
 Tutte queste istruzioni vengono ripetute durante l'intera esecuzione dell'applicazione, grazie a \texttt{while(true)}, ed eseguite ad intervalli temporali regolari,
 grazie a \texttt{Thread.sleep(5000)}, che ha il compito di disattivare il thread per 5000 ms e dopo riavviarlo.
-
-
 \subsection{JFreeChart}
 Per generare il grafico finale vero e proprio è stata sfruttata una libreria adatta alla creazione di diagrammi temporali, che supporta una frequenza di
 aggiornamento di questo tipo.
@@ -435,13 +433,22 @@ Il grafico vero e proprio viene creato con \texttt{ChartFactory.createTimeSeries
 va passato come parametro d'ingresso il dataset e altri parametri per la grafica.
 
 \begin{figure}[H]
-\includegraphics[width=1\textwidth]{img/chartTemperature}
+    \begin{center}
+        \includegraphics[width=0.8\textwidth]{img/chartTemperature}
+    \end{center}
     \caption{Grafico Temperatura JFreeChart}
+\end{figure}
+
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[width=0.8\textwidth]{img/graficoHum}
+    \end{center}
+    \caption{Grafico Umidità JFreeChart}
 \end{figure}\\
 \\
 \\
 \\
-Nel grafico può essere apprezzato che sull'asse delle ascisse abbiamo il tempo, quindi la parte di chiavi del primo approccio o i timestamp convertiti del secondo approccio;
+Nei grafici sopra riportati può essere apprezzato che sull'asse delle ascisse abbiamo il tempo, quindi la parte di chiavi del primo approccio o i timestamp convertiti del secondo approccio;
 mentre sull'asse delle ordinate abbiamo i valori legati alle chiavi oppure i valori inseriti nella serie temporale.\\
 \\
 \\
@@ -449,4 +456,13 @@ Prima dell'avvio del software bisogna avviare il \texttt{redis-server} con il fi
 successivamente il grafico verrà disegnato coerentemente con i valori memorizzati in Redis.
 Si aggiornerà automaticamente in tempo reale con una frequenza di 5 secondi.\\
 Questo software può essere sfruttato anche per elaborare dati completamente diversi da temperatura e umidità, quindi può essere
-adattato in modo molto semplice per dataset di diversa natura.
+adattato in modo molto semplice per dataset di diversa natura.\\
+\\
+\\
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[width=1\textwidth]{img/casoRealeCompleto}
+    \end{center}
+    \label{casoRealeCompleto}
+    \caption{Sistema di Acquisizione ed Elaborazione completo}
+\end{figure}

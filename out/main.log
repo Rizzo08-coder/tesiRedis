@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.4.1)  7 OCT 2022 15:49
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.4.1)  7 OCT 2022 16:59
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -565,13 +565,13 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 ]
 [2]
-<img/dbDocumentale.png, id=266, 1506.62875pt x 1451.4225pt>
+<img/dbDocumentale.png, id=270, 1506.62875pt x 1451.4225pt>
 File: img/dbDocumentale.png Graphic file (type png)
 <use img/dbDocumentale.png>
 Package pdftex.def Info: img/dbDocumentale.png  used on input line 78.
 (pdftex.def)             Requested size: 258.00539pt x 248.53246pt.
  [3]
-<img/dbColumnOriented.png, id=271, 2267.47125pt x 1327.96124pt>
+<img/dbColumnOriented.png, id=275, 2267.47125pt x 1327.96124pt>
 File: img/dbColumnOriented.png Graphic file (type png)
 <use img/dbColumnOriented.png>
 Package pdftex.def Info: img/dbColumnOriented.png  used on input line 94.
@@ -585,7 +585,7 @@ Underfull \vbox (badness 7667) has occurred while \output is active []
                                                   
 l.98 
       <./img/dbDocumentale.png>]
-<img/dbGrafo.png, id=277, 1547.7825pt x 1273.75874pt>
+<img/dbGrafo.png, id=281, 1547.7825pt x 1273.75874pt>
 File: img/dbGrafo.png Graphic file (type png)
 <use img/dbGrafo.png>
 Package pdftex.def Info: img/dbGrafo.png  used on input line 110.
@@ -634,7 +634,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 24--35
 
  []
 
-<img/designAggregati.png, id=293, 1882.03125pt x 957.5775pt>
+<img/designAggregati.png, id=297, 1882.03125pt x 957.5775pt>
 File: img/designAggregati.png Graphic file (type png)
 <use img/designAggregati.png>
 Package pdftex.def Info: img/designAggregati.png  used on input line 54.
@@ -667,7 +667,7 @@ og-get-ti, in cui una \T1/cmtt/m/n/12 collection
  []
 
 [10]
-<img/eao.eav.png, id=310, 3062.44125pt x 2351.78625pt>
+<img/eao.eav.png, id=314, 3062.44125pt x 2351.78625pt>
 File: img/eao.eav.png Graphic file (type png)
 <use img/eao.eav.png>
 Package pdftex.def Info: img/eao.eav.png  used on input line 112.
@@ -683,7 +683,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 116--127
                                                   
 l.127 
        <./img/eao.eav.png>]
-<img/etf.png, id=317, 1433.355pt x 1358.07375pt>
+<img/etf.png, id=321, 1433.355pt x 1358.07375pt>
 File: img/etf.png Graphic file (type png)
 <use img/etf.png>
 Package pdftex.def Info: img/etf.png  used on input line 130.
@@ -702,7 +702,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
                                                   
 l.148 
        <./img/etf.png>]
-<img/implementazione.png, id=324, 2261.44875pt x 1282.7925pt>
+<img/implementazione.png, id=328, 2261.44875pt x 1282.7925pt>
 File: img/implementazione.png Graphic file (type png)
 <use img/implementazione.png>
 Package pdftex.def Info: img/implementazione.png  used on input line 151.
@@ -727,7 +727,7 @@ or  <return>  to continue without it.
                                                   
 l.161 
        <./img/implementazione.png>]
-<img/confrontoRelazionaleNosql.png, id=330, 2487.2925pt x 1478.52374pt>
+<img/confrontoRelazionaleNosql.png, id=334, 2487.2925pt x 1478.52374pt>
 File: img/confrontoRelazionaleNosql.png Graphic file (type png)
 <use img/confrontoRelazionaleNosql.png>
 Package pdftex.def Info: img/confrontoRelazionaleNosql.png  used on input line 
@@ -760,7 +760,7 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <24.88> on input line 1.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <20.74> on input line 1.
-<img/redisClientServer.png, id=336, 2234.3475pt x 984.67876pt>
+<img/redisClientServer.png, id=340, 2234.3475pt x 984.67876pt>
 File: img/redisClientServer.png Graphic file (type png)
 <use img/redisClientServer.png>
 Package pdftex.def Info: img/redisClientServer.png  used on input line 14.
@@ -1004,7 +1004,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 276--279
 
  []
 
-<img/masterslaveRedis.png, id=427, 2186.1675pt x 1276.77pt>
+<img/masterslaveRedis.png, id=431, 2186.1675pt x 1276.77pt>
 File: img/masterslaveRedis.png Graphic file (type png)
 <use img/masterslaveRedis.png>
 Package pdftex.def Info: img/masterslaveRedis.png  used on input line 281.
@@ -1088,7 +1088,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 366--368
 
  []
 
-<img/hashslotCluster.png, id=461, 2047.65pt x 1056.94875pt>
+<img/hashslotCluster.png, id=465, 2047.65pt x 1056.94875pt>
 File: img/hashslotCluster.png Graphic file (type png)
 <use img/hashslotCluster.png>
 Package pdftex.def Info: img/hashslotCluster.png  used on input line 381.
@@ -1136,7 +1136,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 386--392
                                                   
 l.392 
        <./img/hashslotCluster.png>]
-<img/cluster:master-slaveRedis.png, id=468, 2007.5pt x 1171.37625pt>
+<img/cluster:master-slaveRedis.png, id=472, 2007.5pt x 1171.37625pt>
 File: img/cluster:master-slaveRedis.png Graphic file (type png)
 <use img/cluster:master-slaveRedis.png>
 Package pdftex.def Info: img/cluster:master-slaveRedis.png  used on input line 
@@ -1587,7 +1587,7 @@ Capitolo 5.
 
 
 ]
-<img/redistimeseries.png, id=561, 1237.62375pt x 849.1725pt>
+<img/redistimeseries.png, id=565, 1237.62375pt x 849.1725pt>
 File: img/redistimeseries.png Graphic file (type png)
 <use img/redistimeseries.png>
 Package pdftex.def Info: img/redistimeseries.png  used on input line 46.
@@ -1691,7 +1691,7 @@ Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-<img/esp32dht11.png, id=569, 1321.93875pt x 1087.06125pt>
+<img/esp32dht11.png, id=573, 1321.93875pt x 1087.06125pt>
 File: img/esp32dht11.png Graphic file (type png)
 <use img/esp32dht11.png>
 Package pdftex.def Info: img/esp32dht11.png  used on input line 91.
@@ -1862,99 +1862,126 @@ or  <return>  to continue without it.
 
 [45]
 
-./chapter/chapter5.tex:423: Package keyval Error: autogobble undefined.
+./chapter/chapter5.tex:421: Package keyval Error: autogobble undefined.
 
 See the keyval package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.423 ...e, title={\texttt{DataSetRealTime.java}}]
+l.421 ...e, title={\texttt{DataSetRealTime.java}}]
                                                   
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-./chapter/chapter5.tex:432: LaTeX Error: There's no line here to end.
+./chapter/chapter5.tex:430: LaTeX Error: There's no line here to end.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.432 C
+l.430 C
        on l'istruzione \texttt{new Thread(dataRealTime).start()} eseguiamo i...
 
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-<img/chartTemperature.png, id=797, 3505.095pt x 2171.11125pt>
+<img/chartTemperature.png, id=801, 3505.095pt x 2171.11125pt>
 File: img/chartTemperature.png Graphic file (type png)
 <use img/chartTemperature.png>
-Package pdftex.def Info: img/chartTemperature.png  used on input line 438.
-(pdftex.def)             Requested size: 430.00462pt x 266.35272pt.
-
-./chapter/chapter5.tex:441: LaTeX Error: There's no line here to end.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.441 \\
-        
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-./chapter/chapter5.tex:442: LaTeX Error: There's no line here to end.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.442 \\
-        
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-./chapter/chapter5.tex:443: LaTeX Error: There's no line here to end.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.443 \\
-        
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-./chapter/chapter5.tex:444: LaTeX Error: There's no line here to end.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.444 N
-       el grafico può essere apprezzato che sull'asse delle ascisse abbiamo...
-
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
+Package pdftex.def Info: img/chartTemperature.png  used on input line 437.
+(pdftex.def)             Requested size: 344.005pt x 213.08217pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [46])
-Underfull \hbox (badness 10000) in paragraph at lines 444--33
+ [46]
+<img/graficoHum.png, id=813, 1635.10875pt x 1146.2825pt>
+File: img/graficoHum.png Graphic file (type png)
+<use img/graficoHum.png>
+Package pdftex.def Info: img/graficoHum.png  used on input line 444.
+(pdftex.def)             Requested size: 344.005pt x 241.1637pt.
+
+
+./chapter/chapter5.tex:448: LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.448 \\
+        
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+./chapter/chapter5.tex:449: LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.449 \\
+        
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+./chapter/chapter5.tex:450: LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.450 \\
+        
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+./chapter/chapter5.tex:451: LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.451 N
+       ei grafici sopra riportati può essere apprezzato che sull'asse delle...
+
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+<img/casoRealeCompleto.png, id=814, 3077.4975pt x 1568.86125pt>
+File: img/casoRealeCompleto.png Graphic file (type png)
+<use img/casoRealeCompleto.png>
+Package pdftex.def Info: img/casoRealeCompleto.png  used on input line 464.
+(pdftex.def)             Requested size: 430.00462pt x 219.20818pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 451--468
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 444--33
+Underfull \hbox (badness 10000) in paragraph at lines 451--468
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 451--468
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 451--468
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 451--468
 
  []
 
@@ -1962,16 +1989,26 @@ Underfull \hbox (badness 10000) in paragraph at lines 444--33
 }) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
+l.468 \end{figure}
+                  pdfTeX warning (ext4): destination with the same identifier (
+name{figure.5.4}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  
+l.468 \end{figure}
+                   <./img/chartTemperature.png> <./img/graficoHum.png>])
+[48pdfTeX warning (ext4): destination with the same identifier (name{figure.5.5
+}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  
 l.33     \include{chapter/chapter5}
-                                    <./img/chartTemperature.png>] [48
-
-
-
-]
+                                    <./img/casoRealeCompleto.png>]
 \openout2 = `conclusioni.aux'.
 
 
 (./conclusioni.tex) [49
+
+
+
 
 
 ] [50]
@@ -2014,14 +2051,17 @@ Overfull \hbox (59.65553pt too wide) in paragraph at lines 13--14
 (/Users/matteorizzo/IdeaProjects/tesiRedis/out/conclusioni.aux)
 (/Users/matteorizzo/IdeaProjects/tesiRedis/out/chapter/bibliografia.aux)
 (/Users/matteorizzo/IdeaProjects/tesiRedis/out/frontmatter/ringraziamenti.aux))
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 16E02D4322892627B5354A023235DB1E;5248.
  ) 
 Here is how much of TeX's memory you used:
- 13167 strings out of 478994
- 193437 string characters out of 5858185
- 871166 words of memory out of 5000000
- 29931 multiletter control sequences out of 15000+600000
+ 13186 strings out of 478994
+ 193842 string characters out of 5858185
+ 871214 words of memory out of 5000000
+ 29946 multiletter control sequences out of 15000+600000
  429210 words of font info for 66 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  71i,7n,74p,383b,2048s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -2045,10 +2085,10 @@ ic/cm-super/sfss1728.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public
 m-super/sftt0800.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-
 super/sftt1200.pfb>
 Output written on /Users/matteorizzo/IdeaProjects/tesiRedis/out/main.pdf (61 pa
-ges, 7168082 bytes).
+ges, 8642105 bytes).
 PDF statistics:
- 1024 PDF objects out of 1200 (max. 8388607)
- 903 compressed objects within 10 object streams
- 448 named destinations out of 1000 (max. 500000)
- 353 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1032 PDF objects out of 1200 (max. 8388607)
+ 907 compressed objects within 10 object streams
+ 450 named destinations out of 1000 (max. 500000)
+ 363 words of extra memory for PDF output out of 10000 (max. 10000000)
 
