@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.4.1)  7 OCT 2022 17:19
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.4.1)  8 OCT 2022 12:27
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2005,16 +2005,26 @@ l.33     \include{chapter/chapter5}
 \openout2 = `conclusioni.aux'.
 
 
-(./conclusioni.tex) [49
+(./conclusioni.tex
+Underfull \hbox (badness 10000) in paragraph at lines 2--22
+
+ []
+
+) [49
 
 
 
 
 
-] [50]
+]
 \openout2 = `chapter/bibliografia.aux'.
 
- (./chapter/bibliografia.tex
+ (./chapter/bibliografia.tex [50
+
+
+
+
+]
 Overfull \hbox (24.61458pt too wide) in paragraph at lines 12--13
 [][]$\T1/cmtt/m/n/12 https : / / www . quora . com / What-[]is-[]Redis-[]in-[]t
 he-[]context-[]of-[]the-[]CAP-[]Theorem$[] 
@@ -2026,12 +2036,7 @@ Overfull \hbox (59.65553pt too wide) in paragraph at lines 13--14
 -[]master-[]slave-[]manual-[]failover$[] 
  []
 
-) [51
-
-
-
-
-]
+) [51]
 \openout2 = `frontmatter/ringraziamenti.aux'.
 
  (./frontmatter/ringraziamenti.tex [52
@@ -2082,7 +2087,7 @@ ic/cm-super/sfss1728.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public
 m-super/sftt0800.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-
 super/sftt1200.pfb>
 Output written on /Users/matteorizzo/IdeaProjects/tesiRedis/out/main.pdf (61 pa
-ges, 8642075 bytes).
+ges, 8641869 bytes).
 PDF statistics:
  1032 PDF objects out of 1200 (max. 8388607)
  907 compressed objects within 10 object streams
