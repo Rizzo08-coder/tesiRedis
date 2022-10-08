@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.4.1)  8 OCT 2022 12:27
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.4.1)  8 OCT 2022 12:32
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1955,7 +1955,7 @@ Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-<img/casoRealeCompleto.png, id=814, 3077.4975pt x 1568.86125pt>
+<img/casoRealeCompleto.png, id=814, 1025.8325pt x 522.95375pt>
 File: img/casoRealeCompleto.png Graphic file (type png)
 <use img/casoRealeCompleto.png>
 Package pdftex.def Info: img/casoRealeCompleto.png  used on input line 464.
@@ -2087,7 +2087,7 @@ ic/cm-super/sfss1728.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public
 m-super/sftt0800.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-
 super/sftt1200.pfb>
 Output written on /Users/matteorizzo/IdeaProjects/tesiRedis/out/main.pdf (61 pa
-ges, 8641869 bytes).
+ges, 7519425 bytes).
 PDF statistics:
  1032 PDF objects out of 1200 (max. 8388607)
  907 compressed objects within 10 object streams
