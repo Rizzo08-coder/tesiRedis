@@ -20,13 +20,13 @@ La metodologia \emph{NoAM} é composta da:
 Riguarda la vera e propria progettazione del modello di dominio, e comporta l'identificazione
 delle diverse classi di aggregati necessari in un'applicazione.
 
-\paragraph{Cos'é un aggregato?}
+\paragraph{Cos'è un aggregato?}
 Un aggregato é una porzione di dati correlati, con una struttura piú o meno complessa ed ha un identificatore univoco.
 Gli aggregati regolano anche la distribuzione dei dati, infatti per supportare la scalabilità sono distribuiti tra i nodi
 di un sistema;
 ogni oggetto aggregato si trova su un singolo nodo.\\
+Una classe di aggregati è un'astrazione di un insieme di aggregati correlati tra loro, che si basano sullo stesso modello.\\
 \\
-Le classi di aggregati sono un'astrazione di un insieme di aggregati correlati tra loro.\\
 Sono possibili diversi approcci per identificare classi di aggregati per una particolare applicazione.
 L'approccio Domain-Driven Design(\emph{DDD}), attraverso il quale viene generato un diagramma UML delle classi,
 é guidato dai casi d'uso, ovvero dai requisiti funzionali, e da esigenze di scalabilità e coerenza all'interno dell'aggregato.\\
