@@ -1,8 +1,7 @@
 \chapter{Caso reale nell'IoT}
-%correggere introduzione
 Uno degli ambiti in cui viene maggiormente sfruttato Redis é quello IoT.
-\paragraph{Cos'é l'IoT?\\}
-L'Internet of Things é una tecnologia che permette di massimizzare le capacitá di raccolta e di utilizzo
+\paragraph{Cos'è l'IoT?\\}
+L'Internet of Things é una tecnologia che permette di massimizzare le capacità di raccolta e di utilizzo
 dei dati da una moltitudine di sorgenti, le quali possono essere prodotti industriali, sistemi di fabbrica, veicoli
 di trasporto e molte altre.\\
 L'IoT consente di rendere disponibili i dati che servono a comprendere meglio il mondo reale.
@@ -81,8 +80,8 @@ Il materiale necessario per questo progetto é:
 \begin{itemize}
     \item Un microcontrollore compatibile con l'ambiente di sviluppo arduino e con WiFi integrato,
           nel nostro caso viene utilizzato un ESP32.
-    \item un sensore digitale di temperatura e umiditá dell'aria, viene utilizzato un DHT11: costituito da una parte resistiva
-    che si occupa della rilevazione dell'umiditá e da un NTC che rileva la temperatura, queste due parti sono gestite
+    \item un sensore digitale di temperatura e umidità dell'aria, viene utilizzato un DHT11: costituito da una parte resistiva
+    che si occupa della rilevazione dell'umidità e da un NTC che rileva la temperatura, queste due parti sono gestite
     da un microcontrollore che é parte integrante del sensore.
 \end{itemize}
 
@@ -225,7 +224,7 @@ il primo é la chiave ed il secondo il valore. Il procedimento viene fatto per t
 Con \texttt{redis.expire()} viene impostata una scadenza alla chiave, la durata della chiave viene
 espressa in secondi e viene passata come parametro del metodo.
 Alla fine di \texttt{loop()} mettiamo un \texttt{delay()} che indica la pausa che deve intercorrere tra l'esecuzione
-di un loop e quello successivo: dovrá ripetersi ogni 5000 ms.
+di un loop e quello successivo: dovrà ripetersi ogni 5000 ms.
 
     \item Di seguito analizziamo l'utilizzo della struttura piú avanzata, RedisTimeSeries:
 \begin{lstlisting}[autogobble, style=c, language=C]
@@ -261,7 +260,7 @@ void loop()
 
 \section{Java}
 Per sviluppare il software applicativo viene adoperato Java, lo scopo é quello di generare due grafici differenti,
-uno per la temperatura e uno per l'umiditá, sfruttando il dataset presente in Redis ed aggiornandolo in tempo reale, con
+uno per la temperatura e uno per l'umidità, sfruttando il dataset presente in Redis ed aggiornandolo in tempo reale, con
 una frequenza di aggiornamento pari alla frequenza con cui i dati vengono inviati al database.
 
 \subsection{Jedis e RedisTimeSeries}

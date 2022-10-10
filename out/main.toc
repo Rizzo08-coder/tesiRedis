@@ -17,7 +17,7 @@
 \contentsline {subsection}{\numberline {3.1.1}Strutture Dati}{16}{subsection.3.1.1}%
 \contentsline {subsection}{\numberline {3.1.2}Ambiti di utilizzo}{17}{subsection.3.1.2}%
 \contentsline {section}{\numberline {3.2}Confronto con \emph {proprietá ACID}}{18}{section.3.2}%
-\contentsline {paragraph}{Quali proprietá ACID implementa Redis?}{19}{section*.5}%
+\contentsline {paragraph}{Quali proprietà ACID implementa Redis?}{19}{section*.5}%
 \contentsline {paragraph}{RDB $\to $ Redis Database File:}{21}{section*.6}%
 \contentsline {paragraph}{AOF $\to $ Append Only File:}{21}{section*.7}%
 \contentsline {paragraph}{Database In Memory:}{22}{section*.8}%
@@ -36,7 +36,7 @@
 \contentsline {subsection}{\numberline {4.1.2}Comandi di Query}{32}{subsection.4.1.2}%
 \contentsline {section}{\numberline {4.2}Stored procedure}{33}{section.4.2}%
 \contentsline {chapter}{\numberline {5}Caso reale nell'IoT}{35}{chapter.5}%
-\contentsline {paragraph}{Cos'é l'IoT?\\}{35}{section*.17}%
+\contentsline {paragraph}{Cos'è l'IoT?\\}{35}{section*.17}%
 \contentsline {section}{\numberline {5.1}Scelte progettuali}{35}{section.5.1}%
 \contentsline {section}{\numberline {5.2}Sketch Arduino}{37}{section.5.2}%
 \contentsline {subsection}{\numberline {5.2.1}Connessione con Redis}{38}{subsection.5.2.1}%

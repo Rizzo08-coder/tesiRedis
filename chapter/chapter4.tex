@@ -1,5 +1,5 @@
 \chapter{Interrogazioni Redis}
-Le capacitá piú essenziali per il lavoro su database sono saperli popolare di informazioni in modo coerente e interrogare in modo
+Le capacità piú essenziali per il lavoro su database sono saperli popolare di informazioni in modo coerente e interrogare in modo
 intelligente, per ricavare l'informazione che si sta cercando in mezzo a volumi di dati che possono essere immensi.
 Quindi, per raggiungere questo obiettivo viene adoperato un linguaggio per l'interrogazione dei database, il quale serve per formulare delle
 query, in modo adeguato alla struttura delle informazioni.
@@ -136,7 +136,7 @@ agli sviluppatori di risparmiare operazioni di trasformazione delle strutture al
 "matteo"
 \end{lstlisting}
 \\
-Vi é anche la possibilitá di fare una sorta di proiezione sulle chiavi utilizzando il comando \texttt{KEYS}, il quale restituisce tutte le chiavi che corrispondono al pattern passato come parametro.
+Vi é anche la possibilità di fare una sorta di proiezione sulle chiavi utilizzando il comando \texttt{KEYS}, il quale restituisce tutte le chiavi che corrispondono al pattern passato come parametro.
 \begin{lstlisting}[autogobble, style=redis-cli, language=SQL]
 > KEYS utente:*
 1) "utente:user1"
@@ -152,12 +152,12 @@ Per quanto riguarda i comandi transazionali, sono giá stati definiti nel capito
 In SQL vi é la possibilità di definire procedure che vengono memorizzate nella base di dati come parte dello schema ed eseguite dal dbms,
 ovvero con una modalità opposta rispetto all'esecuzione dei client. Queste procedure svolgono una specifica attivitá di manipolazione dei dati.\\
 Anche Redis offre un meccanismo analogo: viene consentito ai client di caricare ed eseguire script lato server.
-Il vantaggio é la grande efficienza che si ottiene nella lettura e scrittura dei dati poché gli script
+Il vantaggio é la grande efficienza che si ottiene nella lettura e scrittura dei dati, poiché gli script
 memorizzati sono eseguiti completamente server-side.
-É garantita l'esecuzione atomica dello script e durante la sua esecuzione tutte le attivitá del server vengono bloccate.
+É garantita l'esecuzione atomica dello script e durante la sua esecuzione tutte le attività del server vengono bloccate.
 É supportato un unico motore di scripting, ovvero l'interprete \texttt{LUA}, che é un particolare linguaggio di scripting.
 \\
-Ci sono diverse modalitá lato client per invocare/caricare gli script:
+Ci sono diverse modalità lato client per invocare/caricare gli script:
 \begin{itemize}
     \item Il comando \texttt{EVAL} serve per eseguire direttamente uno script; vanno forniti diversi argomenti:\\
     Il primo argomento é una stringa che consiste nel codice sorgente LUA vero e proprio;\\

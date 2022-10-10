@@ -18,9 +18,9 @@ invia la risposta al client.
 
 \section{Caratteristiche}
 \subsection{Strutture Dati}
-Una peculiarità di Redis é mettere a disposizione una grande varietá di tipi di dati associabili alle chiavi, infatti il valore archiviato
+Una peculiarità di Redis é mettere a disposizione una grande varietà di tipi di dati associabili alle chiavi, infatti il valore archiviato
 in corrispondenza di una certa chiave puó essere molto differente da un tipo semplice come la stringa ed il valore stesso puó addirittura
-rappresentare una struttura dati. Inoltre, vi é una grandissima possibilitá di manipolazione grazie all'elevato numero di funzioni presenti.\\
+rappresentare una struttura dati. Inoltre, vi é una grandissima possibilità di manipolazione grazie all'elevato numero di funzioni presenti.\\
 I principali tipi di dato disponibili sono:
 \begin{itemize}
     \item \textbf{Stringhe}: é il tipo piú semplice, vengono memorizzate sequenze di byte, inclusi testo, oggetti serializzati e array binari;
@@ -29,7 +29,7 @@ I principali tipi di dato disponibili sono:
     modificate con inserimenti in testa o in coda. Vi é la possibilitá di trattare una lista come una coda (First In First Out) tramite il comando di inserimento
     \texttt{LPUSH} e il comando di prelievo \texttt{RPOP} oppure puó essere trattata come una pila (First In Last Out) tramite i rispettivi comandi 
     \texttt{LPUSH} e \texttt{LPOP};
-    \item \textbf{Set}: é una raccolta non ordinata di stringhe univoche (sono chiamate \emph{membri} del set); vi é la possiblitá
+    \item \textbf{Set}: é una raccolta non ordinata di stringhe univoche (sono chiamate \emph{membri} del set); vi é la possibilità
     di utilizzare questa struttura dati per tenere traccia degli elementi univoci, rappresentare relazioni o eseguire operazioni di insiemi
     comuni come intersezioni, unioni e differenze;
     \item \textbf{Hash}: sono oggetti strutturati come raccolte di coppie campo(chiave)-valore. Possono essere utilizzati per rappresentare oggetti
@@ -71,7 +71,7 @@ Redis é estremamente flessibile e grazie alla sua efficienza puó essere applic
     \begin{lstlisting}[autogobble, style=redis-cli, language=SQL]
 > GEOADD auto -115.17087 36.12360 auto-p1
 > GEOADD auto -115.171971 36.120609 auto-p2\end{lstlisting}
-    Per aggiornare la posizione dell'auto andrá eseguito un nuovo \texttt{GEOADD} sulla stessa auto.\\
+    Per aggiornare la posizione dell'auto andrà eseguito un nuovo \texttt{GEOADD} sulla stessa auto.\\
     É possibile determinare la distanza in metri tra diverse auto con il comando \texttt{GEODIST}:
     \begin{lstlisting}[autogobble, style=redis-cli, language=SQL]
 > GEODIST auto auto-p1 auto-p2
@@ -131,9 +131,9 @@ sono 2: \texttt{LPUSH}: comando per inserire un singolo elemento nella lista; \t
   4) "3"\end{lstlisting}
 %\includegraphics[width=0.7\textwidth]{img/transazioneRedis}\\
 Si puó notare come l'inserimento di tutti i valori nella lista avvenga dopo il comando \texttt{EXEC}.\\
-\paragraph{Quali proprietá ACID implementa Redis?}
+\paragraph{Quali proprietà ACID implementa Redis?}
 \begin{itemize}
-    \item \textbf{Atomicitá}: Redis puó avere due livelli di atomicitá:
+    \item \textbf{Atomicità}: Redis puó avere due livelli di atomicità:
       \begin{itemize}
           \item singola operazione: ovvero ogni singola richiesta da parte del client viene eseguita in maniera atomica dal server;
           \item transazione con operazioni multiple: come illustrato sopra con i comandi appositi;
@@ -141,13 +141,13 @@ Si puó notare come l'inserimento di tutti i valori nella lista avvenga dopo il 
 
     \item \textbf{Isolamento}:
     Tutti i comandi in una transazione vengono serializzati ed eseguiti in sequenza. Una richiesta inviata da un altro client
-    non sará mai soddisfatta nel bel mezzo dell'esecuzione di una transazione. Ció garantisce che i comandi vengano eseguiti
+    non sarà mai soddisfatta nel bel mezzo dell'esecuzione di una transazione. Ció garantisce che i comandi vengano eseguiti
     come un'unica operazione isolata.\\
     Se vogliamo avere un isolamento multi-transazionale, vi é un meccanismo che riesce a fornire delle garanzie, in cui viene fatta una sorta di operazione
     di check-and-set.
-    Questo meccanisco utilizza il comando \texttt{WATCH} definito precedentemente.
+    Questo meccanismo utilizza il comando \texttt{WATCH} definito precedentemente.
     Le chiavi, su cui viene definito watch, vengono continuamente monitorate per eventuali modifiche; se anche una sola chiave monitorata
-    da \texttt{WATCH }viene modificata prima della \texttt{EXEC}, l'intera transazione verrá abortita.\\
+    da \texttt{WATCH }viene modificata prima della \texttt{EXEC}, l'intera transazione verrà abortita.\\
 
     Consideriamo un esempio in pseudo-codice in cui si deve aumentare il valore di una chiave di 1.
 
@@ -169,19 +169,19 @@ SET sampleKey num
 EXEC\end{lstlisting}
 
     Con questa implementazione, se si dovesse verificare una race condition ed un client modifica il valore di \texttt{sampleKey} tra il nostro
-    \texttt{WATCH} e \texttt{EXEC}, la transazione verrá interrotta. Avremo bisogno di ripetere la transazione quando la race condition non sará
+    \texttt{WATCH} e \texttt{EXEC}, la transazione verrà interrotta. Avremo bisogno di ripetere la transazione quando la race condition non sará
     piú presente.\\
 
-    \item \textbf{Consistenza}: I vincoli di integritá sono dei concetti relazionali, quindi é difficile fare un collegamento con un database di questo tipo.
+    \item \textbf{Consistenza}: I vincoli di integrità sono dei concetti relazionali, quindi é difficile fare un collegamento con un database di questo tipo.
     L'unica chiave che esiste é quella primaria e deve essere univoca;
-    l'integrita referenziale non é mantenuta da Redis stesso e deve essere gestita dalle applicazioni client.
+    l'integrità referenziale non é mantenuta da Redis stesso e deve essere gestita dalle applicazioni client.
 
     \item \textbf{persistenza (durability)}:
-    l'efficienza di Redis é dovuta in buona parte al suo modo di gestire questa proprietá.
-    É un database in memoria ma con possibilitá di essere persistente su disco, quindi rappresenta un compromesso in cui si ottengono
-    velocitá di scrittura e lettura molto elevate con la limitazione di avere un set di dati non piú grande della memoria.
-    Questo database mette a disposizione la possibilitá di scegliere tra diversi meccanismi
-    offrendo l'opportunitá di salvare database
+    l'efficienza di Redis é dovuta in buona parte al suo modo di gestire questa proprietà.
+    É un database in memoria ma con possibilità di essere persistente su disco, quindi rappresenta un compromesso in cui si ottengono
+    velocità di scrittura e lettura molto elevate con la limitazione di avere un set di dati non piú grande della memoria.
+    Questo database mette a disposizione la possibilità di scegliere tra diversi meccanismi
+    offrendo l'opportunità di salvare database
     totalmente su disco oppure no.\\
     I meccanismi, che verranno illustrati di seguito, sono:
       \begin{itemize}
@@ -194,7 +194,7 @@ EXEC\end{lstlisting}
          Questo tipo di persistenza esegue snapshot del set di dati a intervalli specificati. Viene prodotto come risultato un file
          compatto, pertanto agevole da salvare su qualsiasi tipo di supporto. Inoltre, il recupero dei dati all'avvio del server Redis
          é molto efficiente.
-         Il salvataggio dei dati viene eseguito su file ad intervalli di tempo e non con continuitá, quindi questo potrebbe essere un punto a sfavore
+         Il salvataggio dei dati viene eseguito su file ad intervalli di tempo e non con continuità, quindi questo potrebbe essere un punto a sfavore
          nel caso di crash del sistema tra uno snapshot ed un altro con conseguente perdita dei dati.
          Conviene utilizzare questo tipo di persistenza quando si richiede un salvataggio meno oneroso per il server e si ha particolare interesse
          ad avere un backup piú comodo.
@@ -204,11 +204,11 @@ EXEC\end{lstlisting}
     Vi é un file di log dove vengono aggiunti i comandi ogni volta che vengono eseguiti.
     Questo registro di comandi puó essere riprodotto all'avvio del server, ricreando il database al suo stato originale.
     Il vantaggio é che basandosi su un log scritto continuamente, non vi é il rischio di incorrere in perdite in caso di crash. Inoltre,
-    il formato dei file che vengono prodotti da questa modalitá permette un recupero piú semplice in caso di corruzione.
+    il formato dei file che vengono prodotti da questa modalità permette un recupero piú semplice in caso di corruzione.
     Peró, i file AOF risultano meno compatti e piú voluminosi rispetto a quelli in formato RDB e da ció consegue un ripristino del database
     meno rapido all'avvio. Questo meccanismo viene utilizzato quando la principale preoccupazione é la perdita di dati.\\
 
-    É possibile utilizzare contemporaneamente AOF e RDB, e durante il ripristino del database verrá preferito l'utilizzo di file AOF, per la loro
+    É possibile utilizzare contemporaneamente AOF e RDB, e durante il ripristino del database verrà preferito l'utilizzo di file AOF, per la loro
     maggiore completezza.
 
 
@@ -222,7 +222,7 @@ EXEC\end{lstlisting}
 
 \paragraph{Come configurare i diversi livelli di persistenza?\\}
 Per fare ció bisogna accedere al file di configurazione del server Redis andando a modificare/cancellare dei parametri e riavviando il server,
-oppure digitando \texttt{CONFIG SET ...} da CLI, con la possibilitá di avere un effetto immediato sulle modifiche apportate alla configurazione del server senza doverlo riavviare.\\
+oppure digitando \texttt{CONFIG SET ...} da CLI, con la possibilità di avere un effetto immediato sulle modifiche apportate alla configurazione del server senza doverlo riavviare.\\
 \\
 Di seguito viene illustrato un esempio di modifica del file di configurazione, denominato \texttt{redis.conf}.\\
 \\
@@ -232,9 +232,9 @@ save 900 1
 save 300 10\end{lstlisting}
 Ció significa che viene eseguito uno snapshot dopo 900 secondi se vi é almeno 1 modifica al set di dati e dopo
 300 secondi se vi sono almeno 10 modifiche al set di dati.
-Di conseguenza, se si ha la necessitá di avere intervalli aggiuntivi o diversi é molto semplice andare a modificarli aggiungendo o togliendo questi parametri predefiniti.\\
+Di conseguenza, se si ha la necessità di avere intervalli aggiuntivi o diversi é molto semplice andare a modificarli aggiungendo o togliendo questi parametri predefiniti.\\
 \\
-Al momento del salvataggio verrá visualizzato un messaggio di questo tipo nella CLI del server:
+Al momento del salvataggio verrà visualizzato un messaggio di questo tipo nella CLI del server:
 \begin{lstlisting}[autogobble, style=redis-cli, language=SQL]
 10 changes in 300 seconds. Saving...
 Background saving started by pid ...
@@ -266,7 +266,7 @@ Per sistemi estremamente avanzati, vi é la possibilità di fondere queste due m
 Redis puó implementare un'architettura master-slave, ovvero un noto paradigma informatico in cui un dispositivo o processo (il master)
 controlla o coordina piú dispositivi o processi subordinati (gli slave).
 \\
-Il server Redis puó essere eseguito in due modalitá:
+Il server Redis puó essere eseguito in due modalità:
 \begin{itemize}
     \item Modalità Master (Redis Master);
     \item Modalità Slave (Redis Slave o Redis Replica).
@@ -302,7 +302,7 @@ vi sono due scelte:
 \end{enumerate}
 Il problema con l'approccio \textbf{1} é che nel momento in cui aggiungiamo una nuova macchina che fa da Master e questa sincronizzerà
 tutti i dati sui vari Slaves perderemo tutti i dati.\\
-L'approccio \textbf{2} é quello migliore perché lo slave esistente avrá giá tutti i dati e una volta che lo avremo impostato in modalità
+L'approccio \textbf{2} é quello migliore perché lo slave esistente avrà giá tutti i dati e una volta che lo avremo impostato in modalità
 Master, esso replicherà/sincronizzerà i dati su tutti gli Slaves, il che significa che non avremo una perdita di dati, o comunque
 avremo una minima perdita di dati nel caso in cui il guasto del Master si sia verificato prima della sincronizzazione con gli slaves.
 \\
@@ -314,7 +314,7 @@ proprietà possono essere soddisfatte contemporaneamente:
 \begin{itemize}
     \item \textbf{Consistency}: le operazioni di lettura restituiscono il dato aggiornato, ovvero proveniente dall'ultima scrittura dello stesso,
     oppure un messaggio d'errore. Non bisogna confonderla con la consistenza delle proprietá ACID, infatti questa fa riferimento al valore piú aggiornato
-    di un certo dato, mentre nelle proprietà ACID si fa riferimento al rispetto dei vincoli d'integritá.
+    di un certo dato, mentre nelle proprietà ACID si fa riferimento al rispetto dei vincoli d'integrità.
     \item \textbf{Availability}: l'accesso ai dati é sempre garantito, non si ricevono mai messaggi d'errore, ma i dati restituiti non sono necessariamente
     consistenti, ovvero potrebbero non coincidere con quelli utilizzati nell'ultima operazione di scrittura degli stessi.
     \item \textbf{Partition Tolerance}: il sistema continua a funzionare nonostante alcuni messaggi vengano persi o subiscano rallentamenti
