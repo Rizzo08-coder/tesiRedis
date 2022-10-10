@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.4.1)  10 OCT 2022 19:53
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.4.1)  10 OCT 2022 20:52
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -340,7 +340,8 @@ File: l3backend-pdftex.def 2021-03-18 L3 backend support: PDF output (pdfTeX)
 (/Users/matteorizzo/IdeaProjects/tesiRedis/out/chapter/chapter4.aux)
 (/Users/matteorizzo/IdeaProjects/tesiRedis/out/chapter/chapter5.aux)
 (/Users/matteorizzo/IdeaProjects/tesiRedis/out/conclusioni.aux)
-(/Users/matteorizzo/IdeaProjects/tesiRedis/out/chapter/bibliografia.aux))
+(/Users/matteorizzo/IdeaProjects/tesiRedis/out/chapter/bibliografia.aux)
+(/Users/matteorizzo/IdeaProjects/tesiRedis/out/frontmatter/ringraziamenti.aux))
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 20.
@@ -363,7 +364,6 @@ LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 20.
 LaTeX Font Info:    ... okay on input line 20.
 LaTeX Info: Redefining \it@ocap on input line 20.
 LaTeX Info: Redefining \it@ccap on input line 20.
-
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -2068,10 +2068,10 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 16E02D4322892627B5354A023235DB1E;5248.
  ) 
 Here is how much of TeX's memory you used:
- 13183 strings out of 478994
- 193661 string characters out of 5858185
- 871838 words of memory out of 5000000
- 29945 multiletter control sequences out of 15000+600000
+ 13186 strings out of 478994
+ 193842 string characters out of 5858185
+ 872214 words of memory out of 5000000
+ 29946 multiletter control sequences out of 15000+600000
  429210 words of font info for 66 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  71i,7n,74p,383b,2048s stack positions out of 5000i,500n,10000p,200000b,80000s
