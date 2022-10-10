@@ -37,7 +37,7 @@ Si procede nel modo seguente:
     Un'entità é un oggetto persistente che ha un'esistenza indipendente ed é caratterizzata da un identificatore
     univoco, mentre un oggetto valore é caratterizzato appunto da un suo valore senza un proprio identificatore
     \item Entità e oggetti valore vengono raggruppati in \emph{aggregati}.
-    Un aggregato ha un'entità come radice e puó contenere molti oggetti valore.
+    Un aggregato ha un'entità come radice e puó contenere piú oggetti valore.
 \end{itemize}
 A causa delle loro caratteristiche, la progettazione degli aggregati comporta un compromesso per quanto riguarda
 la loro granularità.
@@ -56,7 +56,7 @@ Preso come esempio un dominio in cui vanno salvati in modo persistente dati su g
 \caption{Esempio Modello di Dominio}
     \label{modelloDominio}
 \end{figure}
-Nella Figura \ref{modelloDominio} l'oggetto con lo scomparto superiore colorato é un'entità, altrimenti
+Nella Figura \ref{modelloDominio} un rettangolo con lo scomparto superiore colorato é un'entità, altrimenti
 é un oggetto valore. La linea chiusa denota il confine di un aggregato.
 Pertanto possiamo definire due classi di aggregati principali: Player e Game.\\
 Per costruire un aggregato si parte sempre da un'entità.
@@ -84,7 +84,7 @@ un \texttt{blocco} corrisponde a un gruppo di coppie chiave-valore correlate tra
 Quindi, si ha che:
 \begin{itemize}
     \item Un \texttt{database} é un insieme di \texttt{collections};
-    \item Ogni \texttt{collection} ha un nome distinto; Una \texttt{collection} é un insieme di \texttt{blocchi};
+    \item Ogni \texttt{collection} ha un nome distinto; una \texttt{collection} é un insieme di \texttt{blocchi};
     \item Ogni \texttt{blocco} all'interno della \texttt{collection} é identificato da una chiave di blocco, che deve essere univoca;
     \item Un \texttt{blocco} é un insieme non vuoto di \texttt{entries};
     \item Ogni \texttt{entry} é composta da una coppia chiave-valore, la quale é univoca all'interno del blocco, il valore puó essere anche complesso.
