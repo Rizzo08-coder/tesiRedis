@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.4.1)  10 OCT 2022 19:02
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.4.1)  10 OCT 2022 19:53
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2044,7 +2044,16 @@ Overfull \hbox (59.65553pt too wide) in paragraph at lines 13--14
 
 
 
-] (/Users/matteorizzo/IdeaProjects/tesiRedis/out/main.aux
+]
+\openout2 = `frontmatter/ringraziamenti.aux'.
+
+ (./frontmatter/ringraziamenti.tex [52
+
+
+
+
+]) [53]
+(/Users/matteorizzo/IdeaProjects/tesiRedis/out/main.aux
 (/Users/matteorizzo/IdeaProjects/tesiRedis/out/frontespizio.aux)
 (/Users/matteorizzo/IdeaProjects/tesiRedis/out/frontmatter/intro.aux)
 (/Users/matteorizzo/IdeaProjects/tesiRedis/out/chapter/chapter1.aux)
@@ -2053,15 +2062,16 @@ Overfull \hbox (59.65553pt too wide) in paragraph at lines 13--14
 (/Users/matteorizzo/IdeaProjects/tesiRedis/out/chapter/chapter4.aux)
 (/Users/matteorizzo/IdeaProjects/tesiRedis/out/chapter/chapter5.aux)
 (/Users/matteorizzo/IdeaProjects/tesiRedis/out/conclusioni.aux)
-(/Users/matteorizzo/IdeaProjects/tesiRedis/out/chapter/bibliografia.aux))
+(/Users/matteorizzo/IdeaProjects/tesiRedis/out/chapter/bibliografia.aux)
+(/Users/matteorizzo/IdeaProjects/tesiRedis/out/frontmatter/ringraziamenti.aux))
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 16E02D4322892627B5354A023235DB1E;5248.
  ) 
 Here is how much of TeX's memory you used:
- 13173 strings out of 478994
- 193348 string characters out of 5858185
+ 13183 strings out of 478994
+ 193661 string characters out of 5858185
  871838 words of memory out of 5000000
- 29943 multiletter control sequences out of 15000+600000
+ 29945 multiletter control sequences out of 15000+600000
  429210 words of font info for 66 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  71i,7n,74p,383b,2048s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -2084,11 +2094,11 @@ ic/cm-super/sfss1728.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public
 /cm-super/sfti1200.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/c
 m-super/sftt0800.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-
 super/sftt1200.pfb>
-Output written on /Users/matteorizzo/IdeaProjects/tesiRedis/out/main.pdf (59 pa
-ges, 7518375 bytes).
+Output written on /Users/matteorizzo/IdeaProjects/tesiRedis/out/main.pdf (61 pa
+ges, 7519608 bytes).
 PDF statistics:
- 1021 PDF objects out of 1200 (max. 8388607)
- 899 compressed objects within 9 object streams
- 447 named destinations out of 1000 (max. 500000)
+ 1032 PDF objects out of 1200 (max. 8388607)
+ 907 compressed objects within 10 object streams
+ 450 named destinations out of 1000 (max. 500000)
  363 words of extra memory for PDF output out of 10000 (max. 10000000)
 
